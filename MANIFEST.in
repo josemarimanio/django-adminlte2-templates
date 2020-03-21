@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include adminlte2_templates/static *
+recursive-include adminlte2_templates/templates *
