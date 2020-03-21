@@ -1,28 +1,27 @@
 <div class="content-wrapper">
-
     <div class="container">
 
         {% block content_header %}
-        <section class="content-header">
-            <h1>
-                {% block content_header_title %}{% endblock content_header_title %}
-                <small>{% block content_header_description %}{% endblock content_header_description %}</small>
-            </h1>
-            <ol class="breadcrumb">
-                {% block content_header_breadcrumbs %}{% endblock content_header_breadcrumbs %}
-            </ol>
-        </section>
+            <section class="content-header">
+                <h1>
+                    {% block page_title %}{% endblock page_title %}
+                    <small>{% block page_description %}{% endblock page_description %}</small>
+                </h1>
+                <ol class="breadcrumb">
+                    {% block breadcrumbs %}{% endblock breadcrumbs %}
+                </ol>
+            </section>
         {% endblock content_header %}
 
         {% block content_body %}
-        <section class="content">
-            {% block messages_template %}
-                {% include 'adminlte2/components/messages.html' %}
-            {% endblock messages_template %}
+            <section class="content">
+                {% block messages_template %}
+                    {% include 'adminlte2/components/messages.html' %}
+                {% endblock messages_template %}
 
-            {% block content %}
-            {% endblock content %}
-        </section>
+                {% block content %}
+                {% endblock content %}
+            </section>
         {% endblock content_body %}
     </div>
 </div>
