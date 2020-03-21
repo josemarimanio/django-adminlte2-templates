@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta %}
+        {% include 'adminlte2/components/_meta.html' %}
+    {% endblock meta %}
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    {% block stylesheets %}
+        {% include 'adminlte2/components/_stylesheets.html' %}
+    {% endblock stylesheets %}
+
+    {% block javascripts %}
+        {% include 'adminlte2/components/_javascripts.html' %}
+    {% endblock javascripts %}
+</head>
+<body class="{% block body_class %}hold-transition skin-blue{% endblock body_class %}">
+    {% block body %}
+        <div class="wrapper">
+            {% block header_template %}
+                {% include 'adminlte2/components/header.html' %}
+            {% endblock header_template %}
+
+            {% block sidebar_template %}
+                {% include 'adminlte2/components/sidebar.html' %}
+            {% endblock sidebar_template %}
+
+            {% block content_template %}
+                {% include 'adminlte2/components/content.html' %}
+            {% endblock content_template %}
+
+            {% block footer_template %}
+                {% include 'adminlte2/components/footer.html' %}
+            {% endblock footer_template %}
+        </div>
+    {% endblock body %}
+</body>
+</html>
