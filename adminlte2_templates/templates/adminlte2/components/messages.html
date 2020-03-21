@@ -1,0 +1,53 @@
+{% if messages %}
+    {% for message in messages %}
+
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.DEBUG %}
+            {% block message_debug %}
+            <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+            </div>
+            {% endblock message_debug %}
+
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+            {% block message_info %}
+                <div class="alert alert-info alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endblock message_info %}
+
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            {% block message_success %}
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endblock message_success %}
+
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            {% block message_warning %}
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endblock message_warning %}
+
+        {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            {% block message_error %}
+                <div class="alert alert-error alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endblock message_error %}
+
+        {% else %}
+            {% block message_default %}
+                <div class="alert alert-error alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endblock message_default %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
