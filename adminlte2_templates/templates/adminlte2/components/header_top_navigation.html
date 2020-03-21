@@ -1,0 +1,41 @@
+<header class="main-header">
+    <nav class="navbar navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                {% block logo %}
+                    <a href="{% block logo_href %}/{% endblock logo_href %}" class="navbar-brand">
+                        {% block logo_lg %}
+                            <b>Admin</b>LTE
+                        {% endblock logo_lg %}
+                    </a>
+                {% endblock logo %}
+
+                {% block header_toggle %}
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">
+                            {% block header_toggle_text %}Toggle navigation{% endblock header_toggle_text %}
+                        </span>
+                        <i class="fa fa-bars"></i>
+                    </button>
+                {% endblock header_toggle %}
+            </div>
+
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% block header_items_left %}
+                    {% endblock header_items_left %}
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {% block header_items %}
+                        {% block header_items_right %}
+                        {% endblock header_items_right %}
+                    {% endblock header_items %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
