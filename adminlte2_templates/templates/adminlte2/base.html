@@ -15,7 +15,7 @@
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
 </head>
-<body class="{% block body_class %}hold-transition skin-blue{% endblock body_class %}">
+<body class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}">
     {% block body %}
         <div class="wrapper">
             {% block header_template %}

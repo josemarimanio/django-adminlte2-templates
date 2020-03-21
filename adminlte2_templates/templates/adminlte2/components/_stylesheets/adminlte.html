@@ -1,3 +1,3 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/adminlte.css' %}">
-<link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/skins/skin-blue.css' %}">
+<link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/skins/'|add:ADMINLTE_SKIN_STYLE|add:'.css' %}">
