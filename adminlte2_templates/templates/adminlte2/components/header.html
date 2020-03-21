@@ -1,0 +1,30 @@
+<header class="main-header">
+    {% block logo %}
+        <a href="{% block logo_href %}/{% endblock %}" class="logo">
+            <span class="logo-mini">{% block logo_mini %}<b>A</b>LTE{% endblock logo_mini %}</span>
+            <span class="logo-lg">{% block logo_lg %}<b>Admin</b>LTE{% endblock logo_lg %}</span>
+        </a>
+    {% endblock logo %}
+
+    {% block header_body %}
+        <nav class="navbar navbar-static-top">
+            {% block sidebar_toggle %}
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">
+                        {% block sidebar_toggle_text %}Toggle navigation{% endblock sidebar_toggle_text %}
+                    </span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            {% endblock sidebar_toggle %}
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {% block header_items %}
+                    {% endblock header_items %}
+                </ul>
+            </div>
+        </nav>
+    {% endblock header_body %}
+</header>
