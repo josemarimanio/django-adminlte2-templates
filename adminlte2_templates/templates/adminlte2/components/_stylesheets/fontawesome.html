@@ -1,2 +1,9 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'adminlte2/fontawesome-4.7.0/css/font-awesome.css' %}">
+
+{% if ADMINLTE_USE_CDN %}
+    <link rel="stylesheet" href="{{ ADMINLTE_CDN_FONTAWESOME_CSS_CORE }}">
+{% elif DEBUG %}
+    <link rel="stylesheet" href="{% static 'adminlte2/fontawesome-4.7.0/css/font-awesome.css' %}">
+{% else %}
+    <link rel="stylesheet" href="{% static 'adminlte2/fontawesome-4.7.0/css/font-awesome.min.css' %}">
+{% endif %}

@@ -1,3 +1,12 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/adminlte.css' %}">
-<link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/skins/'|add:ADMINLTE_SKIN_STYLE|add:'.css' %}">
+
+{% if ADMINLTE_USE_CDN %}
+    <link rel="stylesheet" href="{{ ADMINLTE_CDN_ADMINLTE_CSS_CORE }}">
+    <link rel="stylesheet" href="{{ ADMINLTE_CDN_ADMINLTE_CSS_SKIN }}">
+{% elif DEBUG %}
+    <link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/adminlte.css' %}">
+    <link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/skins/'|add:ADMINLTE_SKIN_STYLE|add:'.css' %}">
+{% else %}
+    <link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminlte2/adminlte-2.4.18/css/skins/'|add:ADMINLTE_SKIN_STYLE|add:'.min.css' %}">
+{% endif %}
