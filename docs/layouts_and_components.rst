@@ -38,13 +38,13 @@ See `https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html <https://admi
 Components
 ----------
 
-adminlte2/components/sidebar
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+adminlte2/components/sidebar.html
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Sidebar navigation template.
 
 
-adminlte2/components/control
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+adminlte2/components/control.html
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Control navigation template.
 
 
