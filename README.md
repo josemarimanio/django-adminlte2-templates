@@ -1,6 +1,11 @@
 AdminLTE 2 templates for Django
 ===============================
 
+![PyPi:Status](https://img.shields.io/pypi/status/django-adminlte2-templates)
+![ReadTheDocs](https://img.shields.io/readthedocs/django-adminlte2-templates "Documentation")
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg "License")
+
+
 **django-adminlte2-templates** provide templates to easily integrate [AdminLTE 2](https://adminlte.io/) to your Django projects.
 
 For more information, please see the [documentation](https://django-adminlte2-templates.readthedocs.io/en/latest/) online. 
@@ -47,5 +52,5 @@ Links
 -----
 
 - Documentation: [https://django-adminlte2-templates.readthedocs.io/en/latest/](https://django-adminlte2-templates.readthedocs.io/en/latest/)
-- GitHub: [https://github.com/josemarimanio/django-adminlte2-templates/](https://github.com/josemarimanio/django-adminlte2-templates/)
-- PyPi: [https://pypi.org/project/django-adminlte2-templates/](https://pypi.org/project/django-adminlte2-templates/)
+- Source Code: [https://github.com/josemarimanio/django-adminlte2-templates/](https://github.com/josemarimanio/django-adminlte2-templates/)
+- Package: [https://pypi.org/project/django-adminlte2-templates/](https://pypi.org/project/django-adminlte2-templates/)
