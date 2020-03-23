@@ -11,6 +11,7 @@ Welcome to django-adminlte2-templates's documentation!
    :caption: Contents:
 
    installation
+   layouts_and_components
 
 
 Indices and tables
