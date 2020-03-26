@@ -243,3 +243,216 @@ Templates
         {% block footer_template %}
             {% include 'adminlte2/components/footer.html' %}
         {% endblock footer_template %}
+
+
+Header
+------
+
+django-adminlte2-templates supports header for both themes with **sidebar** (*boxed, collapsed, fixed*) and
+**top navigation** layouts:
+
+
+Logo
+^^^^
+
+.. data:: logo
+    :noindex:
+
+    Header logo code.
+
+    Default for *sidebar*:
+
+    .. code:: jinja
+
+        {% block logo %}
+            <a href="{% block logo_href %}/{% endblock %}" class="logo">
+                <span class="logo-mini">{% block logo_mini %}<b>A</b>LTE{% endblock logo_mini %}</span>
+                <span class="logo-lg">{% block logo_lg %}<b>Admin</b>LTE{% endblock logo_lg %}</span>
+            </a>
+        {% endblock logo %}
+
+    Default for *top navigation*:
+
+    .. code:: jinja
+
+        {% block logo %}
+            <a href="{% block logo_href %}/{% endblock logo_href %}" class="navbar-brand">
+                {% block logo_lg %}
+                    <b>Admin</b>LTE
+                {% endblock logo_lg %}
+            </a>
+        {% endblock logo %}
+
+
+.. data:: logo_href
+    :noindex:
+
+    Header logo link URL.
+
+
+.. data:: logo_mini
+    :noindex:
+
+    (*sidebar* only) Header logo content when the *sidebar* content is collapsed.
+
+    Default:
+
+    .. code:: html
+
+        <b>A</b>LTE
+
+
+.. data:: logo_lg
+    :noindex:
+
+    Header logo content when *sidebar* content is exposed, or for *top navigation* layout.
+
+    Default:
+
+    .. code:: html
+
+        <b>Admin</b>LTE
+
+
+Navigation
+^^^^^^^^^^
+
+.. data:: header_content
+    :noindex:
+
+    Header main content code.
+
+    Default for *sidebar*:
+
+    .. code:: jinja
+
+        {% block header_content %}
+            <nav class="navbar navbar-static-top">
+                {% block sidebar_toggle %}
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">
+                            {% block sidebar_toggle_text %}Toggle navigation{% endblock sidebar_toggle_text %}
+                        </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                {% endblock sidebar_toggle %}
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        {% block header_items %}
+                        {% endblock header_items %}
+                    </ul>
+                </div>
+            </nav>
+        {% endblock header_content %}
+
+    Default for *top navigation*:
+
+    .. code:: jinja
+
+        {% block header_content %}
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% block header_items_left %}
+                    {% endblock header_items_left %}
+                </ul>
+            </div>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {% block header_items %}
+                        {% block header_items_right %}
+                        {% endblock header_items_right %}
+                    {% endblock header_items %}
+                </ul>
+            </div>
+        {% endblock header_content %}
+
+
+.. data:: header_items
+    :noindex:
+
+    Header (right) navigation items.
+
+
+.. data:: header_items_left
+    :noindex:
+
+    (*top navigation* only) Header left navigation items.
+
+
+.. data:: header_items_right
+    :noindex:
+
+    (*top navigation* only) Header right navigation items. Alias for ``header_items``.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block header_items %}
+            {% block header_items_right %}
+            {% endblock header_items_right %}
+        {% endblock header_items %}
+
+
+.. data:: sidebar_toggle
+    :noindex:
+
+    (*sidebar* only) Sidebar toggle button for sidebar (*boxed, collapsed, fixed*) layouts.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block sidebar_toggle %}
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">
+                    {% block sidebar_toggle_text %}Toggle navigation{% endblock sidebar_toggle_text %}
+                </span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        {% endblock sidebar_toggle %}
+
+
+.. data:: sidebar_toggle_text
+    :noindex:
+
+    (*sidebar* only) Sidebar toggle button screenreader text for sidebar (*boxed, collapsed, fixed*) layouts.
+
+    Default::
+
+        Toggle navigation
+
+
+.. data:: header_toggle
+    :noindex:
+
+    (*top navigation* only) Responsive toggle button for left navigation links.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block header_toggle %}
+            <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">
+                    {% block header_toggle_text %}Toggle navigation{% endblock header_toggle_text %}
+                </span>
+                <i class="fa fa-bars"></i>
+            </button>
+        {% endblock header_toggle %}
+
+
+.. data:: header_toggle_text
+
+    (*top navigation* only) Responsive toggle button screenreader text for left navigation links.
+
+    Default::
+
+        Toggle navigation
