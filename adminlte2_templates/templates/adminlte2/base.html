@@ -57,6 +57,10 @@
                 </div>
             {% endblock content_template %}
 
+            {% block control_sidebar %}
+                {% include 'adminlte2/components/control.html %}
+            {% endblock control_sidebar %}
+
             {% block footer_template %}
                 {% include 'adminlte2/components/footer.html' %}
             {% endblock footer_template %}
