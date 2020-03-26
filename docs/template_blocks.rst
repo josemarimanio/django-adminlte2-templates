@@ -490,3 +490,58 @@ Control
     :noindex:
 
     Control sidebar navigation tab contents.
+
+
+Footer
+------
+
+.. data:: footer_content
+    :noindex:
+
+    Footer content code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_content %}
+            {% block footer_version %}
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> #.#.#
+                </div>
+            {% endblock footer_version %}
+
+            {% block footer_legal %}
+                <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+            {% endblock footer_legal %}
+        {% endblock footer_content %}
+
+
+.. data:: footer_version
+    :noindex:
+
+    Footer version text.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_version %}
+            <div class="pull-right hidden-xs">
+                <b>Version</b> #.#.#
+            </div>
+        {% endblock footer_version %}
+
+
+.. data:: footer_legal
+    :noindex:
+
+    Footer legal text.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_legal %}
+            <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+        {% endblock footer_legal %}
