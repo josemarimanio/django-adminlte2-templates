@@ -475,3 +475,18 @@ Sidebar
     :noindex:
 
     Sidebar navigation items.
+
+
+Control
+-------
+
+.. data:: control_items
+    :noindex:
+
+    Control sidebar navigation items.
+
+
+.. data:: control_tabs
+    :noindex:
+
+    Control sidebar navigation tab contents.
