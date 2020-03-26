@@ -545,3 +545,98 @@ Footer
         {% block footer_legal %}
             <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
         {% endblock footer_legal %}
+
+
+Messages
+--------
+
+Django ``messages`` alert boxes.
+
+.. data:: message_debug
+    :noindex:
+
+    ``DEBUG`` alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+
+
+.. data:: message_info
+    :noindex:
+
+    ``INFO`` alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+
+
+.. data:: message_success
+    :noindex:
+
+    ``SUCCESS`` alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+
+
+.. data:: message_warning
+    :noindex:
+
+    ``WARNING`` alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+
+
+.. data:: message_error
+    :noindex:
+
+    ``ERROR`` alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-error alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+
+
+.. data:: message_default
+    :noindex:
+
+    Custom message alert box.
+
+    Default:
+
+    .. code:: html
+
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
