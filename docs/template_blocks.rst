@@ -456,3 +456,22 @@ Navigation
     Default::
 
         Toggle navigation
+
+
+Sidebar
+-------
+
+.. data:: sidebar_title
+    :noindex:
+
+    Sidebar navigation title text.
+
+    Default::
+
+        MAIN NAVIGATION
+
+
+.. data:: sidebar_items
+    :noindex:
+
+    Sidebar navigation items.
