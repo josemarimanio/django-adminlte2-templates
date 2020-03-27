@@ -41,7 +41,24 @@ Layouts
     :noindex:
 
     AdminLTE 2 template for *top navigation* layout option.
+
     See `https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html <https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html>`_ for a live example of this template.
+
+
+.. data:: adminlte2/layouts/login.html
+    :noindex:
+
+    AdminLTE 2 login page template.
+
+    See `https://adminlte.io/themes/AdminLTE/pages/examples/login.html <https://adminlte.io/themes/AdminLTE/pages/examples/login.html>`_ for a live example of this template.
+
+
+.. data:: adminlte2/layouts/register.html
+    :noindex:
+
+    AdminLTE 2 register page template.
+
+    See `https://adminlte.io/themes/AdminLTE/pages/examples/register.html <https://adminlte.io/themes/AdminLTE/pages/examples/register.html>`_ for a live example of this template.
 
 
 Components
