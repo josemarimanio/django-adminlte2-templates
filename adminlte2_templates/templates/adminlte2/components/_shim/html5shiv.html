@@ -1,0 +1,9 @@
+{% load static %}
+
+{% if ADMINLTE_USE_CDN %}
+    <script src="{{ ADMINLTE_CDN_HTML5SHIV_CORE_JS }}"></script>
+{% elif DEBUG %}
+    <script src="{% static 'adminlte2/html5shiv-3.7.3/html5shiv.js' %}"></script>
+{% else %}
+    <script src="{% static 'adminlte2/html5shiv-3.7.3/html5shiv.min.js' %}"></script>
+{% endif %}

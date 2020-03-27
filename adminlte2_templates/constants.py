@@ -5,6 +5,13 @@ ADMINLTE_HTML_LANG = 'en'
     Defaults to ``'en'``
 """
 
+ADMINLTE_USE_SHIM = False
+"""
+    *(bool)* Toggle to use HTML5 Shim for IE9 support.
+    
+    Defaults to ``False``.
+"""
+
 ADMINLTE_USE_CDN = False
 """
     *(bool)* Toggle to use CDN links for AdminLTE dependencies.
@@ -93,6 +100,20 @@ ADMINLTE_CDN_JQUERY_JS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4
     *(str)* CDN link for jQuery 3.4.1 JS file.
     
     Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'``.
+"""
+
+ADMINLTE_CDN_HTML5SHIV_CORE_JS = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'
+"""
+    *(str)* CDN link for HTML5 Shim script HTML5 Shiv JS file.
+    
+    Defaults to ``https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js``.
+"""
+
+ADMINLTE_CDN_RESPOND_CORE_JS = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'
+"""
+    *(str)* CDN link for HTML5 Shim script Respond JS file.
+    
+    Defaults to ``https://oss.maxcdn.com/respond/1.4.2/respond.min.js``.
 """
 
 # Valid AdminLTE skin style values

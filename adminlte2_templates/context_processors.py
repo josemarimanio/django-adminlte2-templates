@@ -38,6 +38,11 @@ def template(request):
         'ADMINLTE_CONTROL_STYLE': _get_context('ADMINLTE_CONTROL_STYLE'),
 
         #
+        # Toggle to use HTML5 Shim
+        #
+        'ADMINLTE_USE_SHIM': _get_context('ADMINLTE_USE_SHIM'),
+
+        #
         # Toggle to use CDN for AdminLTE dependencies
         #
         'ADMINLTE_USE_CDN': _get_context('ADMINLTE_USE_CDN'),
@@ -55,7 +60,10 @@ def template(request):
         # Font-Awesome 4.7.0
         'ADMINLTE_CDN_FONTAWESOME_CSS_CORE': _get_context('ADMINLTE_CDN_FONTAWESOME_CSS_CORE'),
         # jQuery 3.4.1
-        'ADMINLTE_CDN_JQUERY_JS_CORE': _get_context('ADMINLTE_CDN_JQUERY_JS_CORE')
+        'ADMINLTE_CDN_JQUERY_JS_CORE': _get_context('ADMINLTE_CDN_JQUERY_JS_CORE'),
+        # Shims
+        'ADMINLTE_CDN_HTML5SHIV_CORE_JS': _get_context('ADMINLTE_CDN_HTML5SHIV_CORE_JS'),
+        'ADMINLTE_CDN_RESPOND_CORE_JS': _get_context('ADMINLTE_CDN_RESPOND_CORE_JS'),
     }
 
     return context

@@ -11,6 +11,10 @@
         {% include 'adminlte2/components/_stylesheets.html' %}
     {% endblock stylesheets %}
 
+    {% if ADMINLTE_USE_SHIM %}
+        {% include 'adminlte2/components/_shim.html' %}
+    {% endif %}
+
     {% block javascripts %}
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
