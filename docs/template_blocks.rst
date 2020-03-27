@@ -8,6 +8,34 @@ General
 
 General template tags:
 
+
+<html> content
+^^^^^^^^^^^^^^
+
+.. data:: html_attribute
+    :noindex:
+
+    HTML ``<html>`` attributes.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}"{% endblock html_attribute %}
+
+
+.. data:: html_lang
+    :noindex:
+
+    HTML ``<html>`` ``lang`` attribute.
+
+    Default:
+
+    .. code:: jinja
+
+        {{ ADMINLTE_HTML_LANG }}
+
+
 <head> content
 ^^^^^^^^^^^^^^
 
@@ -47,6 +75,22 @@ General template tags:
         {% endblock stylesheets %}
 
 
+.. data:: shim
+    :noindex:
+
+    HTML 5 Shim JavaScript links in ``<head>``.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block shim %}
+            {% if ADMINLTE_USE_SHIM %}
+                {% include 'adminlte2/components/_shim.html' %}
+            {% endif %}
+        {% endblock shim %}
+
+
 .. data:: javascripts
     :noindex:
 
@@ -72,6 +116,18 @@ General template tags:
     HTML ``<body>`` tag content.
 
 
+.. data:: body_attribute
+    :noindex:
+
+    HTML ``<body>`` attributes.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}"{% endblock body_attribute %}
+
+
 .. data:: body_class
     :noindex:
 
@@ -82,6 +138,12 @@ General template tags:
     .. code:: jinja
 
         {% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}
+
+
+.. data:: javascripts_body
+    :noindex:
+
+    JavaScript links in ``<body>``.
 
 
 Layouts

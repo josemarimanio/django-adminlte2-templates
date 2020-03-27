@@ -15,6 +15,13 @@ Theme
     :annotation:
 
 
+HTML
+----
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_USE_SHIM
+    :annotation:
+
+
 CDN
 ---
 
@@ -40,4 +47,10 @@ CDN
     :annotation:
 
 .. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_JQUERY_JS_CORE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_HTML5SHIV_CORE_JS
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_RESPOND_CORE_JS
     :annotation:
