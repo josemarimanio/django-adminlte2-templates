@@ -1,0 +1,45 @@
+{% extends 'adminlte2/base.html' %}
+
+{% block body_class %}hold-transition register-page{% endblock body_class %}
+
+{% block body %}
+<div class="register-box">
+
+    {% block register_logo %}
+        <div class="register-logo">
+            <a href="{% block register_logo_href %}{% endblock register_logo_href %}">
+                {% block register_logo_text %}
+                    <b>Admin</b>LTE
+                {% endblock register_logo_text %}
+            </a>
+        </div>
+    {% endblock register_logo %}
+
+    {% block register_content %}
+        <div class="register-box-body">
+
+            <p class="login-box-msg">
+                {% block register_description %}
+                    Register a new membership
+                {% endblock register_description %}
+            </p>
+
+            {% block register_form %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                </form>
+            {% endblock register_form %}
+
+            <div class="social-auth-links text-center">
+                {% block register_social_auth %}
+                {% endblock register_social_auth %}
+            </div>
+
+            {% block register_links %}
+            {% endblock register_links %}
+
+        </div>
+    {% endblock register_content %}
+</div>
+{% endblock body %}
