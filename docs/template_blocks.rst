@@ -639,3 +639,236 @@ Footer
         {% block footer_legal %}
             <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
         {% endblock footer_legal %}
+
+
+Pages
+-----
+
+Login
+^^^^^
+
+.. data:: login_logo
+    :noindex:
+
+    Login logo code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block login_logo %}
+            <div class="login-logo">
+                <a href="{% block login_logo_href %}{% endblock login_logo_href %}">
+                    {% block login_logo_text %}
+                        <b>Admin</b>LTE
+                    {% endblock login_logo_text %}
+                </a>
+            </div>
+        {% endblock login_logo %}
+
+
+.. data:: login_logo_href
+    :noindex:
+
+    Login logo link URL.
+
+
+.. data:: login_logo_text
+    :noindex:
+
+    Login logo content.
+
+    Default:
+
+    .. code:: html
+
+        <b>Admin</b>LTE
+
+
+.. data:: login_content
+    :noindex:
+
+    Login page main content code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block login_content %}
+            <div class="login-box-body">
+
+                <p class="login-box-msg">
+                    {% block login_description %}
+                        Sign in to start your session
+                    {% endblock login_description %}
+                </p>
+
+                {% block login_form %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                    </form>
+                {% endblock login_form %}
+
+                <div class="social-auth-links text-center">
+                    {% block login_social_auth %}
+                    {% endblock login_social_auth %}
+                </div>
+
+                {% block login_links %}
+                {% endblock login_links %}
+
+            </div>
+        {% endblock login_content %}
+
+
+.. data:: login_description
+    :noindex:
+
+    Login page description.
+
+    Default::
+
+        Sign in to start your session
+
+
+.. data:: login_form
+    :noindex:
+
+    Login form
+
+    .. code:: jinja
+
+        {% block login_form %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+        {% endblock login_form %}
+
+
+.. data:: login_social_auth
+    :noindex:
+
+    Login social authentication links.
+
+
+.. data:: login_links
+    :noindex:
+
+    Login links.
+
+
+Register
+^^^^^^^^
+
+.. data:: register_logo
+    :noindex:
+
+    Register logo code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block register_logo %}
+            <div class="register-logo">
+                <a href="{% block register_logo_href %}{% endblock register_logo_href %}">
+                    {% block register_logo_text %}
+                        <b>Admin</b>LTE
+                    {% endblock register_logo_text %}
+                </a>
+            </div>
+        {% endblock register_logo %}
+
+
+.. data:: register_logo_href
+    :noindex:
+
+    Register logo link URL.
+
+
+.. data:: register_logo_text
+    :noindex:
+
+    Register logo content.
+
+    Default:
+
+    .. code:: html
+
+        <b>Admin</b>LTE
+
+
+.. data:: register_content
+    :noindex:
+
+    Register page main content code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block register_content %}
+            <div class="register-box-body">
+
+                <p class="login-box-msg">
+                    {% block register_description %}
+                        Register a new membership
+                    {% endblock register_description %}
+                </p>
+
+                {% block register_form %}
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                    </form>
+                {% endblock register_form %}
+
+                <div class="social-auth-links text-center">
+                    {% block register_social_auth %}
+                    {% endblock register_social_auth %}
+                </div>
+
+                {% block register_links %}
+                {% endblock register_links %}
+
+            </div>
+        {% endblock register_content %}
+
+
+.. data:: register_description
+    :noindex:
+
+    Register page description.
+
+    Default::
+
+        Register a new membership
+
+
+.. data:: register_form
+    :noindex:
+
+    Register form
+
+    .. code:: jinja
+
+        {% block register_form %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+        {% endblock register_form %}
+
+
+.. data:: register_social_auth
+    :noindex:
+
+    Register social authentication links.
+
+
+.. data:: register_links
+    :noindex:
+
+    Register links.
