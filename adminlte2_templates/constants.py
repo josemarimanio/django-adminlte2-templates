@@ -1,3 +1,10 @@
+ADMINLTE_HTML_LANG = 'en'
+"""
+    *(str)* HTML 'lang' attribute value.
+    
+    Defaults to ``'en'``
+"""
+
 ADMINLTE_USE_CDN = False
 """
     *(bool)* Toggle to use CDN links for AdminLTE dependencies.

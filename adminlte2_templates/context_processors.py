@@ -20,6 +20,11 @@ def template(request):
         'DEBUG': getattr(settings, 'DEBUG'),
 
         #
+        # HTML 'lang' attribute value
+        #
+        'ADMINLTE_HTML_LANG': _get_context('ADMINLTE_HTML_LANG'),
+
+        #
         # Skin style color. Valid values are:
         #   skin-black, skin-black-light, skin-blue, skin-blue-light, skin-green, skin-green-light, skin-purple,
         #   skin-purple-light, skin-red, skin-red-light, skin-yellow, skin-yellow-light
