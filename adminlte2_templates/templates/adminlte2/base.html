@@ -11,15 +11,17 @@
         {% include 'adminlte2/components/_stylesheets.html' %}
     {% endblock stylesheets %}
 
-    {% if ADMINLTE_USE_SHIM %}
-        {% include 'adminlte2/components/_shim.html' %}
-    {% endif %}
+    {% block shim %}
+        {% if ADMINLTE_USE_SHIM %}
+            {% include 'adminlte2/components/_shim.html' %}
+        {% endif %}
+    {% endblock shim %}
 
     {% block javascripts %}
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
 </head>
-<body {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}" {% endblock body_attribute %}>
+<body {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}"{% endblock body_attribute %}>
     {% block body %}
         <div class="wrapper">
             {% block header_template %}
