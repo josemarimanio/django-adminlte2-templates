@@ -3,8 +3,8 @@ Template Blocks
 ===============
 
 
-Base
-----
+General
+-------
 
 General template tags:
 
@@ -84,8 +84,125 @@ General template tags:
         {% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}
 
 
-Page content
-^^^^^^^^^^^^
+Layouts
+-------
+
+*Sidebar* and *top navigation* layout template tags:
+
+
+Templates
+^^^^^^^^^
+
+.. data:: header_template
+    :noindex:
+
+    AdminLTE 2 navigation header template.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block header_template %}
+            {% include 'adminlte2/components/header.html' %}
+        {% endblock header_template %}
+
+
+.. data:: sidebar_template
+    :noindex:
+
+    AdminLTE 2 navigation sidebar template.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block sidebar_template %}
+            {% include 'adminlte2/components/sidebar.html' %}
+        {% endblock sidebar_template %}
+
+
+.. data:: messages_template
+
+    Django ``messages`` alert box template.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block messages_template %}
+            {% include 'adminlte2/components/messages.html' %}
+        {% endblock messages_template %}
+
+
+.. data:: control_template
+
+    AdminLTE 2 control sidebar template.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block control_sidebar %}
+            {% include 'adminlte2/components/control.html %}
+        {% endblock control_sidebar %}
+
+
+.. data:: footer_template
+
+    AdminLTE 2 footer template.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_template %}
+            {% include 'adminlte2/components/footer.html' %}
+        {% endblock footer_template %}
+
+
+Content
+^^^^^^^
+
+.. data:: content_template
+    :noindex:
+
+    AdminLTE 2 page content code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block content_template %}
+                <div class="content-wrapper">
+
+                    <div class="container">
+
+                        {% block content_header %}
+                            <section class="content-header">
+                                <h1>
+                                    {% block page_title %}{% endblock page_title %}
+                                    <small>{% block page_description %}{% endblock page_description %}</small>
+                                </h1>
+                                <ol class="breadcrumb">
+                                    {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                </ol>
+                            </section>
+                        {% endblock content_header %}
+
+                        {% block content_body %}
+                            <section class="content">
+                                {% block messages_template %}
+                                    {% include 'adminlte2/components/messages.html' %}
+                                {% endblock messages_template %}
+
+                                {% block content %}
+                                {% endblock content %}
+                            </section>
+                        {% endblock content_body %}
+                    </div>
+                </div>
+            {% endblock content_template %}
+
 
 .. data:: content_header
     :noindex:
@@ -134,126 +251,11 @@ Page content
     Page main content.
 
 
-Templates
-^^^^^^^^^
-
-.. data:: header_template
-    :noindex:
-
-    AdminLTE 2 navigation header template.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block header_template %}
-            {% include 'adminlte2/components/header.html' %}
-        {% endblock header_template %}
-
-
-.. data:: sidebar_template
-    :noindex:
-
-    AdminLTE 2 navigation sidebar template.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block sidebar_template %}
-            {% include 'adminlte2/components/sidebar.html' %}
-        {% endblock sidebar_template %}
-
-
-.. data:: content_template
-    :noindex:
-
-    AdminLTE 2 page content code.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block content_template %}
-                <div class="content-wrapper">
-
-                    <div class="container">
-
-                        {% block content_header %}
-                            <section class="content-header">
-                                <h1>
-                                    {% block page_title %}{% endblock page_title %}
-                                    <small>{% block page_description %}{% endblock page_description %}</small>
-                                </h1>
-                                <ol class="breadcrumb">
-                                    {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                </ol>
-                            </section>
-                        {% endblock content_header %}
-
-                        {% block content_body %}
-                            <section class="content">
-                                {% block messages_template %}
-                                    {% include 'adminlte2/components/messages.html' %}
-                                {% endblock messages_template %}
-
-                                {% block content %}
-                                {% endblock content %}
-                            </section>
-                        {% endblock content_body %}
-                    </div>
-                </div>
-            {% endblock content_template %}
-
-
-.. data:: messages_template
-
-    Django ``messages`` alert box template.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block messages_template %}
-            {% include 'adminlte2/components/messages.html' %}
-        {% endblock messages_template %}
-
-
-.. data:: control_template
-
-    AdminLTE 2 control sidebar template.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block control_sidebar %}
-            {% include 'adminlte2/components/control.html %}
-        {% endblock control_sidebar %}
-
-
-.. data:: footer_template
-
-    AdminLTE 2 footer template.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block footer_template %}
-            {% include 'adminlte2/components/footer.html' %}
-        {% endblock footer_template %}
-
-
 Header
-------
+^^^^^^
 
-django-adminlte2-templates supports header for both themes with **sidebar** (*boxed, collapsed, fixed*) and
+django-adminlte2-templates supports header for both  **sidebar** (*boxed, collapsed, fixed*) and
 **top navigation** layouts:
-
-
-Logo
-^^^^
 
 .. data:: logo
     :noindex:
@@ -313,9 +315,6 @@ Logo
 
         <b>Admin</b>LTE
 
-
-Navigation
-^^^^^^^^^^
 
 .. data:: header_content
     :noindex:
@@ -459,7 +458,7 @@ Navigation
 
 
 Sidebar
--------
+^^^^^^^
 
 .. data:: sidebar_title
     :noindex:
@@ -478,7 +477,7 @@ Sidebar
 
 
 Control
--------
+^^^^^^^
 
 .. data:: control_items
     :noindex:
@@ -492,63 +491,8 @@ Control
     Control sidebar navigation tab contents.
 
 
-Footer
-------
-
-.. data:: footer_content
-    :noindex:
-
-    Footer content code.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block footer_content %}
-            {% block footer_version %}
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> #.#.#
-                </div>
-            {% endblock footer_version %}
-
-            {% block footer_legal %}
-                <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
-            {% endblock footer_legal %}
-        {% endblock footer_content %}
-
-
-.. data:: footer_version
-    :noindex:
-
-    Footer version text.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block footer_version %}
-            <div class="pull-right hidden-xs">
-                <b>Version</b> #.#.#
-            </div>
-        {% endblock footer_version %}
-
-
-.. data:: footer_legal
-    :noindex:
-
-    Footer legal text.
-
-    Default:
-
-    .. code:: jinja
-
-        {% block footer_legal %}
-            <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
-        {% endblock footer_legal %}
-
-
 Messages
---------
+^^^^^^^^
 
 Django ``messages`` alert boxes.
 
@@ -640,3 +584,58 @@ Django ``messages`` alert boxes.
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             {{ message }}
         </div>
+
+
+Footer
+^^^^^^
+
+.. data:: footer_content
+    :noindex:
+
+    Footer content code.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_content %}
+            {% block footer_version %}
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> #.#.#
+                </div>
+            {% endblock footer_version %}
+
+            {% block footer_legal %}
+                <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+            {% endblock footer_legal %}
+        {% endblock footer_content %}
+
+
+.. data:: footer_version
+    :noindex:
+
+    Footer version text.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_version %}
+            <div class="pull-right hidden-xs">
+                <b>Version</b> #.#.#
+            </div>
+        {% endblock footer_version %}
+
+
+.. data:: footer_legal
+    :noindex:
+
+    Footer legal text.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block footer_legal %}
+            <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+        {% endblock footer_legal %}
