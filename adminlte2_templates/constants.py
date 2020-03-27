@@ -152,7 +152,7 @@ ADMINLTE_CONTROL_STYLE = CONTROL_STYLE_DARK
 """
     *(str)* Default AdminLTE control sidebar style.
     
-    Valid values are: ``control-sidebar-dark``, ``control-sidebar-light``.
+    Valid values are: ``'control-sidebar-dark'``, ``'control-sidebar-light'``.
     
-    Defaults to ``control-sidebar-dark``.
+    Defaults to ``'control-sidebar-dark'``.
 """
