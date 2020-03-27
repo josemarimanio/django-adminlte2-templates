@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html {% block html_attribute %}lang="{% block html_lang %}en{% endblock html_lang %}"{% endblock html_attribute %}>
 <head>
     {% block meta %}
         {% include 'adminlte2/components/_meta.html' %}
@@ -15,7 +15,7 @@
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
 </head>
-<body class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}">
+<body {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}" {% endblock body_attribute %}>
     {% block body %}
         <div class="wrapper">
             {% block header_template %}
@@ -66,5 +66,8 @@
             {% endblock footer_template %}
         </div>
     {% endblock body %}
+
+    {% block javascripts_body %}
+    {% endblock javascripts_body %}
 </body>
 </html>
