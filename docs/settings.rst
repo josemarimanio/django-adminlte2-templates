@@ -11,6 +11,9 @@ Theme
 .. autodata:: adminlte2_templates.constants.ADMINLTE_SKIN_STYLE
     :annotation:
 
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CONTROL_STYLE
+    :annotation:
+
 
 CDN
 ---

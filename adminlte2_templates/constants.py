@@ -115,3 +115,16 @@ ADMINLTE_SKIN_STYLE = SKIN_STYLE_BLUE
     
     Defaults to ``'skin-blue'``.
 """
+
+CONTROL_STYLE_DARK = 'control-sidebar-dark'
+CONTROL_STYLE_LIGHT = 'control-sidebar-light'
+CONTROL_STYLE_CHOICES = (CONTROL_STYLE_DARK, CONTROL_STYLE_LIGHT)
+
+ADMINLTE_CONTROL_STYLE = CONTROL_STYLE_DARK
+"""
+    *(str)* Default AdminLTE control sidebar style.
+    
+    Valid values are: ``control-sidebar-dark``, ``control-sidebar-light``.
+    
+    Defaults to ``control-sidebar-dark``.
+"""

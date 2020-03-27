@@ -14,7 +14,7 @@ def template(request):
     """
         Get all settings related to the AdminLTE 2 module and return them as context variables
     """
-    skin_style = getattr(settings, 'ADMINLTE_SKIN_STYLE', constants.DEFAULT_SKIN_STYLE)
+    skin_style = getattr(settings, 'ADMINLTE_SKIN_STYLE')
 
     context = {
         'DEBUG': getattr(settings, 'DEBUG'),
@@ -27,9 +27,15 @@ def template(request):
         'ADMINLTE_SKIN_STYLE': skin_style,
 
         #
+        # Control sidebar color. Valid values are:
+        #   control-sidebar-dark, control-sidebar-light
+        #
+        'ADMINLTE_CONTROL_STYLE': _get_context('ADMINLTE_CONTROL_STYLE'),
+
+        #
         # Toggle to use CDN for AdminLTE dependencies
         #
-        'ADMINLTE_USE_CDN': getattr(settings, 'ADMINLTE_USE_CDN', False),
+        'ADMINLTE_USE_CDN': _get_context('ADMINLTE_USE_CDN'),
 
         #
         # Dependency CDN URLs
