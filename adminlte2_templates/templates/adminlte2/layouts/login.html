@@ -1,0 +1,45 @@
+{% extends 'adminlte2/base.html' %}
+
+{% block body_class %}hold-transition login-page{% endblock body_class %}
+
+{% block body %}
+<div class="login-box">
+
+    {% block login_logo %}
+        <div class="login-logo">
+            <a href="{% block login_logo_href %}{% endblock login_logo_href %}">
+                {% block login_logo_text %}
+                    <b>Admin</b>LTE
+                {% endblock login_logo_text %}
+            </a>
+        </div>
+    {% endblock login_logo %}
+
+    {% block login_content %}
+        <div class="login-box-body">
+
+            <p class="login-box-msg">
+                {% block login_description %}
+                    Sign in to start your session
+                {% endblock login_description %}
+            </p>
+
+            {% block login_form %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                </form>
+            {% endblock login_form %}
+
+            <div class="social-auth-links text-center">
+                {% block login_social_auth %}
+                {% endblock login_social_auth %}
+            </div>
+
+            {% block login_links %}
+            {% endblock login_links %}
+
+        </div>
+    {% endblock login_content %}
+</div>
+{% endblock body %}
