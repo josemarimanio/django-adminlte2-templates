@@ -13,6 +13,7 @@ Welcome to django-adminlte2-templates's documentation!
    installation
    layouts_and_components
    template_blocks
+   template_tags
    settings
 
 
