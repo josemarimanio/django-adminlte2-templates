@@ -5,7 +5,7 @@ from setuptools import setup
 from adminlte2_templates import __version__
 
 HERE = pathlib.Path(__file__).parent
-README = (HERE / 'README.md').read_text()
+README = (HERE / 'README.rst').read_text()
 
 setup(
     name='django-adminlte2-templates',
