@@ -37,17 +37,24 @@
 
                     <div class="container">
 
-                        {% block content_header %}
+                        {% block no_content_header %}
                             <section class="content-header">
-                                <h1>
-                                    {% block page_title %}{% endblock page_title %}
-                                    <small>{% block page_description %}{% endblock page_description %}</small>
-                                </h1>
-                                <ol class="breadcrumb">
-                                    {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                </ol>
+                                {% block content_header %}
+                                    {% block no_page_title %}
+                                        <h1>
+                                            {% block page_title %}{% endblock page_title %}
+                                            <small>{% block page_description %}{% endblock page_description %}</small>
+                                        </h1>
+                                    {% endblock no_page_title %}
+
+                                    {% block no_breadcrumbs %}
+                                        <ol class="breadcrumb">
+                                            {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                        </ol>
+                                    {% endblock no_breadcrumbs %}
+                                {% endblock content_header %}
                             </section>
-                        {% endblock content_header %}
+                        {% endblock no_content_header %}
 
                         {% block content_body %}
                             <section class="content">
