@@ -7,7 +7,7 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def add_active(context, url_pattern, *args, **kwargs):
     """
-    Add ``' active '`` class to sidebar and header navigation links based on comparison of URL pattern with current URL.
+    Add class ``active`` to sidebar and header navigation links based on comparison of URL pattern with current URL.
 
     Based on django-adminlte2 templatetags
      https://github.com/adamcharnock/django-adminlte2/tree/master/django_adminlte/templatetags.
