@@ -8,7 +8,7 @@ Template Tags
 .. data:: {% add_active %}
     :noindex:
 
-    Add ``' active '`` class to sidebar and header navigation links based on comparison of URL pattern with current URL.
+    Add class ``active`` to sidebar and header navigation links based on comparison of URL pattern with current URL.
 
     Parameters:
 

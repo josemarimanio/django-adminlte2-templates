@@ -6,7 +6,7 @@ Template Blocks
 General
 -------
 
-General template tags:
+General template blocks:
 
 
 <html> content
@@ -149,7 +149,7 @@ General template tags:
 Layouts
 -------
 
-*Sidebar* and *top navigation* layout template tags:
+*Sidebar* and *top navigation* layout template blocks:
 
 
 Templates
@@ -235,58 +235,77 @@ Content
     .. code:: jinja
 
         {% block content_template %}
-                <div class="content-wrapper">
+            <div class="content-wrapper">
 
-                    <div class="container">
+                <div class="container">
 
-                        {% block content_header %}
-                            <section class="content-header">
-                                <h1>
-                                    {% block page_title %}{% endblock page_title %}
-                                    <small>{% block page_description %}{% endblock page_description %}</small>
-                                </h1>
-                                <ol class="breadcrumb">
-                                    {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                </ol>
-                            </section>
-                        {% endblock content_header %}
+                    {% block no_content_header %}
+                        <section class="content-header">
+                            {% block content_header %}
+                                {% block no_page_title %}
+                                    <h1>
+                                        {% block page_title %}{% endblock page_title %}
+                                        <small>{% block page_description %}{% endblock page_description %}</small>
+                                    </h1>
+                                {% endblock no_page_title %}
 
-                        {% block content_body %}
-                            <section class="content">
-                                {% block messages_template %}
-                                    {% include 'adminlte2/components/messages.html' %}
-                                {% endblock messages_template %}
+                                {% block no_breadcrumbs %}
+                                    <ol class="breadcrumb">
+                                        {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                    </ol>
+                                {% endblock no_breadcrumbs %}
+                            {% endblock content_header %}
+                        </section>
+                    {% endblock no_content_header %}
 
-                                {% block content %}
-                                {% endblock content %}
-                            </section>
-                        {% endblock content_body %}
-                    </div>
+                    {% block content_body %}
+                        <section class="content">
+                            {% block messages_template %}
+                                {% include 'adminlte2/components/messages.html' %}
+                            {% endblock messages_template %}
+
+                            {% block content %}
+                            {% endblock content %}
+                        </section>
+                    {% endblock content_body %}
                 </div>
-            {% endblock content_template %}
+            </div>
+        {% endblock content_template %}
 
 
 .. data:: content_header
     :noindex:
 
-    Page content header code.
+    Page content header code. Contains the page title and description, and breadcrumb navigation.
 
     Default:
 
     .. code:: jinja
 
         {% block content_header %}
-            <section class="content-header">
+            {% block no_page_title %}
                 <h1>
                     {% block page_title %}{% endblock page_title %}
                     <small>{% block page_description %}{% endblock page_description %}</small>
                 </h1>
+            {% endblock no_page_title %}
 
+            {% block no_breadcrumbs %}
                 <ol class="breadcrumb">
                     {% block breadcrumbs %}{% endblock breadcrumbs %}
                 </ol>
-            </section>
+            {% endblock no_breadcrumbs %}
         {% endblock content_header %}
+
+
+.. data:: no_content_header
+    :noindex:
+
+    Declare block as empty to remove page content header (page title and description, breadcrumb navigation):
+
+    .. code:: jinja
+
+        {% block no_content_header %}{% endblock no_content_header %}
 
 
 .. data:: page_title
@@ -301,10 +320,51 @@ Content
     Page description text that will be displayed in the content header.
 
 
+.. data:: no_page_title
+    :noindex:
+
+    Declare block as empty to remove page title and description text:
+
+    .. code:: jinja
+
+        {% block no_page_title %}{% endblock no_page_title %}
+
+
 .. data:: breadcrumbs
     :noindex:
 
     Breadcrumb navigation that will be displayed in the content header.
+
+
+.. data:: no_breadcrumbs
+    :noindex:
+
+    Declare block as empty to remove breadcrumb navigation:
+
+    .. code:: jinja
+
+        {% block no_breadcrumbs %}{% endblock no_breadcrumbs %}
+
+
+.. data:: content_body
+    :noindex:
+
+    Page content body code. Contains the Django ``messages`` alert boxes and page main content.
+
+    Default:
+
+    .. code:: jinja
+
+        {% block content_body %}
+            <section class="content">
+                {% block messages_template %}
+                    {% include 'adminlte2/components/messages.html' %}
+                {% endblock messages_template %}
+
+                {% block content %}
+                {% endblock content %}
+            </section>
+        {% endblock content_body %}
 
 
 .. data:: content
@@ -352,6 +412,10 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
     :noindex:
 
     Header logo link URL.
+
+    Default::
+
+        /
 
 
 .. data:: logo_mini
@@ -527,9 +591,21 @@ Sidebar
 
     Sidebar navigation title text.
 
-    Default::
+    Default:
 
-        MAIN NAVIGATION
+    .. code:: jinja
+
+        <li class="header">{% block sidebar_title %}MAIN NAVIGATION{% endblock sidebar_title %}</li>
+
+
+.. data:: no_sidebar_title
+    :noindex:
+
+    Declare block as empty to remove sidebar title:
+
+    .. code:: jinja
+
+        {% block no_sidebar_title %}{% endblock no_sidebar_title %}
 
 
 .. data:: sidebar_items
