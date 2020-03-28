@@ -14,7 +14,7 @@ setup(
     long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/josemarimanio/django-adminlte2-templates/',
-    project_url={
+    project_urls={
         'Documentation': 'https://django-adminlte2-templates.readthedocs.io/en/latest/',
         'Source Code': 'https://github.com/josemarimanio/django-adminlte2-templates/',
     },
@@ -22,7 +22,7 @@ setup(
     author_email='josemari.manio@outlook.com',
     license='MIT',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.2',
