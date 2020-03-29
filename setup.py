@@ -1,18 +1,18 @@
-import pathlib
+import io
+
 from setuptools import find_packages
 from setuptools import setup
 
 from adminlte2_templates import __version__
 
-HERE = pathlib.Path(__file__).parent
-README = (HERE / 'README.rst').read_text()
+with io.open('README.rst', 'rt', encoding='utf8') as f:
+    README = f.read()
 
 setup(
     name='django-adminlte2-templates',
     version=__version__,
     description='AdminLTE 2 templates for Django',
     long_description=README,
-    long_description_content_type='text/markdown',
     url='https://github.com/josemarimanio/django-adminlte2-templates/',
     project_urls={
         'Documentation': 'https://django-adminlte2-templates.readthedocs.io/en/latest/',

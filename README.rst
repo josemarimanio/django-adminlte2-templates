@@ -1,17 +1,16 @@
+
+.. image:: https://img.shields.io/pypi/status/django-adminlte2-templates
+    :target: https://pypi.org/project/django-adminlte2-templates
+
+.. image:: https://readthedocs.org/projects/django-adminlte2-templates/badge/?version=latest
+    :target: https://django-adminlte2-templates.readthedocs.io/en/latest
+
+.. image:: https://img.shields.io/github/license/josemarimanio/django-adminlte2-templates
+    :target: https://github.com/josemarimanio/django-adminlte2-templates/blob/master/LICENSE
+
+
 AdminLTE 2 templates for Django
 ===============================
-
-|Project Status| |Documentation Status| |GitHub license|
-
-.. |Project Status| image:: https://img.shields.io/pypi/status/django-adminlte2-templates
-    :target: https://pypi.org/project/django-adminlte2-templates/
-
-.. |Documentation Status| image:: https://readthedocs.org/projects/django-adminlte2-templates/badge/?version=latest
-   :target: https://django-adminlte2-templates.readthedocs.io/en/latest/
-
-.. |GitHub license| image:: https://img.shields.io/github/license/josemarimanio/django-adminlte2-templates
-   :target: https://github.com/josemarimanio/django-adminlte2-templates/blob/master/LICENSE
-
 
 **django-adminlte2-templates** provide templates to easily integrate `AdminLTE 2 <https://adminlte.io/>`_ to your Django projects.
 
@@ -31,14 +30,16 @@ Requirements
 Installation
 ------------
 
-Installing using `pip <https://pip.pypa.io/en/stable/quickstart/>`_::
+Installing using `pip <https://pip.pypa.io/en/stable/quickstart/>`_:
+
+.. code-block:: console
 
     pip install django-adminlte2-templates
 
 
 Add ``adminlte2_templates`` to ``INSTALLED_APPS``:
 
-.. code:: python
+.. code-block:: python
 
     INSTALLED_APPS = [
         ...
@@ -48,7 +49,7 @@ Add ``adminlte2_templates`` to ``INSTALLED_APPS``:
 
 Add ``adminlte2_templates.context_processors.template`` to ``context_processors``:
 
-.. code:: python
+.. code-block:: python
 
     TEMPLATES = [
             ...
