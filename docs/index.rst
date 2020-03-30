@@ -11,6 +11,7 @@ Welcome to django-adminlte2-templates's documentation!
    :caption: Contents:
 
    installation
+   quickstart
    layouts_and_components
    template_blocks
    template_tags
