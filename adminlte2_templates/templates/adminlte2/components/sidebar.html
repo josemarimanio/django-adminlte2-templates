@@ -1,10 +1,13 @@
 <aside class="main-sidebar">
     <section class="sidebar">
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" data-widget="tree">
             {% block no_sidebar_title %}
                 <li class="header">{% block sidebar_title %}MAIN NAVIGATION{% endblock sidebar_title %}</li>
             {% endblock no_sidebar_title %}
-            
+
+            {% block sidebar_form %}
+            {% endblock sidebar_form %}
+
             {% block sidebar_items %}
             {% endblock sidebar_items %}
         </ul>
