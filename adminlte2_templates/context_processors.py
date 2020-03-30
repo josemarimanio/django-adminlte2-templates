@@ -14,7 +14,7 @@ def template(request):
     """
         Get all settings related to the AdminLTE 2 module and return them as context variables
     """
-    skin_style = getattr(settings, 'ADMINLTE_SKIN_STYLE')
+    skin_style = _get_context('ADMINLTE_SKIN_STYLE')
 
     context = {
         'DEBUG': getattr(settings, 'DEBUG'),
