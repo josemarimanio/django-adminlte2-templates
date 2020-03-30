@@ -30,8 +30,8 @@ Extending ``adminlte2/layouts/fixed.html``:
     {% block page_description %}Example for extending the <i>fixed</i> sidebar template{% endblock page_description %}
 
     {% block breadcrumbs %}
-        <li><a href="#">Layouts</a></li>
-        <li><a href="#">Fixed</a></li>
+        <li><a href="{% url 'layouts:index' %}">Layouts</a></li>
+        <li><a href="{% url 'layouts:fixed' %}">Fixed</a></li>
     {% endblock breadcrumbs %}
 
     {% block content %}
@@ -58,7 +58,7 @@ You can also override the sidebar (``adminlte2/components/sidebar.html``), heade
 and footer (``adminlte2/components/footer.html``) component templates to update their content:
 
 
-``adminlte2/components/sidebar.html``:
+Overriding ``adminlte2/components/sidebar.html``:
 
 .. code:: jinja
 
@@ -82,7 +82,7 @@ and footer (``adminlte2/components/footer.html``) component templates to update 
     {% endblock sidebar_items %}
 
 
-``adminlte2/components/header.html``:
+Overriding ``adminlte2/components/header.html``:
 
 .. code:: jinja
 
@@ -102,7 +102,7 @@ and footer (``adminlte2/components/footer.html``) component templates to update 
     {% endblock header_items %}
 
 
-``adminlte2/components/footer.html``:
+Overriding ``adminlte2/components/footer.html``:
 
 .. code:: jinja
 

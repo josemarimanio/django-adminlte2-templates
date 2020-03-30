@@ -75,6 +75,32 @@ General template blocks:
         {% endblock stylesheets %}
 
 
+.. data:: favicon
+    :noindex:
+
+    Favicon links in ``<head>``:
+
+    Default:
+
+    .. code:: jinja
+
+        {% block favicon %}
+            <link rel="shortcut icon" href="{% block favicon_icon %}{% static 'favicon.ico' %}{% endblock favicon_icon %}">
+        {% endblock favicon %}
+
+
+.. data:: favicon_image
+    :noindex:
+
+    Favicon image path.
+
+    Default:
+
+    .. code:: jinja
+
+        <link rel="shortcut icon" href="{% block favicon_icon %}{% static 'favicon.ico' %}{% endblock favicon_icon %}">
+
+
 .. data:: shim
     :noindex:
 
