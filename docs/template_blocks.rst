@@ -140,6 +140,16 @@ General template blocks:
         {% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}
 
 
+.. data:: skin_style
+    :noindex:
+
+    HTML ``<body>`` tag ``class`` attribute for AdminLTE 2 skin theme.
+
+    Valid values are: ``'skin-black'``, ``'skin-black-light'``, ``'skin-blue'``, ``'skin-blue-light'``,
+    ``'skin-green'``, ``'skin-green-light'``, ``'skin-purple'``, ``'skin-purple-light'``,
+    ``'skin-red'``, ``'skin-red-light'``, ``'skin-yellow'``, ``'skin-yellow-light'``.
+
+
 .. data:: javascripts_body
     :noindex:
 
@@ -237,38 +247,35 @@ Content
         {% block content_template %}
             <div class="content-wrapper">
 
-                <div class="container">
+                {% block no_content_header %}
+                    <section class="content-header">
+                        {% block content_header %}
+                            {% block no_page_title %}
+                                <h1>
+                                    {% block page_title %}{% endblock page_title %}
+                                    <small>{% block page_description %}{% endblock page_description %}</small>
+                                </h1>
+                            {% endblock no_page_title %}
 
-                    {% block no_content_header %}
-                        <section class="content-header">
-                            {% block content_header %}
-                                {% block no_page_title %}
-                                    <h1>
-                                        {% block page_title %}{% endblock page_title %}
-                                        <small>{% block page_description %}{% endblock page_description %}</small>
-                                    </h1>
-                                {% endblock no_page_title %}
+                            {% block no_breadcrumbs %}
+                                <ol class="breadcrumb">
+                                    {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                </ol>
+                            {% endblock no_breadcrumbs %}
+                        {% endblock content_header %}
+                    </section>
+                {% endblock no_content_header %}
 
-                                {% block no_breadcrumbs %}
-                                    <ol class="breadcrumb">
-                                        {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                    </ol>
-                                {% endblock no_breadcrumbs %}
-                            {% endblock content_header %}
-                        </section>
-                    {% endblock no_content_header %}
+                {% block content_body %}
+                    <section class="content">
+                        {% block messages_template %}
+                            {% include 'adminlte2/components/messages.html' %}
+                        {% endblock messages_template %}
 
-                    {% block content_body %}
-                        <section class="content">
-                            {% block messages_template %}
-                                {% include 'adminlte2/components/messages.html' %}
-                            {% endblock messages_template %}
-
-                            {% block content %}
-                            {% endblock content %}
-                        </section>
-                    {% endblock content_body %}
-                </div>
+                        {% block content %}
+                        {% endblock content %}
+                    </section>
+                {% endblock content_body %}
             </div>
         {% endblock content_template %}
 
@@ -608,6 +615,12 @@ Sidebar
         {% block no_sidebar_title %}{% endblock no_sidebar_title %}
 
 
+.. data:: sidebar_form
+    :noindex:
+
+    Sidebar space for form elements.
+
+
 .. data:: sidebar_items
     :noindex:
 
@@ -737,16 +750,48 @@ Footer
     .. code:: jinja
 
         {% block footer_content %}
-            {% block footer_version %}
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> #.#.#
-                </div>
-            {% endblock footer_version %}
 
+            <div class="pull-right hidden-xs">
+                {% block footer_right %}
+                    <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
+                {% endblock footer_right %}
+            </div>
+
+            {% block footer_left %}
+                {% block footer_legal %}
+                    <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
+                {% endblock footer_legal %}
+            {% endblock footer_left %}
+
+        {% endblock footer_content %}
+
+
+.. data:: footer_left
+    :noindex:
+
+    Footer left side content.
+
+    .. code:: jinja
+
+        {% block footer_left %}
             {% block footer_legal %}
                 <strong>Copyright &copy; {% now "Y" %}.</strong> All rights reserved.
             {% endblock footer_legal %}
-        {% endblock footer_content %}
+        {% endblock footer_left %}
+
+
+.. data:: footer_right
+    :noindex:
+
+    Footer right side content.
+
+    .. code:: jinja
+
+        <div class="pull-right hidden-xs">
+            {% block footer_right %}
+                <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
+            {% endblock footer_right %}
+        </div>
 
 
 .. data:: footer_version
@@ -758,11 +803,7 @@ Footer
 
     .. code:: jinja
 
-        {% block footer_version %}
-            <div class="pull-right hidden-xs">
-                <b>Version</b> #.#.#
-            </div>
-        {% endblock footer_version %}
+        <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
 
 
 .. data:: footer_legal
