@@ -28,7 +28,7 @@ author = 'Jose Mari Manio'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-
+    'sphinx.ext.intersphinx',
     'sphinx_rtd_theme',
 ]
 
