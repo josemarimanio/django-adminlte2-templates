@@ -21,7 +21,7 @@
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
 </head>
-<body {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}"{% endblock body_attribute %}>
+<body {% block body_attribute %}class="{% block body_class %}hold-transition {% block skin_style %}{{ ADMINLTE_SKIN_STYLE }}{% endblock skin_style %}{% endblock body_class %}"{% endblock body_attribute %}>
     {% block body %}
         <div class="wrapper">
             {% block header_template %}
@@ -35,38 +35,35 @@
             {% block content_template %}
                 <div class="content-wrapper">
 
-                    <div class="container">
+                    {% block no_content_header %}
+                        <section class="content-header">
+                            {% block content_header %}
+                                {% block no_page_title %}
+                                    <h1>
+                                        {% block page_title %}{% endblock page_title %}
+                                        <small>{% block page_description %}{% endblock page_description %}</small>
+                                    </h1>
+                                {% endblock no_page_title %}
 
-                        {% block no_content_header %}
-                            <section class="content-header">
-                                {% block content_header %}
-                                    {% block no_page_title %}
-                                        <h1>
-                                            {% block page_title %}{% endblock page_title %}
-                                            <small>{% block page_description %}{% endblock page_description %}</small>
-                                        </h1>
-                                    {% endblock no_page_title %}
+                                {% block no_breadcrumbs %}
+                                    <ol class="breadcrumb">
+                                        {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                    </ol>
+                                {% endblock no_breadcrumbs %}
+                            {% endblock content_header %}
+                        </section>
+                    {% endblock no_content_header %}
 
-                                    {% block no_breadcrumbs %}
-                                        <ol class="breadcrumb">
-                                            {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                        </ol>
-                                    {% endblock no_breadcrumbs %}
-                                {% endblock content_header %}
-                            </section>
-                        {% endblock no_content_header %}
+                    {% block content_body %}
+                        <section class="content">
+                            {% block messages_template %}
+                                {% include 'adminlte2/components/messages.html' %}
+                            {% endblock messages_template %}
 
-                        {% block content_body %}
-                            <section class="content">
-                                {% block messages_template %}
-                                    {% include 'adminlte2/components/messages.html' %}
-                                {% endblock messages_template %}
-
-                                {% block content %}
-                                {% endblock content %}
-                            </section>
-                        {% endblock content_body %}
-                    </div>
+                            {% block content %}
+                            {% endblock content %}
+                        </section>
+                    {% endblock content_body %}
                 </div>
             {% endblock content_template %}
 
