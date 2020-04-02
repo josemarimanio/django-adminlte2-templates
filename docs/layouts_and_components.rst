@@ -98,3 +98,37 @@ Components
     :noindex:
 
     Footer template.
+
+
+Shortcuts
+---------
+
+**django-adminlte2-templates** provides shortcuts for some commonly-used layout template modifications:
+
+
+.. data:: adminlte2/shortcuts/barebones/*
+    :noindex:
+
+    Remove content header (page title, page description, breadcrumb navigation), footer, and control sidebar for
+    ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
+
+
+.. data:: adminlte2/shortcuts/no_content_header/*
+    :noindex:
+
+    Remove content header (page title, page description, breadcrumb navigation) for
+    ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
+
+
+.. data:: adminlte2/shortcuts/no_breadcrumb/*
+    :noindex:
+
+    Remove breadcrumb navigation for
+    ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
+
+
+.. data:: adminlte2/shortcuts/no_footer/*
+    :noindex:
+
+    Remove footer for
+    ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
