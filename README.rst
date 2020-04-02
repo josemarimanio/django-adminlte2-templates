@@ -62,6 +62,14 @@ Add ``adminlte2_templates.context_processors.template`` to ``context_processors`
     ]
 
 
+Quickstart
+----------
+
+Head to the `Quickstart <https://django-adminlte2-templates.readthedocs.io/en/latest/quickstart.html>`_ section of the documentation online for an example of the usage of **django-adminlte2-templates**.
+
+Also, an example Django project ``example_project`` is included in the module for your reference.
+
+
 Links
 -----
 
