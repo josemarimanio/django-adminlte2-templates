@@ -12,7 +12,7 @@
 AdminLTE 2 templates for Django
 ===============================
 
-**django-adminlte2-templates** provide templates to easily integrate `AdminLTE 2 <https://adminlte.io/>`_ to your Django projects.
+**django-adminlte2-templates** provides templates to easily integrate `AdminLTE 2 <https://adminlte.io/>`_ to your Django projects.
 
 For more information, please see the `documentation <https://django-adminlte2-templates.readthedocs.io/en/latest/>`_ online.
 Alternatively, the documentation is also available in the ``docs`` directory of the project.
