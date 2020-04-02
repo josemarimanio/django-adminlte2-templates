@@ -1,6 +1,10 @@
 Quickstart
 ==========
 
+.. hint::
+
+    An example Django project ``example_project`` is included in the module for your reference.
+
 .. warning::
 
     This quickstart assumes you already have **django-adminlte2-templates** installed.
@@ -160,6 +164,8 @@ For example, updating the sidebar ``adminlte2/components/sidebar.html`` componen
 .. code:: jinja
 
     {% extends 'adminlte2/components/sidebar.html' %}
+
+    {% load adminlte2_tags %}
 
     {% block sidebar_items %}
         <li class="treeview {% add_active 'layouts:index' %}">
