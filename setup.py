@@ -22,7 +22,7 @@ setup(
     author_email='josemari.manio@outlook.com',
     license='MIT',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.2',
