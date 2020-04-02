@@ -240,9 +240,9 @@ Templates
 
     .. code:: jinja
 
-        {% block control_sidebar %}
+        {% block control_template %}
             {% include 'adminlte2/components/control.html %}
-        {% endblock control_sidebar %}
+        {% endblock control_template %}
 
 
 .. data:: footer_template
@@ -266,51 +266,51 @@ Content
 
     AdminLTE 2 page content code.
 
-
-.. data:: content_wrapper
-    :noindex:
-
-    Page content ``<div class="content-wrapper">`` code.
-
     Default:
 
     .. code:: jinja
 
         {% block content_template %}
-            <div class="content-wrapper">
-                {% block content_wrapper %}
-                    {% block no_content_header %}
-                        <section class="content-header">
-                            {% block content_header %}
-                                {% block no_page_title %}
-                                    <h1>
-                                        {% block page_title %}{% endblock page_title %}
-                                        <small>{% block page_description %}{% endblock page_description %}</small>
-                                    </h1>
-                                {% endblock no_page_title %}
+                <div class="content-wrapper">
+                    {% block content_wrapper %}
+                        {% block no_content_header %}
+                            <section class="content-header">
+                                {% block content_header %}
+                                    {% block no_page_title %}
+                                        <h1>
+                                            {% block page_title %}{% endblock page_title %}
+                                            <small>{% block page_description %}{% endblock page_description %}</small>
+                                        </h1>
+                                    {% endblock no_page_title %}
 
-                                {% block no_breadcrumbs %}
-                                    <ol class="breadcrumb">
-                                        {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                    </ol>
-                                {% endblock no_breadcrumbs %}
-                            {% endblock content_header %}
-                        </section>
-                    {% endblock no_content_header %}
+                                    {% block no_breadcrumbs %}
+                                        <ol class="breadcrumb">
+                                            {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                        </ol>
+                                    {% endblock no_breadcrumbs %}
+                                {% endblock content_header %}
+                            </section>
+                        {% endblock no_content_header %}
 
-                    {% block content_body %}
-                        <section class="content">
-                            {% block messages_template %}
-                                {% include 'adminlte2/components/messages.html' %}
-                            {% endblock messages_template %}
+                        {% block content_body %}
+                            <section class="content">
+                                {% block messages_template %}
+                                    {% include 'adminlte2/components/messages.html' %}
+                                {% endblock messages_template %}
 
-                            {% block content %}
-                            {% endblock content %}
-                        </section>
-                    {% endblock content_body %}
-                {% endblock content_wrapper %}
-            </div>
-        {% endblock content_template %}
+                                {% block content %}
+                                {% endblock content %}
+                            </section>
+                        {% endblock content_body %}
+                    {% endblock content_wrapper %}
+                </div>
+            {% endblock content_template %}
+
+
+.. data:: content_wrapper
+    :noindex:
+
+    Page content ``<div class="content-wrapper">`` code.
 
 
 .. data:: content_header
