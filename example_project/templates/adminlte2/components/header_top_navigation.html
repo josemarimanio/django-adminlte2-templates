@@ -1,0 +1,43 @@
+{% extends 'adminlte2/components/header_top_navigation.html' %}
+
+{% load adminlte2_tags %}
+
+{% block header_items %}
+    {#  Layouts  #}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Layouts &nbsp;<i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            {#  Boxed  #}
+            <li>
+                <a href="{% url 'layouts:boxed' %}">Boxed</a>
+            </li>
+
+            {#  Collapsed  #}
+            <li>
+                <a href="{% url 'layouts:collapsed' %}">Collapsed</a>
+            </li>
+
+            {#  Fixed  #}
+            <li>
+                <a href="{% url 'layouts:fixed' %}">Fixed</a>
+            </li>
+
+            {#  Login  #}
+            <li>
+                <a href="{% url 'layouts:login' %}">Login</a>
+            </li>
+
+            {#  Register  #}
+            <li>
+                <a href="{% url 'layouts:register' %}">Register</a>
+            </li>
+
+            {#  Top Navigation  #}
+            <li class="{% add_active 'layouts:top_nav' %}">
+                <a href="{% url 'layouts:top_nav' %}">Top Navigation</a>
+            </li>
+        </ul>
+    </li>
+{% endblock header_items %}

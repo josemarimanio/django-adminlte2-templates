@@ -1,0 +1,16 @@
+{% extends 'adminlte2/layouts/fixed.html' %}
+
+{% block title %}Fixed Layout{% endblock title %}
+
+{% block page_title %}Fixed Layout{% endblock page_title %}
+
+{% block page_description %}AdminLTE 2 template for <i>fixed</i> layout option{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'layouts:index' %}">Layouts</a></li>
+    <li><a href="{% url 'layouts:fixed' %}">Fixed</a></li>
+{% endblock breadcrumbs %}
+
+{% block content %}
+    {% include 'layouts/_common_content.html' %}
+{% endblock content %}

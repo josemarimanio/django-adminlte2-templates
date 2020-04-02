@@ -1,0 +1,17 @@
+{% extends 'adminlte2/layouts/fixed.html' %}
+
+{% load adminlte2_tags %}
+
+{% block title %}Layouts{% endblock title %}
+
+{% block page_title %}Layouts{% endblock page_title %}
+
+{% block page_description %}AdminLTE 2 templates for Django{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'layouts:index' %}">Layouts</a></li>
+{% endblock breadcrumbs %}
+
+{% block content %}
+    {% include 'layouts/_common_content.html' %}
+{% endblock content %}

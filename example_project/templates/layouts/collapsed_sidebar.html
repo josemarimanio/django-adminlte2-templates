@@ -1,0 +1,16 @@
+{% extends 'adminlte2/layouts/collapsed_sidebar.html' %}
+
+{% block title %}Collapsed Sidebar Layout{% endblock title %}
+
+{% block page_title %}Collapsed Sidebar Layout{% endblock page_title %}
+
+{% block page_description %}AdminLTE 2 template for <i>collapsed sidebar</i> layout option{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'layouts:index' %}">Layouts</a></li>
+    <li><a href="{% url 'layouts:collapsed' %}">Collapsed Sidebar</a></li>
+{% endblock breadcrumbs %}
+
+{% block content %}
+    {% include 'layouts/_common_content.html' %}
+{% endblock content %}

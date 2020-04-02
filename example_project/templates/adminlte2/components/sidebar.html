@@ -1,0 +1,48 @@
+{% extends 'adminlte2/components/sidebar.html' %}
+
+{% load adminlte2_tags %}
+
+{% block sidebar_items %}
+
+    {#  Layouts  #}
+    <li class="treeview {% add_active 'layouts:index' %}">
+        <a href="#">
+            <i class="fa fa-circle"></i> <span>Layouts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+
+            {#  Boxed  #}
+            <li class="{% add_active 'layouts:boxed' %}">
+                <a href="{% url 'layouts:boxed' %}"><i class="fa fa-circle-o"></i> Boxed</a>
+            </li>
+
+            {#  Collapsed  #}
+            <li class="{% add_active 'layouts:collapsed' %}">
+                <a href="{% url 'layouts:collapsed' %}"><i class="fa fa-circle-o"></i> Collapsed</a>
+            </li>
+
+            {#  Fixed  #}
+            <li class="{% add_active 'layouts:fixed' %}">
+                <a href="{% url 'layouts:fixed' %}"><i class="fa fa-circle-o"></i> Fixed</a>
+            </li>
+
+            {#  Login  #}
+            <li class="{% add_active 'layouts:login' %}">
+                <a href="{% url 'layouts:login' %}"><i class="fa fa-circle-o"></i> Login</a>
+            </li>
+
+            {#  Register  #}
+            <li class="{% add_active 'layouts:register' %}">
+                <a href="{% url 'layouts:register' %}"><i class="fa fa-circle-o"></i> Register</a>
+            </li>
+
+            {#  Top Navigation  #}
+            <li>
+                <a href="{% url 'layouts:top_nav' %}"><i class="fa fa-circle-o"></i> Top Navigation</a>
+            </li>
+        </ul>
+    </li>
+{% endblock sidebar_items %}
