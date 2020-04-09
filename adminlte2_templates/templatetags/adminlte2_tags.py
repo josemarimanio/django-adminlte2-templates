@@ -1,5 +1,11 @@
 from django import template
-from django.shortcuts import reverse
+
+try:
+    # Supports >=Django 2.0
+    from django.shortcuts import reverse
+except ModuleNotFoundError:
+    # Supports <=Django 1.1
+    from django.core.urlresolvers import reverse
 
 register = template.Library()
 
