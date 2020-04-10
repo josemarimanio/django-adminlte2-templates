@@ -56,3 +56,25 @@ def add_active(context, url_pattern, *args, **kwargs):
         return ' active '
     else:
         return ''
+
+
+@register.filter
+def add_class(field, class_name):
+    """
+    Add class names to a form field
+
+    Based on a StackOverflow answer:
+     https://stackoverflow.com/a/27284041
+
+        :param field: Django Form element
+        :type field: django.forms.boundfield.BoundField
+
+        :param class_name: HTML class name value
+        :type class_name: django.utils.safestring.SafeString
+
+        :return: Rendered Django Form element with newly-added class name values
+        :rtype: django.utils.safestring.SafeString
+    """
+    return field.as_widget(attrs={
+        "class": " ".join((field.css_classes(), class_name))
+    })
