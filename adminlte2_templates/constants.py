@@ -1,8 +1,8 @@
-ADMINLTE_HTML_LANG = 'en'
+ADMINLTE_HTML_LANG = 'en-us'
 """
     *(str)* HTML 'lang' attribute value.
     
-    Defaults to ``'en'``
+    Defaults to ``'en-us'``
 """
 
 ADMINLTE_USE_SHIM = False

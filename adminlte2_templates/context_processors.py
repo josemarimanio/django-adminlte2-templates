@@ -22,7 +22,7 @@ def template(request):
         #
         # HTML 'lang' attribute value
         #
-        'ADMINLTE_HTML_LANG': _get_context('ADMINLTE_HTML_LANG'),
+        'ADMINLTE_HTML_LANG': _get_context('ADMINLTE_HTML_LANG', django_setting='LANGUAGE_CODE'),
 
         #
         # Skin style color. Valid values are:
@@ -67,3 +67,4 @@ def template(request):
     }
 
     return context
+    
