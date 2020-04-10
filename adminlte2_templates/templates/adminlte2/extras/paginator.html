@@ -1,0 +1,33 @@
+<ul class="pagination">
+    {% if show_first %}
+        <li><a href="?page=1">
+            First
+        </a></li>
+    {% endif %}
+
+    {% if has_previous %}
+        <li><a href="?page={{ previous }}">
+            <i class="fa fa-caret-left"></i>
+        </a></li>
+    {% endif %}
+
+    {% for linkpage in page_numbers %}
+        {% ifequal linkpage current_page %}
+            <li class="active"><a href="?page={{ linkpage }}">{{ current_page }}</a></li>
+        {% else %}
+            <li><a href="?page={{ linkpage }}">{{ linkpage }}</a></li>
+        {% endifequal %}
+    {% endfor %}
+
+    {% if has_next %}
+        <li><a href="?page={{ next_page }}">
+            <i class="fa fa-caret-right"></i>
+        </a></li>
+    {% endif %}
+
+    {% if show_last %}
+        <li><a href="?page=last">
+            Last
+        </a></li>
+    {% endif %}
+</ul>

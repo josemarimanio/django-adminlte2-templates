@@ -78,3 +78,42 @@ def add_class(field, class_name):
     return field.as_widget(attrs={
         "class": " ".join((field.css_classes(), class_name))
     })
+
+
+@register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
+def paginator(context, adjacent_pages=2):
+    """
+    Adds pagination context variables for use in displaying first, adjacent and last page links in addition
+    to those created by the object_list generic view.
+
+    Based on:
+     http://www.djangosnippets.org/snippets/73/
+     http://www.tummy.com/Community/Articles/django-pagination/
+    """
+    page_obj = context['page_obj']
+    paginator = context['paginator']
+    current_page = page_obj.number
+    number_of_pages = paginator.num_pages
+
+    start_page = max(current_page - adjacent_pages, 1)
+    if start_page <= 3:
+        start_page = 1
+
+    end_page = current_page + adjacent_pages + 1
+    if end_page > number_of_pages:
+        end_page = number_of_pages + 1
+
+    page_numbers = [n for n in range(start_page, end_page) if 0 < n <= number_of_pages]
+
+    return {
+        'page_obj': page_obj,
+        'paginator': paginator,
+        'current_page': current_page,
+        'last_page': number_of_pages,
+        'page_numbers': page_numbers,
+        'has_previous': page_obj.has_previous(),
+        'has_next': page_obj.has_next(),
+        'next_page': page_obj.next_page_number,
+        'show_first': 1 != current_page,
+        'show_last': number_of_pages != current_page,
+    }
