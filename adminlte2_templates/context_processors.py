@@ -2,12 +2,12 @@ from django.conf import settings
 from adminlte2_templates import constants
 
 
-def _get_context(context):
+def _get_context(context, django_setting=None):
     """
         Return the context from Django settings.
         If no context is found, get default value from module constants
     """
-    return getattr(settings, context, getattr(constants, context))
+    return getattr(settings, django_setting if django_setting else context, getattr(constants, context))
 
 
 def template(request):
