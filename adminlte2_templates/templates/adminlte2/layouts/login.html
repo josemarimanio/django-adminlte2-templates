@@ -1,5 +1,9 @@
 {% extends 'adminlte2/base.html' %}
 
+{% load adminlte2_tags %}
+
+{% block title %}Login{% endblock title %}
+
 {% block body_class %}hold-transition login-page{% endblock body_class %}
 
 {% block body %}
@@ -27,7 +31,21 @@
             {% block login_form %}
                 <form method="POST">
                     {% csrf_token %}
-                    {{ form }}
+                    <div class="text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% for field in form %}
+                        <div class="form-group {% if field.errors %}has-error{% endif %}">
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            {{ field|add_class:'form-control' }}
+                            {% if field.help_text %}
+                                <p class="help-block">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <button class="btn btn-default" type="reset">Clear</button>
                 </form>
             {% endblock login_form %}
 
@@ -38,7 +56,6 @@
 
             {% block login_links %}
             {% endblock login_links %}
-
         </div>
     {% endblock login_content %}
 </div>
