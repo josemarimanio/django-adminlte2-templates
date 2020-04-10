@@ -34,13 +34,19 @@
                     {% if next %}
                         <input type="hidden" name="next" value="{{ next }}">
                     {% endif %}
-                    <div class="text-danger">
-                        {{ form.non_field_errors }}
-                    </div>
+                    {% if form.non_field_errors %}
+                        <div class="text-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
                     {% for field in form %}
                         <div class="form-group {% if field.errors %}has-error{% endif %}">
-                            {{ field.errors }}
                             {{ field.label_tag }}
+                            {% if field.errors %}
+                                <div class="text-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
                             {{ field|add_class:'form-control' }}
                             {% if field.help_text %}
                                 <p class="help-block">{{ field.help_text|safe }}</p>
