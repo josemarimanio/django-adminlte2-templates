@@ -3,7 +3,7 @@ from django import template
 try:
     # Supports >=Django 2.0
     from django.shortcuts import reverse
-except ModuleNotFoundError:
+except ImportError:
     # Supports <=Django 1.1
     from django.core.urlresolvers import reverse
 
