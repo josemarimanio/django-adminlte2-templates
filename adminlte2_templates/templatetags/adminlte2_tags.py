@@ -18,8 +18,8 @@ def add_active(context, url_pattern, *args, **kwargs):
     Based on django-adminlte2 templatetags
      https://github.com/adamcharnock/django-adminlte2/tree/master/django_adminlte/templatetags.
 
-        :param context: Current context
-        :type context: obj
+        :param context: Current page context
+        :type context: django.template.context.RequestContext
 
         :param url_pattern: URL pattern for ``reverse`` matching
         :type url_pattern: str
@@ -89,6 +89,27 @@ def paginator(context, adjacent_pages=2):
     Based on:
      http://www.djangosnippets.org/snippets/73/
      http://www.tummy.com/Community/Articles/django-pagination/
+
+        :param context: Current page context
+        :type context: django.template.context.RequestContext
+
+        :param adjacent_pages: Adjacent page links to current page link, defaults to 2
+        :type adjacent_pages: int, optional
+
+        :return: Paginator page context:
+
+            * page_obj     - paginated list objects
+            * paginator    - paginator object
+            * current_page - current page number
+            * last_page    - last page number
+            * page_numbers - total number of pages
+            * has_prev     - toggle to show previous page link
+            * has_next     - toggle to show next page link
+            * prev_page    - previous page number
+            * next_page    - next page number
+            * show_first   - toggle to show first page link
+            * show_last    - toggle to show last page link
+        :rtype: dict
     """
     page_obj = context['page_obj']
     paginator = context['paginator']
@@ -111,8 +132,9 @@ def paginator(context, adjacent_pages=2):
         'current_page': current_page,
         'last_page': number_of_pages,
         'page_numbers': page_numbers,
-        'has_previous': page_obj.has_previous(),
+        'has_prev': page_obj.has_previous(),
         'has_next': page_obj.has_next(),
+        'prev_page': page_obj.previous_page_number,
         'next_page': page_obj.next_page_number,
         'show_first': 1 != current_page,
         'show_last': number_of_pages != current_page,
