@@ -1,3 +1,12 @@
+from hashlib import md5
+
+try:
+    # Python 3
+    from urllib.parse import urlencode
+except ImportError:
+    # Python 2.7
+    from urllib import urlencode
+
 from django import template
 
 try:
@@ -6,6 +15,8 @@ try:
 except ImportError:
     # Supports <=Django 1.1
     from django.core.urlresolvers import reverse
+
+from adminlte2_templates.core import get_settings
 
 register = template.Library()
 
@@ -78,6 +89,65 @@ def add_class(field, class_name):
     return field.as_widget(attrs={
         "class": " ".join((field.css_classes(), class_name))
     })
+
+
+@register.simple_tag(takes_context=True)
+def gravatar_url(context, user=None, size=None, default=None, force=False, rating=None):
+    """
+    Generate a Gravatar image URL based on the current user
+
+    Based on:
+     https://github.com/adamcharnock/django-adminlte2/tree/master/django_adminlte/templatetags.
+
+    References:
+     https://en.gravatar.com/site/implement/images/
+     https://en.gravatar.com/site/implement/images/python/
+
+    :param context: Current page context
+    :type context: django.template.context.RequestContext
+
+    :param user: User object, defaults to None (uses User object from context)
+    :type user: django.contrib.auth.models.User, optional
+
+    :param size: Image size. You may request images anywhere from 1px up to 2048px. Defaults to 80.
+    :type size: int, optional
+
+    :param default: Default image. Available options are:
+        * <url>: Image URL path
+        * 404: do not load any image if none is associated with the email hash, instead return an HTTP 404 response
+        * mp: a simple, cartoon-style silhouetted outline of a person (does not vary by email hash)
+        * identicon: a geometric pattern based on an email hash
+        * monsterid: a generated 'monster' with different colors, faces, etc
+        * wavatar: generated faces with differing features and backgrounds
+        * retro: awesome generated, 8-bit arcade-style pixelated faces
+        * robohash: a generated robot with different colors, faces, etc
+        * blank: a transparent PNG image
+    :type default: str, optional
+
+    :param force: Toggle to force load default image, defaults to False
+    :type force: bool, optional
+
+    :param rating: Image rating:
+        * g: suitable for display on all websites with any audience type
+        * pg: may contain rude gestures, provocatively dressed individuals, the lesser swear words, or mild violence
+        * r: may contain such things as harsh profanity, intense violence, nudity, or hard drug use
+        * x: may contain hardcore sexual imagery or extremely disturbing violence
+    :type rating: str, optional
+
+    :return: Gravatar image URL string
+    :rtype: str
+    """
+    user = context['request'].user if not user else user
+    params = urlencode({
+        's': size or get_settings('ADMINLTE_GRAVATAR_SIZE'),
+        'd': default or get_settings('ADMINLTE_GRAVATAR_DEFAULT'),
+        'r': rating or get_settings('ADMINLTE_GRAVATAR_RATING'),
+        'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force else '',
+    })
+    return 'https://www.gravatar.com/avatar/{hash}?{params}'.format(
+        hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated() else '',
+        params=params,
+    )
 
 
 @register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
