@@ -151,7 +151,7 @@ def gravatar_url(context, user=None, size=None, default=None, force=False, ratin
 
 
 @register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
-def paginator(context, adjacent_pages=2):
+def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
     """
     Adds pagination context variables for use in displaying first, adjacent and last page links in addition
     to those created by the object_list generic view.
@@ -165,6 +165,13 @@ def paginator(context, adjacent_pages=2):
 
         :param adjacent_pages: Adjacent page links to current page link, defaults to 2
         :type adjacent_pages: int, optional
+
+        :param align: Element alignment. Valid values are ``left``, ``right``, ``center``, ``initial``.
+            Defaults to ``initial``
+        :type align: str, optional
+
+        :param no_margin: Toggle to remove margin around element, defaults to ``False``.
+        :type no_margin: bool, optional
 
         :return: Paginator page context:
 
@@ -185,6 +192,18 @@ def paginator(context, adjacent_pages=2):
     paginator = context['paginator']
     current_page = page_obj.number
     number_of_pages = paginator.num_pages
+
+    if align is not 'initial':
+        if align == 'center':
+            align = 'text-center'
+        elif align == 'left':
+            align = 'pull-left'
+        elif align == 'right':
+            align = 'pull-right'
+        else:
+            align = ''
+    else:
+        align = ''
 
     start_page = max(current_page - adjacent_pages, 1)
     if start_page <= 3:
@@ -208,4 +227,6 @@ def paginator(context, adjacent_pages=2):
         'next_page': page_obj.next_page_number,
         'show_first': 1 != current_page,
         'show_last': number_of_pages != current_page,
+        'align': align,
+        'no_margin': no_margin,
     }
