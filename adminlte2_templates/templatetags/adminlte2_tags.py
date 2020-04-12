@@ -145,7 +145,7 @@ def gravatar_url(context, user=None, size=None, default=None, force=False, ratin
         'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force else '',
     })
     return 'https://www.gravatar.com/avatar/{hash}?{params}'.format(
-        hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated() else '',
+        hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',
         params=params,
     )
 
