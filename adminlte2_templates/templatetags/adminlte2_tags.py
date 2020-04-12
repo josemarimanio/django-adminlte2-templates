@@ -92,7 +92,7 @@ def add_class(field, class_name):
 
 
 @register.simple_tag(takes_context=True)
-def gravatar_url(context, user=None, size=None, default=None, force=False, rating=None):
+def gravatar_url(context, user=None, size=None, default=None, force_default=False, rating=None):
     """
     Generate a Gravatar image URL based on the current user
 
@@ -124,8 +124,8 @@ def gravatar_url(context, user=None, size=None, default=None, force=False, ratin
         * blank: a transparent PNG image
     :type default: str, optional
 
-    :param force: Toggle to force load default image, defaults to False
-    :type force: bool, optional
+    :param force_default: Toggle to force load default image, defaults to False
+    :type force_default: bool, optional
 
     :param rating: Image rating:
         * g: suitable for display on all websites with any audience type
@@ -142,7 +142,7 @@ def gravatar_url(context, user=None, size=None, default=None, force=False, ratin
         's': size or get_settings('ADMINLTE_GRAVATAR_SIZE'),
         'd': default or get_settings('ADMINLTE_GRAVATAR_DEFAULT'),
         'r': rating or get_settings('ADMINLTE_GRAVATAR_RATING'),
-        'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force else '',
+        'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force_default else '',
     })
     return 'https://www.gravatar.com/avatar/{hash}?{params}'.format(
         hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',
