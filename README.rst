@@ -2,6 +2,9 @@
 .. image:: https://img.shields.io/pypi/status/django-adminlte2-templates
     :target: https://pypi.org/project/django-adminlte2-templates
 
+.. image:: https://img.shields.io/pypi/v/django-adminlte2-templates
+    :target: https://pypi.org/project/django-adminlte2-templates
+
 .. image:: https://readthedocs.org/projects/django-adminlte2-templates/badge/?version=latest
     :target: https://django-adminlte2-templates.readthedocs.io/en/latest
 
