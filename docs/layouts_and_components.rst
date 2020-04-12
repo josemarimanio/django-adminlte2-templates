@@ -103,7 +103,7 @@ Components
 Shortcuts
 ---------
 
-**django-adminlte2-templates** provides shortcuts for some commonly-used layout template modifications:
+**django-adminlte2-templates** provides shortcuts to some commonly-used layout template modifications:
 
 
 .. data:: adminlte2/shortcuts/barebones/*
@@ -132,3 +132,12 @@ Shortcuts
 
     Remove footer for
     ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
+
+
+Extras
+------
+
+.. data:: adminlte2/extras/paginator.html
+    :noindex:
+
+    Layout template file for template tag ``{% paginator %}``. Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.html#tags>`_ section for more information on ``{% paginator %}``.

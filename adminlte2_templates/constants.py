@@ -161,25 +161,26 @@ ADMINLTE_GRAVATAR_SIZE = 80
 """
     *(int)* Default Gravatar image size.
     
-    You may request images anywhere from ``1``px up to ``2048``px, however note that many users have lower 
+    You may request images anywhere from ``1`` up to ``2048``, however note that many users have lower 
     resolution images, so requesting larger sizes may result in pixelation/low-quality images.
 
-    Defaults to ``80`` (80x80). 
+    Defaults to ``80``. 
 """
 
 ADMINLTE_GRAVATAR_DEFAULT = 'mp'
 """
-    *(str)* Default Gravatar image.
+    *(str)* Default Gravatar image to load.
     
     You can supply your own default image by supplying the URL to an image. Alternatively, you can use any of these
-    valid values: ``404``, ``mp``, ``identicon``, ``monsterid``, ``wavatar``, ``retro``, ``robohash``, ``blank``.
+    valid values: ``'404'``, ``'mp'``, ``'identicon'``, ``'monsterid'``, ``'wavatar'``, ``'retro'``, 
+    ``'robohash'``, ``'blank'``.
     
     Defaults to ``'mp'``.
 """
 
 ADMINLTE_GRAVATAR_FORCE_DEFAULT = False
 """
-    *(bool)* Force load the default Gravatar image
+    *(bool)* Toggle to force load the default Gravatar image.
     
     Defaults to ``False``.
 """
@@ -188,7 +189,7 @@ ADMINLTE_GRAVATAR_RATING = 'pg'
 """
     *(str)* Gravatar image rating.
     
-    Valid values are: ``g``, ``pg``, ``r``, ``x``.
+    Valid values are: ``'g'``, ``'pg'``, ``'r'``, ``'x'``.
     
     Defaults to ``'pg'``.
 """
