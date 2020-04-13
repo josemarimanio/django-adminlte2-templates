@@ -120,7 +120,7 @@ Shortcuts
     ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
 
 
-.. data:: adminlte2/shortcuts/no_breadcrumb/*
+.. data:: adminlte2/shortcuts/no_breadcrumbs/*
     :noindex:
 
     Remove breadcrumb navigation for
