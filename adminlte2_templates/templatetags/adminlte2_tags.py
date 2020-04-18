@@ -8,9 +8,14 @@ except ImportError:
     from urllib import urlencode
 
 from django import template
-from django.contrib.sites.models import Site
-from django.contrib.sites.shortcuts import get_current_site
 from django.core.exceptions import ImproperlyConfigured
+
+try:
+    # {% page_title %} Django 'sites' framework support
+    from django.contrib.sites.models import Site
+    from django.contrib.sites.shortcuts import get_current_site
+except RuntimeError:
+    pass
 
 try:
     # Supports >=Django 2.0
@@ -264,15 +269,14 @@ def page_title(context, page_name=''):
         pass
 
     try:
-        try:
-            # Get current Site object by SITE_ID
-            current_site = Site.objects.get_current()
-        except ImproperlyConfigured:
-            # Else, get based on current page context
-            current_site = get_current_site(context['request'])
-        site_name = current_site.name
-    except Site.DoesNotExist:
+        # Get current Site object by SITE_ID
+        site_name = Site.objects.get_current().name
+    except NameError:
+        # If 'sites' is not enabled, get value from settings.py
         site_name = get_settings('ADMINLTE_TITLE_SITE')
+    except (ImproperlyConfigured, Site.DoesNotExist):
+        # Else if an invalid SITE_ID is provided, get value from current page context
+        site_name = get_current_site(context['request']).name
 
     params = {
         'site': site_name,
