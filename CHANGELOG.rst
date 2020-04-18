@@ -1,7 +1,15 @@
-
 ========================================
 Changelog for django-adminlte2-templates
 ========================================
+
+
+1.2.0 (Apr-19-2020)
+-------------------
+
+* Updated ``{% block login_logo_href %}`` and ``{% block register_logo_href %}`` default value to ``/``
+* Updated example Django project ``example_project``
+* Added new ``Shortcuts`` layout template``no_breadcrumbs_footer/*`` that removes footer component and breadcrumb navigation
+* Added new template tag ``{% page_title %}`` that generates text for HTML ``<title>``
 
 
 1.1.0 (Apr-13-2020)
