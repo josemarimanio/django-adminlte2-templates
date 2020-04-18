@@ -41,3 +41,16 @@ Add ``adminlte2_templates.context_processors.template`` to ``context_processors`
                 ],
             ...
     ]
+
+
+Static files
+------------
+
+This module provides static files for the following client-side libraries out-of-the-box:
+
+- AdminLTE 2.4.18 (``static/adminlte2/adminlte-2.4.18``)
+- Bootstrap 3.4.1 (``static/adminlte2/bootstrap-3.4.1``)
+- Font Awesome 4.7.0 (``static/adminlte2/fontawesome-4.7.0``)
+- HTML5Shiv 3.7.3 (``static/adminlte2/html5shiv-3.7.3``)
+- jQuery 3.4.1 (``static/adminlte2/jquery-3.4.1``)
+- Respond.js 1.4.2 (``static/adminlte2/respond-1.4.2``)
