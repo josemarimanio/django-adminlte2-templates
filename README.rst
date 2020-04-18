@@ -65,10 +65,21 @@ Add ``adminlte2_templates.context_processors.template`` to ``context_processors`
     ]
 
 
+
+This module provides static files for the following client-side libraries out-of-the-box:
+
+- AdminLTE 2.4.18 (``static/adminlte2/adminlte-2.4.18``)
+- Bootstrap 3.4.1 (``static/adminlte2/bootstrap-3.4.1``)
+- Font Awesome 4.7.0 (``static/adminlte2/fontawesome-4.7.0``)
+- HTML5Shiv 3.7.3 (``static/adminlte2/html5shiv-3.7.3``)
+- jQuery 3.4.1 (``static/adminlte2/jquery-3.4.1``)
+- Respond.js 1.4.2 (``static/adminlte2/respond-1.4.2``)
+
+
 Quickstart
 ----------
 
-Head to the `Quickstart <https://django-adminlte2-templates.readthedocs.io/en/latest/quickstart.html>`_ section of the documentation online for an example of the usage of **django-adminlte2-templates**.
+Head to the `Quickstart <https://django-adminlte2-templates.readthedocs.io/en/latest/quickstart.html>`_ section of the documentation online for an example usage of **django-adminlte2-templates**.
 
 Also, an example Django project ``example_project`` is included in the module for your reference.
 
