@@ -1,8 +1,7 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import FormView
 from django.views.generic import TemplateView
-
-from .forms import LoginForm
-from .forms import RegisterForm
 
 
 class IndexView(TemplateView):
@@ -27,9 +26,9 @@ class TopNavigationView(TemplateView):
 
 class LoginView(FormView):
     template_name = 'layouts/login.html'
-    form_class = LoginForm
+    form_class = AuthenticationForm
 
 
 class RegisterView(FormView):
     template_name = 'layouts/register.html'
-    form_class = RegisterForm
+    form_class = UserCreationForm

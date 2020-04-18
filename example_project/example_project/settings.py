@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'layouts.apps.LayoutsConfig',
 
     'adminlte2_templates',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +120,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#
+#   Default AdminLTE skin style.
+#
+#   Valid values are: 'skin-black', 'skin-black-light', 'skin-blue', 'skin-blue-light', 'skin-green',
+#   'skin-green-light', 'skin-purple', 'skin-purple-light', 'skin-red', 'skin-red-light',
+#   'skin-yellow', 'skin-yellow-light'.
+#
+#   Defaults to 'skin-blue'.
+#
 ADMINLTE_SKIN_STYLE = 'skin-yellow-light'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+#
+#   Page title site name text.
+#
+#   Defaults to 'AdminLTE'.
+#
+ADMINLTE_TITLE_SITE = 'django-adminlte2-templates'

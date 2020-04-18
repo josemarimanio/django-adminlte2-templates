@@ -1,6 +1,4 @@
 {% extends 'adminlte2/layouts/login.html' %}
-{% load crispy_forms_tags %}
+{% load adminlte2_tags %}
 
-{% block login_form %}
-    {% crispy form %}
-{% endblock login_form %}
+{% block title %}{% page_title 'Login' %}{% endblock title %}

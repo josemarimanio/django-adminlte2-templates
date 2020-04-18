@@ -1,7 +1,4 @@
 {% extends 'adminlte2/layouts/register.html' %}
+{% load adminlte2_tags %}
 
-{% load crispy_forms_tags %}
-
-{% block register_form %}
-    {% crispy form %}
-{% endblock register_form %}
+{% block title %}{% page_title 'Register' %}{% endblock title %}
