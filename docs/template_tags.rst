@@ -76,7 +76,7 @@ Tags
     Generates an HTML code block for ListView pagination. HTML code output is based on template layout ``adminlte2/extras/paginator.html``.
 
     You can customize the output by overriding the aforementioned layout and using the template blocks related to this tag.
-    Please check the `Template Blocks <template_blocks.html>`_ > `Paginator <template_blocks.html#paginator>`_ section for more information.
+    Please check the `Template Blocks <template_blocks.html>`_ > `Extras <template_blocks.html#extras>`_ > `Paginator <template_blocks.html#paginator>`_ section for more information.
 
     **Parameters**:
 

@@ -165,4 +165,7 @@ Extras
     :noindex:
 
     Layout template file for template tag ``{% paginator %}``.
+
     Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.html#tags>`_ section for more information on ``{% paginator %}``.
+    You may also check the `Template Blocks <template_blocks.html>`_ > `Extras <template_blocks.html#extras>`_ > `Paginator <template_blocks.html#paginator>`_ section
+    for more information on the available template blocks that can be used to customize this template.
