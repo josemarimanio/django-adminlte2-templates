@@ -74,3 +74,22 @@ Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.ht
 
 .. autodata:: adminlte2_templates.constants.ADMINLTE_GRAVATAR_RATING
     :annotation:
+
+
+Page Title
+----------
+
+Settings to customize template tag ``{% page_title %}`` output.
+Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.html#tags>`_ section for more information on ``{% page_title %}``.
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_TITLE_FORMAT
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_TITLE_FORMAT_PAGINATION
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_TITLE_SITE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_TITLE_DIVIDER
+    :annotation:

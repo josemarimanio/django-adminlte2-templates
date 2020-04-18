@@ -6,7 +6,6 @@ Layouts and Components
 Layouts
 -------
 
-
 .. data:: adminlte2/base.html
     :noindex:
 
@@ -69,11 +68,17 @@ Components
 
     Sidebar navigation template.
 
+    Please check the `Template Blocks <template_blocks.html>`_  > `Layouts <template_blocks.html#layouts>`_ > `Sidebar <template_blocks.html#sidebar>`_ section
+    for more information on the available template blocks that can be used to customize this component.
+
 
 .. data:: adminlte2/components/control.html
     :noindex:
 
     Control navigation template.
+
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Control <template_blocks.html#control>`_ section
+    for more information on the available template blocks that can be used to customize this component.
 
 
 .. data:: adminlte2/components/header.html
@@ -81,11 +86,17 @@ Components
 
     Header navigation bar template for *boxed*, *collapsed sidebar*, and *fixed* layout options.
 
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Header <template_blocks.html#header>`_ section
+    for more information on the available template blocks that can be used to customize this component.
+
 
 .. data:: adminlte2/components/header_top_navigation.html
     :noindex:
 
     Header navigation bar template for *top navigation* layout option.
+
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Header <template_blocks.html#header>`_ section
+    for more information on the available template blocks that can be used to customize this component.
 
 
 .. data:: adminlte2/components/messages.html
@@ -93,11 +104,17 @@ Components
 
     *Django Messages* alert box template.
 
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Messages <template_blocks.html#header>`_ section
+    for more information on the available template blocks that can be used to customize this component.
+
 
 .. data:: adminlte2/components/footer.html
     :noindex:
 
     Footer template.
+
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Footer <template_blocks.html#footer>`_ section
+    for more information on the available template blocks that can be used to customize this component.
 
 
 Shortcuts
@@ -134,10 +151,18 @@ Shortcuts
     ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
 
 
+.. data:: adminlte2/shortcuts/no_breadcrumbs_footer/*
+    :noindex:
+
+    Remove footer and breadcrumb navigation for
+    ``boxed.html``, ``collapsed_sidebar.html``, ``fixed.html``, and ``top_navigation.html``.
+
+
 Extras
 ------
 
 .. data:: adminlte2/extras/paginator.html
     :noindex:
 
-    Layout template file for template tag ``{% paginator %}``. Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.html#tags>`_ section for more information on ``{% paginator %}``.
+    Layout template file for template tag ``{% paginator %}``.
+    Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.html#tags>`_ section for more information on ``{% paginator %}``.

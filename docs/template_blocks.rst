@@ -6,8 +6,6 @@ Template Blocks
 General
 -------
 
-General template blocks:
-
 
 <html> content
 ^^^^^^^^^^^^^^
@@ -21,7 +19,7 @@ General template blocks:
 
     .. code:: jinja
 
-        {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}" {% endblock html_attribute %}
+        <html {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}" {% endblock html_attribute %}>
 
 
 .. data:: html_lang
@@ -151,7 +149,7 @@ General template blocks:
 
     .. code:: jinja
 
-        {% block body_attribute %}class="{% block body_class %}hold-transition {{ ADMINLTE_SKIN_STYLE }}{% endblock body_class %}"{% endblock body_attribute %}
+        <body {% block body_attribute %}class="{% block body_class %}hold-transition {% block skin_style %}{{ ADMINLTE_SKIN_STYLE }}{% endblock skin_style %}{% endblock body_class %}"{% endblock body_attribute %}>
 
 
 .. data:: body_class
@@ -271,40 +269,40 @@ Content
     .. code:: jinja
 
         {% block content_template %}
-                <div class="content-wrapper">
-                    {% block content_wrapper %}
-                        {% block no_content_header %}
-                            <section class="content-header">
-                                {% block content_header %}
-                                    {% block no_page_title %}
-                                        <h1>
-                                            {% block page_title %}{% endblock page_title %}
-                                            <small>{% block page_description %}{% endblock page_description %}</small>
-                                        </h1>
-                                    {% endblock no_page_title %}
+            <div class="content-wrapper">
+                {% block content_wrapper %}
+                    {% block no_content_header %}
+                        <section class="content-header">
+                            {% block content_header %}
+                                {% block no_page_title %}
+                                    <h1>
+                                        {% block page_title %}{% endblock page_title %}
+                                        <small>{% block page_description %}{% endblock page_description %}</small>
+                                    </h1>
+                                {% endblock no_page_title %}
 
-                                    {% block no_breadcrumbs %}
-                                        <ol class="breadcrumb">
-                                            {% block breadcrumbs %}{% endblock breadcrumbs %}
-                                        </ol>
-                                    {% endblock no_breadcrumbs %}
-                                {% endblock content_header %}
-                            </section>
-                        {% endblock no_content_header %}
+                                {% block no_breadcrumbs %}
+                                    <ol class="breadcrumb">
+                                        {% block breadcrumbs %}{% endblock breadcrumbs %}
+                                    </ol>
+                                {% endblock no_breadcrumbs %}
+                            {% endblock content_header %}
+                        </section>
+                    {% endblock no_content_header %}
 
-                        {% block content_body %}
-                            <section class="content">
-                                {% block messages_template %}
-                                    {% include 'adminlte2/components/messages.html' %}
-                                {% endblock messages_template %}
+                    {% block content_body %}
+                        <section class="content">
+                            {% block messages_template %}
+                                {% include 'adminlte2/components/messages.html' %}
+                            {% endblock messages_template %}
 
-                                {% block content %}
-                                {% endblock content %}
-                            </section>
-                        {% endblock content_body %}
-                    {% endblock content_wrapper %}
-                </div>
-            {% endblock content_template %}
+                            {% block content %}
+                            {% endblock content %}
+                        </section>
+                    {% endblock content_body %}
+                {% endblock content_wrapper %}
+            </div>
+        {% endblock content_template %}
 
 
 .. data:: content_wrapper
@@ -453,9 +451,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
     Header logo link URL.
 
-    Default::
-
-        /
+    Defaults to ``/``.
 
 
 .. data:: logo_mini
@@ -465,9 +461,9 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
     Default:
 
-    .. code:: html
+    .. code:: jinja
 
-        <b>A</b>LTE
+        {% block logo_mini %}<b>A</b>LTE{% endblock logo_mini %}
 
 
 .. data:: logo_lg
@@ -477,9 +473,9 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
     Default:
 
-    .. code:: html
+    .. code:: jinja
 
-        <b>Admin</b>LTE
+        {% block logo_lg %}<b>Admin</b>LTE{% endblock logo_lg %}
 
 
 .. data:: header_content
@@ -494,7 +490,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
         {% block header_content %}
             <nav class="navbar navbar-static-top">
                 {% block sidebar_toggle %}
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only">
                             {% block sidebar_toggle_text %}Toggle navigation{% endblock sidebar_toggle_text %}
                         </span>
@@ -573,7 +569,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
     .. code:: jinja
 
         {% block sidebar_toggle %}
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">
                     {% block sidebar_toggle_text %}Toggle navigation{% endblock sidebar_toggle_text %}
                 </span>
@@ -589,9 +585,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
     (*sidebar* only) Sidebar toggle button screenreader text for sidebar (*boxed, collapsed, fixed*) layouts.
 
-    Default::
-
-        Toggle navigation
+    Defaults to ``Toggle navigation``.
 
 
 .. data:: header_toggle
@@ -605,7 +599,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
         {% block header_toggle %}
             <button type="button" class="navbar-toggle collapsed"
-                data-toggle="collapse" data-target="#navbar-collapse">
+                    data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">
                     {% block header_toggle_text %}Toggle navigation{% endblock header_toggle_text %}
                 </span>
@@ -618,9 +612,7 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 
     (*top navigation* only) Responsive toggle button screenreader text for left navigation links.
 
-    Default::
-
-        Toggle navigation
+    Defaults to ``Toggle navigation``.
 
 
 Sidebar
@@ -804,6 +796,8 @@ Footer
 
     Footer left side content.
 
+    Default:
+
     .. code:: jinja
 
         {% block footer_left %}
@@ -817,6 +811,8 @@ Footer
     :noindex:
 
     Footer right side content.
+
+    Default:
 
     .. code:: jinja
 
@@ -870,7 +866,7 @@ Login
 
         {% block login_logo %}
             <div class="login-logo">
-                <a href="{% block login_logo_href %}{% endblock login_logo_href %}">
+                <a href="{% block login_logo_href %}/{% endblock login_logo_href %}">
                     {% block login_logo_text %}
                         <b>Admin</b>LTE
                     {% endblock login_logo_text %}
@@ -884,6 +880,8 @@ Login
 
     Login logo link URL.
 
+    Defaults to ``/``.
+
 
 .. data:: login_logo_text
     :noindex:
@@ -894,7 +892,9 @@ Login
 
     .. code:: html
 
-        <b>Admin</b>LTE
+        {% block login_logo_text %}
+            <b>Admin</b>LTE
+        {% endblock login_logo_text %}
 
 
 .. data:: login_content
@@ -918,7 +918,30 @@ Login
                 {% block login_form %}
                     <form method="POST">
                         {% csrf_token %}
-                        {{ form }}
+                        {% if next %}
+                            <input type="hidden" name="next" value="{{ next }}">
+                        {% endif %}
+                        {% if form.non_field_errors %}
+                            <div class="text-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+                        {% for field in form %}
+                            <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                {{ field.label_tag }}
+                                {% if field.errors %}
+                                    <div class="text-danger">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                                {{ field|add_class:'form-control' }}
+                                {% if field.help_text %}
+                                    <p class="help-block">{{ field.help_text|safe }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-default" type="reset">Clear</button>
                     </form>
                 {% endblock login_form %}
 
@@ -929,7 +952,6 @@ Login
 
                 {% block login_links %}
                 {% endblock login_links %}
-
             </div>
         {% endblock login_content %}
 
@@ -939,22 +961,45 @@ Login
 
     Login page description.
 
-    Default::
-
-        Sign in to start your session
+    Defaults to ``Sign in to start your session``.
 
 
 .. data:: login_form
     :noindex:
 
-    Login form
+    Login form code.
+
+    Default:
 
     .. code:: jinja
 
         {% block login_form %}
             <form method="POST">
                 {% csrf_token %}
-                {{ form }}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
+                {% if form.non_field_errors %}
+                    <div class="text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ field.label_tag }}
+                        {% if field.errors %}
+                            <div class="text-danger">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                        {{ field|add_class:'form-control' }}
+                        {% if field.help_text %}
+                            <p class="help-block">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-default" type="reset">Clear</button>
             </form>
         {% endblock login_form %}
 
@@ -985,7 +1030,7 @@ Register
 
         {% block register_logo %}
             <div class="register-logo">
-                <a href="{% block register_logo_href %}{% endblock register_logo_href %}">
+                <a href="{% block register_logo_href %}/{% endblock register_logo_href %}">
                     {% block register_logo_text %}
                         <b>Admin</b>LTE
                     {% endblock register_logo_text %}
@@ -999,6 +1044,8 @@ Register
 
     Register logo link URL.
 
+    Defaults to ``/``.
+
 
 .. data:: register_logo_text
     :noindex:
@@ -1009,7 +1056,9 @@ Register
 
     .. code:: html
 
-        <b>Admin</b>LTE
+        {% block register_logo_text %}
+            <b>Admin</b>LTE
+        {% endblock register_logo_text %}
 
 
 .. data:: register_content
@@ -1033,7 +1082,27 @@ Register
                 {% block register_form %}
                     <form method="POST">
                         {% csrf_token %}
-                        {{ form }}
+                        {% if form.non_field_errors %}
+                            <div class="text-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+                        {% for field in form %}
+                            <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                {{ field.label_tag }}
+                                {% if field.errors %}
+                                    <div class="text-danger">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                                {{ field|add_class:'form-control' }}
+                                {% if field.help_text %}
+                                    <p class="help-block">{{ field.help_text|safe }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-default" type="reset">Clear</button>
                     </form>
                 {% endblock register_form %}
 
@@ -1044,7 +1113,6 @@ Register
 
                 {% block register_links %}
                 {% endblock register_links %}
-
             </div>
         {% endblock register_content %}
 
@@ -1054,22 +1122,42 @@ Register
 
     Register page description.
 
-    Default::
-
-        Register a new membership
+    Defaults to ``Register a new membership``.
 
 
 .. data:: register_form
     :noindex:
 
-    Register form
+    Register form code.
+
+    Default:
 
     .. code:: jinja
 
         {% block register_form %}
             <form method="POST">
                 {% csrf_token %}
-                {{ form }}
+                {% if form.non_field_errors %}
+                    <div class="text-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="form-group {% if field.errors %}has-error{% endif %}">
+                        {{ field.label_tag }}
+                        {% if field.errors %}
+                            <div class="text-danger">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                        {{ field|add_class:'form-control' }}
+                        {% if field.help_text %}
+                            <p class="help-block">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-default" type="reset">Clear</button>
             </form>
         {% endblock register_form %}
 
