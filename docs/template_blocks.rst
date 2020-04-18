@@ -414,8 +414,11 @@ Content
 Header
 ^^^^^^
 
-django-adminlte2-templates supports header for both  **sidebar** (*boxed, collapsed, fixed*) and
+Template blocks to customize the header component (``adminlte2/components/header.html``, ``adminlte2/components/header_top_navigation.html``).
+
+**django-adminlte2-templates** supports header for both  **sidebar** (*boxed, collapsed, fixed*) and
 **top navigation** layouts:
+
 
 .. data:: logo
     :noindex:
@@ -618,6 +621,9 @@ django-adminlte2-templates supports header for both  **sidebar** (*boxed, collap
 Sidebar
 ^^^^^^^
 
+Template blocks to customize the sidebar component (``adminlte2/components/sidebar.html``):
+
+
 .. data:: sidebar_title
     :noindex:
 
@@ -655,6 +661,9 @@ Sidebar
 Control
 ^^^^^^^
 
+Template blocks to customize the control component (``adminlte2/components/control.html``):
+
+
 .. data:: control_items
     :noindex:
 
@@ -670,7 +679,8 @@ Control
 Messages
 ^^^^^^^^
 
-Django ``messages`` alert boxes.
+Template blocks to customize the Django ``messages`` alert boxes component (``adminlte2/components/messages.html``):
+
 
 .. data:: message_debug
     :noindex:
@@ -764,6 +774,9 @@ Django ``messages`` alert boxes.
 
 Footer
 ^^^^^^
+
+Template blocks to customize the footer component (``adminlte2/components/footer.html``):
+
 
 .. data:: footer_content
     :noindex:
