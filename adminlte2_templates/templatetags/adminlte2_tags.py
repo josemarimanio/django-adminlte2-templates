@@ -243,12 +243,13 @@ def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
 @register.simple_tag(takes_context=True)
 def page_title(context, page_name=''):
     """
-    Generate text for HTML <title>. Supports Django 'sites' framework.
+    Generate text for HTML <title>. Supports Django 'sites' framework and 'ListView' pagination.
 
     :param context: Current page context
     :type context: django.template.context.RequestContext
 
-    :param page_name: Page title text. Gets the value either from context or parameter, defaults to ''.
+    :param page_name: Page title text. Adding 'page_name' to the page context will override this parameter.
+        Defaults to ''.
     :type page_name: str, optional
 
     :return: Title text
