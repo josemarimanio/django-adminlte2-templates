@@ -198,7 +198,28 @@ ADMINLTE_TITLE_FORMAT = '{site} {divider} {page}'
 """
     *(str)* Page title text format.
     
+    Supported string format parameters are:
+    
+    - site - Site name
+    - divider - Divider character between the site name and current page name
+    - page - Current page name
+    
     Defaults to ``'{site} {divider} {page}'``.
+"""
+
+ADMINLTE_TITLE_FORMAT_PAGINATION = '{site} {divider} {page} ({curr_no} of {last_no})'
+"""
+    *(str)* Page title text format for pages with pagination (ListView, etc.)
+    
+    Supported string format parameters are:
+    
+    - site - Site name
+    - divider - Divider character between the site name and current page name
+    - page - Current page name
+    - curr_no - Current page number
+    - last_no - Last page number
+    
+    Defaults to ``'{site} {divider} {page} ({curr_no} of {last_no})'``.
 """
 
 ADMINLTE_TITLE_SITE = 'AdminLTE'

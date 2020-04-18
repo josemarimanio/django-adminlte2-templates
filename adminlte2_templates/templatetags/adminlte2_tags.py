@@ -249,6 +249,11 @@ def page_title(context, page_name=''):
     :return: Title text
     :rtype: str
     """
+
+    # Check if pagination is enabled
+    page_obj = context.get('page_obj', None)
+    paginator = context.get('paginator', None)
+
     title_format = get_settings('ADMINLTE_TITLE_FORMAT')
     divider = get_settings('ADMINLTE_TITLE_DIVIDER')
 
@@ -269,4 +274,14 @@ def page_title(context, page_name=''):
     except Site.DoesNotExist:
         site_name = get_settings('ADMINLTE_TITLE_SITE')
 
-    return title_format.format(site=site_name, divider=divider, page=page_name)
+    params = {
+        'site': site_name,
+        'divider': divider,
+        'page': page_name,
+    }
+
+    if page_obj and paginator:
+        title_format = get_settings('ADMINLTE_TITLE_FORMAT_PAGINATION')
+        params.update({'curr_no': page_obj.number, 'last_no': paginator.num_pages, })
+
+    return title_format.format(**params)
