@@ -160,7 +160,7 @@ ADMINLTE_CONTROL_STYLE = CONTROL_STYLE_DARK
 ADMINLTE_GRAVATAR_SIZE = 80
 """
     *(int)* Default Gravatar image size.
-    
+
     You may request images anywhere from ``1`` up to ``2048``, however note that many users have lower 
     resolution images, so requesting larger sizes may result in pixelation/low-quality images.
 
@@ -170,26 +170,47 @@ ADMINLTE_GRAVATAR_SIZE = 80
 ADMINLTE_GRAVATAR_DEFAULT = 'mp'
 """
     *(str)* Default Gravatar image to load.
-    
+
     You can supply your own default image by supplying the URL to an image. Alternatively, you can use any of these
     valid values: ``'404'``, ``'mp'``, ``'identicon'``, ``'monsterid'``, ``'wavatar'``, ``'retro'``, 
     ``'robohash'``, ``'blank'``.
-    
+
     Defaults to ``'mp'``.
 """
 
 ADMINLTE_GRAVATAR_FORCE_DEFAULT = False
 """
     *(bool)* Toggle to force load the default Gravatar image.
-    
+
     Defaults to ``False``.
 """
 
 ADMINLTE_GRAVATAR_RATING = 'pg'
 """
     *(str)* Gravatar image rating.
-    
+
     Valid values are: ``'g'``, ``'pg'``, ``'r'``, ``'x'``.
-    
+
     Defaults to ``'pg'``.
+"""
+
+ADMINLTE_TITLE_FORMAT = '{site} {divider} {page}'
+"""
+    *(str)* Page title text format.
+    
+    Defaults to ``'{site} {divider} {page}'``.
+"""
+
+ADMINLTE_TITLE_SITE = 'AdminLTE'
+"""
+    *(str)* Page title site name text.
+    
+    Defaults to ``'AdminLTE'``.
+"""
+
+ADMINLTE_TITLE_DIVIDER = '|'
+"""
+    *(str)* Page title divider for page name and site name.
+    
+    Defaults to ``'|'``.
 """

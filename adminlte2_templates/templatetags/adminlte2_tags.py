@@ -8,6 +8,9 @@ except ImportError:
     from urllib import urlencode
 
 from django import template
+from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.exceptions import ImproperlyConfigured
 
 try:
     # Supports >=Django 2.0
@@ -230,3 +233,40 @@ def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
         'align': align,
         'no_margin': no_margin,
     }
+
+
+@register.simple_tag(takes_context=True)
+def page_title(context, page_name=''):
+    """
+    Generate text for HTML <title>. Supports Django 'sites' framework.
+
+    :param context: Current page context
+    :type context: django.template.context.RequestContext
+
+    :param page_name: Page title text. Gets the value either from context or parameter, defaults to ''.
+    :type page_name: str, optional
+
+    :return: Title text
+    :rtype: str
+    """
+    title_format = get_settings('ADMINLTE_TITLE_FORMAT')
+    divider = get_settings('ADMINLTE_TITLE_DIVIDER')
+
+    try:
+        # Check current page context for page title text
+        page_name = context['page_name']
+    except KeyError:
+        pass
+
+    try:
+        try:
+            # Get current Site object by SITE_ID
+            current_site = Site.objects.get_current()
+        except ImproperlyConfigured:
+            # Else, get based on current page context
+            current_site = get_current_site(context['request'])
+        site_name = current_site.name
+    except Site.DoesNotExist:
+        site_name = get_settings('ADMINLTE_TITLE_SITE')
+
+    return title_format.format(site=site_name, divider=divider, page=page_name)
