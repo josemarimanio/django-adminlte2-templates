@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+{% load adminlte2_tags %}
+
+<html>
+<head>
+    <title>Add Class</title>
+</head>
+<body>
+    {% for field in form %}
+        {{ field|add_class:'add-class' }}
+    {% endfor %}
+</body>
+</html>

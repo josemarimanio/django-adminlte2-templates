@@ -1,8 +1,6 @@
 from django.test import Client
 from django.test import TestCase
 
-from django.contrib.sites.models import Site
-
 try:
     # Supports >=Django 2.0
     from django.shortcuts import reverse
@@ -18,10 +16,9 @@ class AddActiveTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
-
-        self.response_index = self.client.get(reverse('add_active:index'))  # /add_active/
-        self.response_child = self.client.get(reverse('add_active:child'))  # /add_active/child/
-        self.response_pk = self.client.get(reverse('add_active:pk', args=(1,)))  # /add_active/<pk>/
+        self.response_index = self.client.get(reverse('add_active:index'))  # /add-active/
+        self.response_child = self.client.get(reverse('add_active:child'))  # /add-active/child/
+        self.response_pk = self.client.get(reverse('add_active:pk', args=(1,)))  # /add-active/<pk>/
 
     def test_with_active(self):
         self.assertContains(self.response_child, '<p id="with-active"> active </p>')
@@ -46,3 +43,16 @@ class AddActiveTestCase(TestCase):
 
     def test_detailview_pk(self):
         self.assertContains(self.response_pk, '<p id="detailview-pk"> active </p>')
+
+
+class AddClassTestCase(TestCase):
+    """
+    Test cases for 'add_class' template filter
+    """
+
+    def setUp(self):
+        self.client = Client()
+        self.response_index = self.client.get(reverse('add_class:index'))  # /add-class/
+
+    def test_add_class(self):
+        self.assertContains(self.response_index, 'add-class')
