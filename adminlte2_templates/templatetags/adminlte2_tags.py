@@ -9,6 +9,8 @@ except ImportError:
 
 from django import template
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.safestring import mark_safe
+from django.template.exceptions import TemplateSyntaxError
 
 try:
     # {% page_title %} Django 'sites' framework support
@@ -24,6 +26,7 @@ except ImportError:
     # Supports <=Django 1.1
     from django.core.urlresolvers import reverse
 
+from adminlte2_templates import constants as const
 from adminlte2_templates.core import get_settings
 
 register = template.Library()
@@ -100,7 +103,7 @@ def add_class(field, class_name):
 
 
 @register.simple_tag(takes_context=True)
-def gravatar_url(context, user=None, size=None, default=None, force_default=False, rating=None):
+def gravatar_url(context, user=None, size=None, default=None, force_default=None, rating=None):
     """
     Generate a Gravatar image URL based on the current user
 
@@ -145,17 +148,37 @@ def gravatar_url(context, user=None, size=None, default=None, force_default=Fals
     :return: Gravatar image URL string
     :rtype: str
     """
+    size = size or get_settings('ADMINLTE_GRAVATAR_SIZE')
+    default = default or get_settings('ADMINLTE_GRAVATAR_DEFAULT')
+    rating = rating or get_settings('ADMINLTE_GRAVATAR_RATING')
     user = context['request'].user if not user else user
+
+    if not const.GRAVATAR_SIZE_MINIMUM <= size <= const.GRAVATAR_SIZE_MAXIMUM:
+        raise TemplateSyntaxError('"size" parameter only allows int values from {} to {}'.format(
+            const.GRAVATAR_SIZE_MINIMUM, const.GRAVATAR_SIZE_MAXIMUM
+        ))
+
+    if default not in const.GRAVATAR_DEFAULT_CHOICES:
+        raise TemplateSyntaxError(
+            '"default" parameter valid values are: {}'.format(', '.join(const.GRAVATAR_DEFAULT_CHOICES)))
+
+    if rating not in const.GRAVATAR_RATING_CHOICES:
+        raise TemplateSyntaxError(
+            '"rating" parameter valid values are: {}'.format(', '.join(const.GRAVATAR_RATING_CHOICES)))
+
+    if force_default is None:
+        force_default = get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT')
+
     params = urlencode({
-        's': size or get_settings('ADMINLTE_GRAVATAR_SIZE'),
-        'd': default or get_settings('ADMINLTE_GRAVATAR_DEFAULT'),
-        'r': rating or get_settings('ADMINLTE_GRAVATAR_RATING'),
-        'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force_default else '',
+        's': size,
+        'd': default,
+        'r': rating,
+        'f': 'y' if force_default else '',
     })
-    return 'https://www.gravatar.com/avatar/{hash}?{params}'.format(
+    return mark_safe('https://www.gravatar.com/avatar/{hash}?{params}'.format(
         hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',
         params=params,
-    )
+    ))
 
 
 @register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
