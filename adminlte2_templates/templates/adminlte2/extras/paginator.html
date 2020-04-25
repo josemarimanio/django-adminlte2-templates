@@ -1,7 +1,7 @@
 {% block paginator_template %}
 
-<div class="{{ align }}">
-    <ul class="{% block paginator_class %}pagination {% if no_margin %}no-margin{% endif %} {% endblock paginator_class %}">
+<nav {% if align %}class="{{ align }}"{% endif %}>
+    <ul id="{% block paginator_id %}pagination{% endblock paginator_id %}" class="{% block paginator_class %}pagination {% if no_margin %}no-margin{% endif %} {% endblock paginator_class %}">
         {% block paginator_content %}
             {% block first %}
                 {% if show_first %}
@@ -72,6 +72,6 @@
             {% endblock last %}
         {% endblock paginator_content %}
     </ul>
-</div>
+</nav>
 
 {% endblock paginator_template %}

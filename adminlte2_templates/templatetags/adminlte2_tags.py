@@ -224,21 +224,19 @@ def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
     current_page = page_obj.number
     number_of_pages = paginator.num_pages
 
-    if align is not 'initial':
-        if align == 'center':
-            align = 'text-center'
-        elif align == 'left':
-            align = 'pull-left'
-        elif align == 'right':
-            align = 'pull-right'
-        else:
-            align = ''
-    else:
+    if align == const.PAGINATOR_ALIGN_INITIAL:
         align = ''
+    elif align == const.PAGINATOR_ALIGN_CENTER:
+        align = 'text-center'
+    elif align == const.PAGINATOR_ALIGN_LEFT:
+        align = 'pull-left'
+    elif align == const.PAGINATOR_ALIGN_RIGHT:
+        align = 'pull-right'
+    else:
+        raise TemplateSyntaxError(
+            '"align" parameter valid values are: {}'.format(', '.join(const.PAGINATOR_ALIGN_CHOICES)))
 
     start_page = max(current_page - adjacent_pages, 1)
-    if start_page <= 3:
-        start_page = 1
 
     end_page = current_page + adjacent_pages + 1
     if end_page > number_of_pages:
