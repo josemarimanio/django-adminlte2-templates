@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% load adminlte2_tags %}
+
+{% comment None %}
+asdsadasda
+{% endcomment %}
+
+<html>
+<head>
+    <title>Gravatar URL</title>
+</head>
+<body>
+    {# Sanity check with and without authentication #}
+    <img id="check-auth" src="{% gravatar_url %}">
+
+    {# Check param 'size' #}
+    <img id="param-size" src="{% gravatar_url size=100 %}">
+
+    {# Check param 'default' #}
+    <img id="param-default" src="{% gravatar_url default='retro' %}">
+
+    {# Check param 'force_default'  #}
+    <img id="param-force-default" src="{% gravatar_url force_default=True %}">
+
+    {# Check param 'rating' #}
+    <img id="param-rating" src="{% gravatar_url rating='r' %}">
+
+    {# Check param 'user' #}
+    <img id="param-user" src="{% gravatar_url user=user_obj %}">
+
+    {# Check all params #}
+    <img id="all-params" src="{% gravatar_url size=100 default='retro' force_default=True rating='r' user=user_obj %}">
+</body>
+</html>
