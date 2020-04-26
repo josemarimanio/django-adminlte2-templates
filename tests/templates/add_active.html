@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-
 {% load adminlte2_tags %}
 
-<html>
-<head>
-    <title>Add Active</title>
-</head>
-<body>
-    {# Sanity check #}
-    <p id="with-active">{% add_active 'add_active:child' %}</p>
-    <p id="without-active">{% add_active 'add_active:child' %}</p>
+{# Sanity check #}
+<p id="with-active">{% add_active 'add_active:child' %}</p>
+<p id="without-active">{% add_active 'add_active:child' %}</p>
 
-    {# Testing parameter 'exact_match' #}
-    <p id="exact-match-true">{% add_active 'add_active:index' exact_match=True %}</p>
-    <p id="exact-match-false">{% add_active 'add_active:index' exact_match=False %}</p>
+{# Testing parameter 'exact_match' #}
+<p id="exact-match-true">{% add_active 'add_active:index' exact_match=True %}</p>
+<p id="exact-match-false">{% add_active 'add_active:index' exact_match=False %}</p>
 
-    {# Testing parameter 'not_when' #}
-    <p id="not-when-with-match">{% add_active 'add_active:index' not_when='active' %}</p>
-    <p id="not-when-with-match-multiple">{% add_active 'add_active:index' not_when='gibberish,active' %}</p>
-    <p id="not-when-without-match">{% add_active 'add_active:index' not_when='gibberish' %}</p>
+{# Testing parameter 'not_when' #}
+<p id="not-when-with-match">{% add_active 'add_active:index' not_when='active' %}</p>
+<p id="not-when-with-match-multiple">{% add_active 'add_active:index' not_when='gibberish,active' %}</p>
+<p id="not-when-without-match">{% add_active 'add_active:index' not_when='gibberish' %}</p>
+<p id="not-when-without-match-multiple">{% add_active 'add_active:index' not_when='gibberish gibba' %}</p>
 
-    {# Testing with pk *args #}
-    <p id="detailview-pk">{% add_active 'add_active:pk' 1 %}</p>
-</body>
-</html>
+{# Testing with pk *args #}
+<p id="detailview-pk">{% add_active 'add_active:pk' 1 %}</p>

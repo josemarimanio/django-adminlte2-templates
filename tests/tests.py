@@ -15,50 +15,87 @@ except ImportError:
 class AddActiveTestCase(TestCase):
     """
     Test cases for {% add_active %} template tag
+
+    Testing these cases:
+
+        * Sanity check
+        * 'exact_match', 'not_when' params
+        * 'pk' arg
     """
+    URL_PATTERN_INDEX = 'add_active:index'
+    URL_PATTERN_CHILD = 'add_active:child'
+    URL_PATTERN_PK = 'add_active:pk'
 
     def setUp(self):
         self.client = Client()
-        self.response_index = self.client.get(reverse('add_active:index'))  # /add-active/
-        self.response_child = self.client.get(reverse('add_active:child'))  # /add-active/child/
-        self.response_pk = self.client.get(reverse('add_active:pk', args=(1,)))  # /add-active/<pk>/
 
+    def get_response_index(self):
+        return self.client.get(reverse(self.URL_PATTERN_INDEX))
+
+    def get_response_child(self):
+        return self.client.get(reverse(self.URL_PATTERN_CHILD))
+
+    def get_response_pk(self, pk):
+        return self.client.get(reverse(self.URL_PATTERN_PK, args=(pk,)))
+
+    #
+    #   Sanity check
+    #
     def test_with_active(self):
-        self.assertContains(self.response_child, '<p id="with-active"> active </p>', html=True)
+        self.assertContains(self.get_response_child(), '<p id="with-active"> active </p>', html=True)
 
     def test_without_active(self):
-        self.assertContains(self.response_index, '<p id="without-active"></p>', html=True)
+        self.assertContains(self.get_response_index(), '<p id="without-active"></p>', html=True)
 
+    #
+    #   'exact_match' parameter
+    #
     def test_exact_match_true(self):
-        self.assertContains(self.response_child, '<p id="exact-match-true"></p>', html=True)
+        self.assertContains(self.get_response_child(), '<p id="exact-match-true"></p>', html=True)
 
     def test_exact_match_false(self):
-        self.assertContains(self.response_child, '<p id="exact-match-false"> active </p>', html=True)
+        self.assertContains(self.get_response_child(), '<p id="exact-match-false"> active </p>', html=True)
 
+    #
+    #   'not_when' parameter
+    #
     def test_not_when_with_match(self):
-        self.assertContains(self.response_index, '<p id="not-when-with-match"></p>', html=True)
+        self.assertContains(self.get_response_index(), '<p id="not-when-with-match"></p>', html=True)
 
-    def test_not_when_with_match_multiple_parameters(self):
-        self.assertContains(self.response_index, '<p id="not-when-with-match-multiple"></p>', html=True)
+    def test_not_when_with_match_multiple(self):
+        self.assertContains(self.get_response_index(), '<p id="not-when-with-match-multiple"></p>', html=True)
 
     def test_not_when_without_match(self):
-        self.assertContains(self.response_index, '<p id="not-when-without-match"> active </p>', html=True)
+        self.assertContains(self.get_response_index(), '<p id="not-when-without-match"> active </p>', html=True)
 
+    def test_not_when_without_match_multiple(self):
+        self.assertContains(self.get_response_index(), '<p id="not-when-without-match-multiple"> active </p>',
+                            html=True)
+
+    #
+    #   'pk' arg
+    #
     def test_detailview_pk(self):
-        self.assertContains(self.response_pk, '<p id="detailview-pk"> active </p>', html=True)
+        self.assertContains(self.get_response_pk(1), '<p id="detailview-pk"> active </p>', html=True)
 
 
 class AddClassTestCase(SimpleTestCase):
     """
     Test cases for 'add_class' template filter
     """
+    URL_PATTERN_INDEX = 'add_class:index'
 
     def setUp(self):
         self.client = Client()
-        self.response_index = self.client.get(reverse('add_class:index'))  # /add-class/
+
+    def get_response_index(self):
+        return self.client.get(reverse(self.URL_PATTERN_INDEX))
 
     def test_add_class(self):
-        self.assertContains(self.response_index, 'add-class')
+        self.assertContains(self.get_response_index(), 'add-class')
+
+    def test_add_class_multiple(self):
+        self.assertContains(self.get_response_index(), 'add-class-1 add-class-2')
 
 
 class GravatarUrlTestCase(TestCase):
@@ -68,12 +105,12 @@ class GravatarUrlTestCase(TestCase):
     Testing these cases for both authenticated and non-authenticated clients:
 
         * Sanity check
-        * Tag parameter outputs
-        * Settings variable outputs
-        * Overriding settings variable with tag parameter
-        * Fail-safe values
+        * 'size', 'default', 'force_default', 'rating' 'user' params
+        * 'ADMINLTE_GRAVATAR_SIZE','ADMINLTE_GRAVATAR_DEFAULT',
+            'ADMINLTE_GRAVATAR_FORCE_DEFAULT' 'ADMINLTE_GRAVATAR_RATING' settings
+        * Overriding settings with params
     """
-    URL_PATTERN = 'gravatar_url:index'
+    URL_PATTERN_INDEX = 'gravatar_url:index'
     USER_USERNAME = 'mari'
     USER_EMAIL = 'josemari.manio@gmail.com'
     USER_PASSWORD = 'maripassword'
@@ -84,10 +121,10 @@ class GravatarUrlTestCase(TestCase):
     def get_response_with_auth(self):
         self.user = User.objects.create_user(self.USER_USERNAME, self.USER_EMAIL, self.USER_PASSWORD)
         self.client.login(username=self.USER_USERNAME, password=self.USER_PASSWORD)
-        return self.client.get(reverse(self.URL_PATTERN))
+        return self.client.get(reverse(self.URL_PATTERN_INDEX))
 
     def get_response_without_auth(self):
-        return self.client.get(reverse(self.URL_PATTERN))
+        return self.client.get(reverse(self.URL_PATTERN_INDEX))
 
     #
     #   With authentication
@@ -290,10 +327,16 @@ class GravatarUrlTestCase(TestCase):
 class PaginatorTestCase(TestCase):
     """
     Test cases for {% paginator %} template tag
+
+    Testing these cases:
+
+        * Sanity check
+        * 'adjacent_pages', 'align', 'no_margin' params
     """
     URL_PATTERN = 'paginator:index'
 
     def setUp(self):
+        # Add 5 Site objects
         self.client = Client()
         for n in range(5):
             n = str(n)
@@ -552,6 +595,15 @@ class PaginatorTestCase(TestCase):
 class PageTitleTestCase(TestCase):
     """
     Test cases for {% page_title %} template tag
+
+    Testing these cases:
+
+        * Sanity check
+        * 'ADMINLTE_TITLE_SITE', 'ADMINLTE_TITLE_DIVIDER', 'ADMINLTE_TITLE_FORMAT',
+            'ADMINLTE_TITLE_FORMAT_PAGINATION' settings
+        * 'page_name' param View context override
+        * Django 'sites' support
+        * ListView support
     """
     URL_PATTERN_INDEX = 'page_title:index'
     URL_PATTERN_LIST = 'page_title:list'
@@ -561,7 +613,7 @@ class PageTitleTestCase(TestCase):
         self.client = Client()
 
     def add_sites(self):
-        # Add 2 items to 'Site' model
+        # Add 2 Site objects
         for n in range(2):
             Site.objects.create(name=str(n), domain=str(n))
 
