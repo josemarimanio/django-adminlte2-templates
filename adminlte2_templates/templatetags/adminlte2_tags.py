@@ -1,16 +1,14 @@
 from hashlib import md5
 
-try:
-    # Python 3
-    from urllib.parse import urlencode
-except ImportError:
-    # Python 2.7
-    from urllib import urlencode
-
 from django import template
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.safestring import mark_safe
 from django.template.exceptions import TemplateSyntaxError
+
+from adminlte2_templates import constants as const
+from adminlte2_templates.core import get_settings
+from adminlte2_templates.core import reverse
+from adminlte2_templates.core import urlencode
 
 try:
     # {% page_title %} Django 'sites' framework support
@@ -18,16 +16,6 @@ try:
     from django.contrib.sites.shortcuts import get_current_site
 except RuntimeError:
     pass
-
-try:
-    # Supports >=Django 2.0
-    from django.shortcuts import reverse
-except ImportError:
-    # Supports <=Django 1.1
-    from django.core.urlresolvers import reverse
-
-from adminlte2_templates import constants as const
-from adminlte2_templates.core import get_settings
 
 register = template.Library()
 
