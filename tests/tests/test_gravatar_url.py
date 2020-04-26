@@ -12,8 +12,14 @@ class GravatarUrlTestCase(TestCase):
         * 'ADMINLTE_GRAVATAR_SIZE','ADMINLTE_GRAVATAR_DEFAULT',
             'ADMINLTE_GRAVATAR_FORCE_DEFAULT' 'ADMINLTE_GRAVATAR_RATING' settings
         * Overriding settings with params
+        * Raising TemplateSyntaxError on invalid 'size', 'default', 'rating' params
     """
     URL_PATTERN_INDEX = 'gravatar_url:index'
+    URL_PATTERN_INVALID_DEFAULT = 'gravatar_url:invalid_default'
+    URL_PATTERN_INVALID_SIZE_MAX = 'gravatar_url:invalid_size_max'
+    URL_PATTERN_INVALID_SIZE_MIN = 'gravatar_url:invalid_size_min'
+    URL_PATTERN_INVALID_RATING = 'gravatar_url:invalid_rating'
+
     USER_USERNAME = 'mari'
     USER_EMAIL = 'josemari.manio@gmail.com'
     USER_PASSWORD = 'maripassword'
@@ -28,6 +34,18 @@ class GravatarUrlTestCase(TestCase):
 
     def get_response_without_auth(self):
         return self.client.get(reverse(self.URL_PATTERN_INDEX))
+
+    def get_response_invalid_default(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_DEFAULT))
+
+    def get_response_invalid_size_max(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_SIZE_MAX))
+
+    def get_response_invalid_size_min(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_SIZE_MIN))
+
+    def get_response_invalid_rating(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_RATING))
 
     #
     #   With authentication
@@ -225,3 +243,18 @@ class GravatarUrlTestCase(TestCase):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="all-params" src="https://www.gravatar.com/avatar'
                                 '/?s=100&d=retro&r=r&f=y">', html=True)
+
+    #
+    #   Invalid parameters
+    #
+    def test_invalid_param_default(self):
+        self.assertRaises(TemplateSyntaxError, self.get_response_invalid_default)
+
+    def test_invalid_param_size_above_maximum(self):
+        self.assertRaises(TemplateSyntaxError, self.get_response_invalid_size_max)
+
+    def test_invalid_param_size_below_minimum(self):
+        self.assertRaises(TemplateSyntaxError, self.get_response_invalid_size_min)
+
+    def test_invalid_param_rating(self):
+        self.assertRaises(TemplateSyntaxError, self.get_response_invalid_rating)
