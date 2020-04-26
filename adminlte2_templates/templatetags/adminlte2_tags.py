@@ -264,7 +264,7 @@ def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
 @register.simple_tag(takes_context=True)
 def page_title(context, page_name=''):
     """
-    Generate text for HTML <title>. Supports Django 'sites' framework.
+    Generate text for HTML <title>. Supports Django 'sites' framework and 'ListView' pagination.
 
     :param context: Current page context
     :type context: django.template.context.RequestContext
@@ -281,10 +281,12 @@ def page_title(context, page_name=''):
     paginator = context.get('paginator', None)
 
     title_format = get_settings('ADMINLTE_TITLE_FORMAT')
+    title_pagination_format = get_settings('ADMINLTE_TITLE_FORMAT_PAGINATION')
     divider = get_settings('ADMINLTE_TITLE_DIVIDER')
+    site_name = get_settings('ADMINLTE_TITLE_SITE')
 
     try:
-        # Check current page context for page title text
+        # Check current page context to override 'page_name' parameter
         page_name = context['page_name']
     except KeyError:
         pass
@@ -293,11 +295,14 @@ def page_title(context, page_name=''):
         # Get current Site object by SITE_ID
         site_name = Site.objects.get_current().name
     except NameError:
-        # If 'sites' is not enabled, get value from settings.py
-        site_name = get_settings('ADMINLTE_TITLE_SITE')
+        # If 'sites' is not in INSTALLED_APPS, get site title from settings.py
+        pass
     except (ImproperlyConfigured, Site.DoesNotExist):
         # Else if an invalid SITE_ID is provided, get value from current page context
-        site_name = get_current_site(context['request']).name
+        try:
+            site_name = get_current_site(context['request']).name
+        except Site.DoesNotExist:
+            pass
 
     params = {
         'site': site_name,
@@ -306,7 +311,8 @@ def page_title(context, page_name=''):
     }
 
     if page_obj and paginator:
-        title_format = get_settings('ADMINLTE_TITLE_FORMAT_PAGINATION')
+        # If {% page_title %} is used in a ListView, use the title format string with pagination support
+        title_format = title_pagination_format
         params.update({'curr_no': page_obj.number, 'last_no': paginator.num_pages, })
 
     return title_format.format(**params)
