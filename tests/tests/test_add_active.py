@@ -1,4 +1,4 @@
-from tests.tests import *
+from tests.imports import *
 
 
 class AddActiveTestCase(TestCase):
