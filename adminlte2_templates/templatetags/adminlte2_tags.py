@@ -169,7 +169,7 @@ def gravatar_url(context, user=None, size=None, default=None, force_default=None
     ))
 
 
-@register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
+@register.inclusion_tag(filename=const.PAGINATOR_TEMPLATE_NAME, takes_context=True)
 def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
     """
     Adds pagination context variables for use in displaying first, adjacent and last page links in addition
