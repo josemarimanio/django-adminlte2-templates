@@ -1,14 +1,14 @@
 from hashlib import md5
 
-try:
-    # Python 3
-    from urllib.parse import urlencode
-except ImportError:
-    # Python 2.7
-    from urllib import urlencode
-
 from django import template
 from django.core.exceptions import ImproperlyConfigured
+from django.utils.safestring import mark_safe
+from django.template.exceptions import TemplateSyntaxError
+
+from adminlte2_templates import constants as const
+from adminlte2_templates.core import get_settings
+from adminlte2_templates.core import reverse
+from adminlte2_templates.core import urlencode
 
 try:
     # {% page_title %} Django 'sites' framework support
@@ -16,15 +16,6 @@ try:
     from django.contrib.sites.shortcuts import get_current_site
 except RuntimeError:
     pass
-
-try:
-    # Supports >=Django 2.0
-    from django.shortcuts import reverse
-except ImportError:
-    # Supports <=Django 1.1
-    from django.core.urlresolvers import reverse
-
-from adminlte2_templates.core import get_settings
 
 register = template.Library()
 
@@ -100,7 +91,7 @@ def add_class(field, class_name):
 
 
 @register.simple_tag(takes_context=True)
-def gravatar_url(context, user=None, size=None, default=None, force_default=False, rating=None):
+def gravatar_url(context, user=None, size=None, default=None, force_default=None, rating=None):
     """
     Generate a Gravatar image URL based on the current user
 
@@ -145,20 +136,40 @@ def gravatar_url(context, user=None, size=None, default=None, force_default=Fals
     :return: Gravatar image URL string
     :rtype: str
     """
+    size = size or get_settings('ADMINLTE_GRAVATAR_SIZE')
+    default = default or get_settings('ADMINLTE_GRAVATAR_DEFAULT')
+    rating = rating or get_settings('ADMINLTE_GRAVATAR_RATING')
     user = context['request'].user if not user else user
+
+    if not const.GRAVATAR_SIZE_MINIMUM <= size <= const.GRAVATAR_SIZE_MAXIMUM:
+        raise TemplateSyntaxError('"size" parameter only allows int values from {} to {}'.format(
+            const.GRAVATAR_SIZE_MINIMUM, const.GRAVATAR_SIZE_MAXIMUM
+        ))
+
+    if default not in const.GRAVATAR_DEFAULT_CHOICES:
+        raise TemplateSyntaxError(
+            '"default" parameter valid values are: {}'.format(', '.join(const.GRAVATAR_DEFAULT_CHOICES)))
+
+    if rating not in const.GRAVATAR_RATING_CHOICES:
+        raise TemplateSyntaxError(
+            '"rating" parameter valid values are: {}'.format(', '.join(const.GRAVATAR_RATING_CHOICES)))
+
+    if force_default is None:
+        force_default = get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT')
+
     params = urlencode({
-        's': size or get_settings('ADMINLTE_GRAVATAR_SIZE'),
-        'd': default or get_settings('ADMINLTE_GRAVATAR_DEFAULT'),
-        'r': rating or get_settings('ADMINLTE_GRAVATAR_RATING'),
-        'f': 'y' if get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT') or force_default else '',
+        's': size,
+        'd': default,
+        'r': rating,
+        'f': 'y' if force_default else '',
     })
-    return 'https://www.gravatar.com/avatar/{hash}?{params}'.format(
+    return mark_safe('https://www.gravatar.com/avatar/{hash}?{params}'.format(
         hash=md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',
         params=params,
-    )
+    ))
 
 
-@register.inclusion_tag(filename='adminlte2/extras/paginator.html', takes_context=True)
+@register.inclusion_tag(filename=const.PAGINATOR_TEMPLATE_NAME, takes_context=True)
 def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
     """
     Adds pagination context variables for use in displaying first, adjacent and last page links in addition
@@ -201,21 +212,19 @@ def paginator(context, adjacent_pages=2, align='initial', no_margin=False):
     current_page = page_obj.number
     number_of_pages = paginator.num_pages
 
-    if align is not 'initial':
-        if align == 'center':
-            align = 'text-center'
-        elif align == 'left':
-            align = 'pull-left'
-        elif align == 'right':
-            align = 'pull-right'
-        else:
-            align = ''
-    else:
+    if align == const.PAGINATOR_ALIGN_INITIAL:
         align = ''
+    elif align == const.PAGINATOR_ALIGN_CENTER:
+        align = 'text-center'
+    elif align == const.PAGINATOR_ALIGN_LEFT:
+        align = 'pull-left'
+    elif align == const.PAGINATOR_ALIGN_RIGHT:
+        align = 'pull-right'
+    else:
+        raise TemplateSyntaxError(
+            '"align" parameter valid values are: {}'.format(', '.join(const.PAGINATOR_ALIGN_CHOICES)))
 
     start_page = max(current_page - adjacent_pages, 1)
-    if start_page <= 3:
-        start_page = 1
 
     end_page = current_page + adjacent_pages + 1
     if end_page > number_of_pages:
@@ -261,10 +270,12 @@ def page_title(context, page_name=''):
     paginator = context.get('paginator', None)
 
     title_format = get_settings('ADMINLTE_TITLE_FORMAT')
+    title_pagination_format = get_settings('ADMINLTE_TITLE_FORMAT_PAGINATION')
     divider = get_settings('ADMINLTE_TITLE_DIVIDER')
+    site_name = get_settings('ADMINLTE_TITLE_SITE')
 
     try:
-        # Check current page context for page title text
+        # Check current page context to override 'page_name' parameter
         page_name = context['page_name']
     except KeyError:
         pass
@@ -273,11 +284,14 @@ def page_title(context, page_name=''):
         # Get current Site object by SITE_ID
         site_name = Site.objects.get_current().name
     except NameError:
-        # If 'sites' is not enabled, get value from settings.py
-        site_name = get_settings('ADMINLTE_TITLE_SITE')
+        # If 'sites' is not in INSTALLED_APPS, get site title from settings.py
+        pass
     except (ImproperlyConfigured, Site.DoesNotExist):
         # Else if an invalid SITE_ID is provided, get value from current page context
-        site_name = get_current_site(context['request']).name
+        try:
+            site_name = get_current_site(context['request']).name
+        except Site.DoesNotExist:
+            pass
 
     params = {
         'site': site_name,
@@ -286,7 +300,8 @@ def page_title(context, page_name=''):
     }
 
     if page_obj and paginator:
-        title_format = get_settings('ADMINLTE_TITLE_FORMAT_PAGINATION')
+        # If {% page_title %} is used in a ListView, use the title format string with pagination support
+        title_format = title_pagination_format
         params.update({'curr_no': page_obj.number, 'last_no': paginator.num_pages, })
 
     return title_format.format(**params)

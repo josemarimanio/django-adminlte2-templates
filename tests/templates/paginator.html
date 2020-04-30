@@ -1,0 +1,20 @@
+{% load adminlte2_tags %}
+
+{# Sanity check #}
+<div id="check">{% paginator %}</div>
+
+{# Testing parameter 'adjacent_pages' #}
+<div id="param-adjacent-pages">{% paginator adjacent_pages=3 %}</div>
+
+{# Testing parameter 'align' #}
+<div id="param-align-initial">{% paginator align='initial' %}</div>
+<div id="param-align-center">{% paginator align='center' %}</div>
+<div id="param-align-left">{% paginator align='left' %}</div>
+<div id="param-align-right">{% paginator align='right' %}</div>
+
+{# Testing parameter 'no_margin #}
+<div id="param-no-margin-false">{% paginator no_margin=False %}</div>
+<div id="param-no-margin-true">{% paginator no_margin=True %}</div>
+
+{# Test all parameters #}
+<div id="all-params">{% paginator adjacent_pages=2 align='initial' no_margin=False %}</div>

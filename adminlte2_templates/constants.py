@@ -1,3 +1,7 @@
+#
+#   HTML
+#
+
 ADMINLTE_HTML_LANG = 'en-us'
 """
     *(str)* HTML 'lang' attribute value.
@@ -11,6 +15,60 @@ ADMINLTE_USE_SHIM = False
 
     Defaults to ``False``.
 """
+
+#
+#   Skin theme
+#
+
+# Valid AdminLTE skin style values
+SKIN_STYLE_BLACK = 'skin-black'
+SKIN_STYLE_BLACK_LIGHT = 'skin-black-light'
+SKIN_STYLE_BLUE = 'skin-blue'
+SKIN_STYLE_BLUE_LIGHT = 'skin-blue-light'
+SKIN_STYLE_GREEN = 'skin-green'
+SKIN_STYLE_GREEN_LIGHT = 'skin-green-light'
+SKIN_STYLE_PURPLE = 'skin-purple'
+SKIN_STYLE_PURPLE_LIGHT = 'skin-purple-light'
+SKIN_STYLE_RED = 'skin-red'
+SKIN_STYLE_RED_LIGHT = 'skin-red-light'
+SKIN_STYLE_YELLOW = 'skin-yellow'
+SKIN_STYLE_YELLOW_LIGHT = 'skin-yellow-light'
+SKIN_STYLE_CHOICES = (SKIN_STYLE_BLACK, SKIN_STYLE_BLACK_LIGHT, SKIN_STYLE_BLUE, SKIN_STYLE_BLUE_LIGHT,
+                      SKIN_STYLE_GREEN, SKIN_STYLE_GREEN_LIGHT, SKIN_STYLE_PURPLE, SKIN_STYLE_PURPLE_LIGHT,
+                      SKIN_STYLE_RED, SKIN_STYLE_RED_LIGHT, SKIN_STYLE_YELLOW, SKIN_STYLE_YELLOW_LIGHT)
+
+ADMINLTE_SKIN_STYLE = SKIN_STYLE_BLUE
+"""
+    *(str)* Default AdminLTE skin style.
+
+    Valid values are: ``'skin-black'``, ``'skin-black-light'``, ``'skin-blue'``, ``'skin-blue-light'``,
+    ``'skin-green'``, ``'skin-green-light'``, ``'skin-purple'``, ``'skin-purple-light'``,
+    ``'skin-red'``, ``'skin-red-light'``, ``'skin-yellow'``, ``'skin-yellow-light'``.
+
+    Defaults to ``'skin-blue'``.
+"""
+
+#
+#   Control theme
+#
+
+# Valid AdminLTE control sidebar style values
+CONTROL_STYLE_DARK = 'control-sidebar-dark'
+CONTROL_STYLE_LIGHT = 'control-sidebar-light'
+CONTROL_STYLE_CHOICES = (CONTROL_STYLE_DARK, CONTROL_STYLE_LIGHT)
+
+ADMINLTE_CONTROL_STYLE = CONTROL_STYLE_DARK
+"""
+    *(str)* Default AdminLTE control sidebar style.
+
+    Valid values are: ``'control-sidebar-dark'``, ``'control-sidebar-light'``.
+
+    Defaults to ``'control-sidebar-dark'``.
+"""
+
+#
+#   CDN
+#
 
 ADMINLTE_USE_CDN = False
 """
@@ -27,18 +85,18 @@ ADMINLTE_CDN_ADMINLTE_CSS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/admin-l
 """
 
 ADMINLTE_CDN_ADMINLTE_CSS_SKIN = {
-    'skin-black': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-black.min.css',
-    'skin-black-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-black-light.min.css',
-    'skin-blue': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-blue.min.css',
-    'skin-blue-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-blue-light.min.css',
-    'skin-green': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-green.min.css',
-    'skin-green-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-green-light.min.css',
-    'skin-purple': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-purple.min.css',
-    'skin-purple-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-purple-light.min.css',
-    'skin-red': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-red.min.css',
-    'skin-red-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-red-light.min.css',
-    'skin-yellow': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-yellow.min.css',
-    'skin-yellow-light': 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-yellow-light.min.css',
+    SKIN_STYLE_BLACK: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-black.min.css',
+    SKIN_STYLE_BLACK_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-black-light.min.css',
+    SKIN_STYLE_BLUE: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-blue.min.css',
+    SKIN_STYLE_BLUE_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-blue-light.min.css',
+    SKIN_STYLE_GREEN: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-green.min.css',
+    SKIN_STYLE_GREEN_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-green-light.min.css',
+    SKIN_STYLE_PURPLE: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-purple.min.css',
+    SKIN_STYLE_PURPLE_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-purple-light.min.css',
+    SKIN_STYLE_RED: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-red.min.css',
+    SKIN_STYLE_RED_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-red-light.min.css',
+    SKIN_STYLE_YELLOW: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-yellow.min.css',
+    SKIN_STYLE_YELLOW_LIGHT: 'https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/css/skins/skin-yellow-light.min.css',
 }
 """
     *(dict)* CDN links for AdminLTE 2.4.18 skin CSS files.
@@ -116,46 +174,33 @@ ADMINLTE_CDN_RESPOND_CORE_JS = 'https://oss.maxcdn.com/respond/1.4.2/respond.min
     Defaults to ``https://oss.maxcdn.com/respond/1.4.2/respond.min.js``.
 """
 
-# Valid AdminLTE skin style values
-SKIN_STYLE_BLACK = 'skin-black'
-SKIN_STYLE_BLACK_LIGHT = 'skin-black-light'
-SKIN_STYLE_BLUE = 'skin-blue'
-SKIN_STYLE_BLUE_LIGHT = 'skin-blue-light'
-SKIN_STYLE_GREEN = 'skin-green'
-SKIN_STYLE_GREEN_LIGHT = 'skin-green-light'
-SKIN_STYLE_PURPLE = 'skin-purple'
-SKIN_STYLE_PURPLE_LIGHT = 'skin-purple-light'
-SKIN_STYLE_RED = 'skin-red'
-SKIN_STYLE_RED_LIGHT = 'skin-red-light'
-SKIN_STYLE_YELLOW = 'skin-yellow'
-SKIN_STYLE_YELLOW_LIGHT = 'skin-yellow-light'
-SKIN_STYLE_CHOICES = (SKIN_STYLE_BLACK, SKIN_STYLE_BLACK_LIGHT, SKIN_STYLE_BLUE, SKIN_STYLE_BLUE_LIGHT,
-                      SKIN_STYLE_GREEN, SKIN_STYLE_GREEN_LIGHT, SKIN_STYLE_PURPLE, SKIN_STYLE_PURPLE_LIGHT,
-                      SKIN_STYLE_RED, SKIN_STYLE_RED_LIGHT, SKIN_STYLE_YELLOW, SKIN_STYLE_YELLOW_LIGHT)
+#
+#   Gravatar
+#
 
-ADMINLTE_SKIN_STYLE = SKIN_STYLE_BLUE
-"""
-    *(str)* Default AdminLTE skin style.
+# Valid Gravatar 'default' parameter values
+GRAVATAR_DEFAULT_404 = '404'
+GRAVATAR_DEFAULT_MP = 'mp'
+GRAVATAR_DEFAULT_IDENTICON = 'identicon'
+GRAVATAR_DEFAULT_MONSTERID = 'monsterid'
+GRAVATAR_DEFAULT_WAVATAR = 'wavatar'
+GRAVATAR_DEFAULT_RETRO = 'retro'
+GRAVATAR_DEFAULT_ROBOHASH = 'robohash'
+GRAVATAR_DEFAULT_BLANK = 'blank'
+GRAVATAR_DEFAULT_CHOICES = (GRAVATAR_DEFAULT_404, GRAVATAR_DEFAULT_MP, GRAVATAR_DEFAULT_IDENTICON,
+                            GRAVATAR_DEFAULT_MONSTERID, GRAVATAR_DEFAULT_WAVATAR, GRAVATAR_DEFAULT_RETRO,
+                            GRAVATAR_DEFAULT_ROBOHASH, GRAVATAR_DEFAULT_BLANK)
 
-    Valid values are: ``'skin-black'``, ``'skin-black-light'``, ``'skin-blue'``, ``'skin-blue-light'``,
-    ``'skin-green'``, ``'skin-green-light'``, ``'skin-purple'``, ``'skin-purple-light'``,
-    ``'skin-red'``, ``'skin-red-light'``, ``'skin-yellow'``, ``'skin-yellow-light'``.
+# Valid Gravatar 'rating' parameter values
+GRAVATAR_RATING_G = 'g'
+GRAVATAR_RATING_PG = 'pg'
+GRAVATAR_RATING_R = 'r'
+GRAVATAR_RATING_X = 'x'
+GRAVATAR_RATING_CHOICES = (GRAVATAR_RATING_G, GRAVATAR_RATING_PG, GRAVATAR_RATING_R, GRAVATAR_RATING_X)
 
-    Defaults to ``'skin-blue'``.
-"""
-
-CONTROL_STYLE_DARK = 'control-sidebar-dark'
-CONTROL_STYLE_LIGHT = 'control-sidebar-light'
-CONTROL_STYLE_CHOICES = (CONTROL_STYLE_DARK, CONTROL_STYLE_LIGHT)
-
-ADMINLTE_CONTROL_STYLE = CONTROL_STYLE_DARK
-"""
-    *(str)* Default AdminLTE control sidebar style.
-
-    Valid values are: ``'control-sidebar-dark'``, ``'control-sidebar-light'``.
-
-    Defaults to ``'control-sidebar-dark'``.
-"""
+# Valid Gravatar 'size' range
+GRAVATAR_SIZE_MINIMUM = 1
+GRAVATAR_SIZE_MAXIMUM = 2048
 
 ADMINLTE_GRAVATAR_SIZE = 80
 """
@@ -167,7 +212,7 @@ ADMINLTE_GRAVATAR_SIZE = 80
     Defaults to ``80``. 
 """
 
-ADMINLTE_GRAVATAR_DEFAULT = 'mp'
+ADMINLTE_GRAVATAR_DEFAULT = GRAVATAR_DEFAULT_MP
 """
     *(str)* Default Gravatar image to load.
 
@@ -185,7 +230,7 @@ ADMINLTE_GRAVATAR_FORCE_DEFAULT = False
     Defaults to ``False``.
 """
 
-ADMINLTE_GRAVATAR_RATING = 'pg'
+ADMINLTE_GRAVATAR_RATING = GRAVATAR_RATING_PG
 """
     *(str)* Gravatar image rating.
 
@@ -193,6 +238,20 @@ ADMINLTE_GRAVATAR_RATING = 'pg'
 
     Defaults to ``'pg'``.
 """
+
+#
+#   Paginator
+#
+PAGINATOR_ALIGN_INITIAL = 'initial'
+PAGINATOR_ALIGN_CENTER = 'center'
+PAGINATOR_ALIGN_LEFT = 'left'
+PAGINATOR_ALIGN_RIGHT = 'right'
+PAGINATOR_ALIGN_CHOICES = (PAGINATOR_ALIGN_INITIAL, PAGINATOR_ALIGN_CENTER, PAGINATOR_ALIGN_LEFT, PAGINATOR_ALIGN_RIGHT)
+PAGINATOR_TEMPLATE_NAME = 'adminlte2/extras/paginator.html'
+
+#
+#   Page title
+#
 
 ADMINLTE_TITLE_FORMAT = '{site} {divider} {page}'
 """
