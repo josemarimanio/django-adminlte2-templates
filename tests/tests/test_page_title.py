@@ -25,10 +25,13 @@ class PageTitleTestCase(TestCase):
         for n in range(2):
             Site.objects.create(name=str(n), domain=str(n))
 
+    def add_working_site(self):
+        Site.objects.create(domain='testserver', name='testserver')
+
     def get_response_index(self):
         return self.client.get(reverse(self.URL_PATTERN_INDEX))
 
-    def get_response_list(self, page='1'):
+    def get_response_list(self, page):
         return self.client.get(reverse(self.URL_PATTERN_LIST) + '?page=' + str(page))
 
     def get_response_override_page_name(self):
@@ -57,7 +60,7 @@ class PageTitleTestCase(TestCase):
 
     def test_settings_format_pagination(self):
         with self.settings(ADMINLTE_TITLE_FORMAT_PAGINATION='{site} {divider} {page} ({curr_no} of {last_no})'):
-            return self.assertContains(self.get_response_list(), 'AdminLTE | Title (1 of 1)')
+            return self.assertContains(self.get_response_list(1), 'AdminLTE | Title (1 of 1)')
 
     #
     #   Override page name through View context
@@ -73,8 +76,8 @@ class PageTitleTestCase(TestCase):
             return self.assertContains(self.get_response_index(), 'example.com | Title')
 
     def test_sites_current_site(self):
-        Site.objects.create(domain='testserver', name='Site')
-        return self.assertContains(self.get_response_index(), 'Site | Title')
+        self.add_working_site()
+        return self.assertContains(self.get_response_index(), 'testserver | Title')
 
     def test_sites_failsafe_invalid_site_id(self):
         with self.settings(SITE_ID=2):
