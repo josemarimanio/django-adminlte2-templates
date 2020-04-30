@@ -9,8 +9,11 @@ class PaginatorTestCase(TestCase):
 
         * Sanity check
         * 'adjacent_pages', 'align', 'no_margin' params
+        * Invalid 'adjacent_pages', 'align' param values
     """
-    URL_PATTERN = 'paginator:index'
+    URL_PATTERN_INDEX = 'paginator:index'
+    URL_PATTERN_INVALID_ADJACENT_PAGES = 'paginator:invalid_adjacent_pages'
+    URL_PATTERN_INVALID_ALIGN = 'paginator:invalid_align'
 
     def setUp(self):
         self.client = Client()
@@ -19,7 +22,13 @@ class PaginatorTestCase(TestCase):
             Site.objects.create(domain=n, name=n)
 
     def get_response_page(self, page):
-        return self.client.get(reverse(self.URL_PATTERN) + '?page=' + str(page))
+        return self.client.get(reverse(self.URL_PATTERN_INDEX) + '?page=' + str(page))
+
+    def get_response_invalid_adjacent_pages(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_ADJACENT_PAGES))
+
+    def get_response_invalid_align(self):
+        return self.client.get(reverse(self.URL_PATTERN_INVALID_ALIGN))
 
     #
     #   Sanity check
@@ -266,3 +275,12 @@ class PaginatorTestCase(TestCase):
                                         <li><a href="?page=last"><small>Last</small></a></li>
                                     </ul>
                                 </nav></div>''', html=True)
+
+    #
+    #   Invalid parameter
+    #
+    def test_invalid_param_adjacent_pages(self):
+        self.assertRaises(TypeError, self.get_response_invalid_adjacent_pages)
+
+    def test_invalid_param_align(self):
+        self.assertRaises(TemplateSyntaxError, self.get_response_invalid_align)
