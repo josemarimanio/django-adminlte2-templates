@@ -33,6 +33,9 @@ class PaginatorTestCase(TestCase):
     #
     #   Sanity check
     #
+    def test_template_used(self):
+        self.assertTemplateUsed(self.get_response_page(1), const.PAGINATOR_TEMPLATE_NAME)
+
     def test_response_page_1(self):
         self.assertContains(self.get_response_page(1),
                             '''<div id="check"><nav>
