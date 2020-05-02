@@ -1,4 +1,5 @@
 from django.conf import settings
+
 from adminlte2_templates.core import get_settings
 
 
@@ -38,24 +39,33 @@ def template(request):
         # Toggle to use CDN for AdminLTE dependencies
         #
         'ADMINLTE_USE_CDN': get_settings('ADMINLTE_USE_CDN'),
+    }
 
+    if context['ADMINLTE_USE_CDN']:
         #
         # Dependency CDN URLs
         #
-        # AdminLTE 2.4.18
-        'ADMINLTE_CDN_ADMINLTE_CSS_CORE': get_settings('ADMINLTE_CDN_ADMINLTE_CSS_CORE'),
-        'ADMINLTE_CDN_ADMINLTE_CSS_SKIN': get_settings('ADMINLTE_CDN_ADMINLTE_CSS_SKIN')[skin_style],
-        'ADMINLTE_CDN_ADMINLTE_JS_CORE': get_settings('ADMINLTE_CDN_ADMINLTE_JS_CORE'),
-        # Bootstrap 3.4.1
-        'ADMINLTE_CDN_BOOTSTRAP_CSS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_CSS_CORE'),
-        'ADMINLTE_CDN_BOOTSTRAP_JS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_JS_CORE'),
-        # Font-Awesome 4.7.0
-        'ADMINLTE_CDN_FONTAWESOME_CSS_CORE': get_settings('ADMINLTE_CDN_FONTAWESOME_CSS_CORE'),
-        # jQuery 3.4.1
-        'ADMINLTE_CDN_JQUERY_JS_CORE': get_settings('ADMINLTE_CDN_JQUERY_JS_CORE'),
-        # Shims
-        'ADMINLTE_CDN_HTML5SHIV_CORE_JS': get_settings('ADMINLTE_CDN_HTML5SHIV_CORE_JS'),
-        'ADMINLTE_CDN_RESPOND_CORE_JS': get_settings('ADMINLTE_CDN_RESPOND_CORE_JS'),
-    }
+        context.update({
+            # AdminLTE 2.4.18
+            'ADMINLTE_CDN_ADMINLTE_CSS_CORE': get_settings('ADMINLTE_CDN_ADMINLTE_CSS_CORE'),
+            'ADMINLTE_CDN_ADMINLTE_CSS_SKIN': get_settings('ADMINLTE_CDN_ADMINLTE_CSS_SKIN')[skin_style],
+            'ADMINLTE_CDN_ADMINLTE_JS_CORE': get_settings('ADMINLTE_CDN_ADMINLTE_JS_CORE'),
+            # Bootstrap 3.4.1
+            'ADMINLTE_CDN_BOOTSTRAP_CSS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_CSS_CORE'),
+            'ADMINLTE_CDN_BOOTSTRAP_JS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_JS_CORE'),
+            # Font-Awesome 4.7.0
+            'ADMINLTE_CDN_FONTAWESOME_CSS_CORE': get_settings('ADMINLTE_CDN_FONTAWESOME_CSS_CORE'),
+            # jQuery 3.4.1
+            'ADMINLTE_CDN_JQUERY_JS_CORE': get_settings('ADMINLTE_CDN_JQUERY_JS_CORE'),
+        })
+
+    if context['ADMINLTE_USE_CDN'] and context['ADMINLTE_USE_SHIM']:
+        #
+        # Shim CDN URLs
+        #
+        context.update({
+            'ADMINLTE_CDN_HTML5SHIV_CORE_JS': get_settings('ADMINLTE_CDN_HTML5SHIV_CORE_JS'),
+            'ADMINLTE_CDN_RESPOND_CORE_JS': get_settings('ADMINLTE_CDN_RESPOND_CORE_JS'),
+        })
 
     return context
