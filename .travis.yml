@@ -18,25 +18,25 @@ env:
 matrix:
   exclude:
     - python: "2.7"
-      env: DJANGO_VERSION=2.0
+      env: DJANGO_VERSION=2.0.3
     - python: "2.7"
-      env: DJANGO_VERSION=2.1
+      env: DJANGO_VERSION=2.1.15
     - python: "2.7"
-      env: DJANGO_VERSION=2.2
+      env: DJANGO_VERSION=2.2.12
     - python: "2.7"
-      env: DJANGO_VERSION=3.0
+      env: DJANGO_VERSION=3.0.5
     - python: "3.4"
-      env: DJANGO_VERSION=2.1
+      env: DJANGO_VERSION=2.1.15
     - python: "3.4"
-      env: DJANGO_VERSION=2.2
+      env: DJANGO_VERSION=2.2.12
     - python: "3.4"
-      env: DJANGO_VERSION=3.0
+      env: DJANGO_VERSION=3.0.5
     - python: "3.5"
-      env: DJANGO_VERSION=3.0
+      env: DJANGO_VERSION=3.0.5
     - python: "3.8"
-      env: DJANGO_VERSION=2.0
+      env: DJANGO_VERSION=2.0.13
     - python: "3.8"
-      env: DJANGO_VERSION=2.1
+      env: DJANGO_VERSION=2.1.15
 
 install:
   - pip install codecov
