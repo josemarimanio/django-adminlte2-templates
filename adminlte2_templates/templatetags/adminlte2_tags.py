@@ -163,7 +163,7 @@ def gravatar_url(context, user=None, size=None, default=None, force_default=None
         'r': rating,
         'f': 'y' if force_default else '',
     })
-    return mark_safe('https://www.gravatar.com/avatar/{hash}?{params}'.format(
+    return mark_safe('https://www.gravatar.com/avatar/{hash}?{params}'.format(  # nosec
         hash=hashlib.md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',  # nosec
         params=params,
     ))
