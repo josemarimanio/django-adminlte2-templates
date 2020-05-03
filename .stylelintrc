@@ -1,5 +1,5 @@
 {
   "ignoreFiles": [
-    "adminlte2_templates/static/adminlte2/libs/"
+    "adminlte2_templates/static/adminlte2/libs/**"
   ]
 }
