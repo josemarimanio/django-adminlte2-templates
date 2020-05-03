@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = '!t_(11ght0&nmb&$tf4to=gdg&u$!hsm3@)c6dzp=zdc*c9zci'
+SECRET_KEY = '!t_(11ght0&nmb&$tf4to=gdg&u$!hsm3@)c6dzp=zdc*c9zci'  # nosec
 
 INSTALLED_APPS = [
     'django.contrib.auth',

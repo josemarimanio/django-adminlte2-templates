@@ -27,7 +27,7 @@ class GravatarUrlTestCase(TestCase):
 
     USER_USERNAME = 'mari'
     USER_EMAIL = 'josemari.manio@gmail.com'
-    USER_PASSWORD = 'maripassword'
+    USER_PASSWORD = 'maripassword'  # nosec
 
     def setUp(self):
         self.client = Client()
