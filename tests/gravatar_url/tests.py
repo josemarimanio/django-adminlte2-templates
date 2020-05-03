@@ -31,9 +31,9 @@ class GravatarUrlTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
+        self.user = User.objects.create_user(self.USER_USERNAME, self.USER_EMAIL, self.USER_PASSWORD)
 
     def get_response_with_auth(self):
-        self.user = User.objects.create_user(self.USER_USERNAME, self.USER_EMAIL, self.USER_PASSWORD)
         self.client.login(username=self.USER_USERNAME, password=self.USER_PASSWORD)
         return self.client.get(reverse(self.URL_PATTERN_INDEX))
 
