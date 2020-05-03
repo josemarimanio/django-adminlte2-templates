@@ -4,9 +4,9 @@ from django.views.generic import TemplateView
 
 
 class AddActiveTemplateView(TemplateView):
-    template_name = 'add_active.html'
+    template_name = 'add_active/add_active.html'
 
 
 class AddActiveDetailView(DetailView):
     model = Site
-    template_name = 'add_active.html'
+    template_name = 'add_active/add_active.html'

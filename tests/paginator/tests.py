@@ -1,4 +1,10 @@
-from tests.imports import *
+from django.contrib.sites.models import Site
+from django.template.exceptions import TemplateSyntaxError
+from django.test import Client
+from django.test import TestCase
+
+from adminlte2_templates import constants as const
+from adminlte2_templates.core import reverse
 
 
 class PaginatorTestCase(TestCase):

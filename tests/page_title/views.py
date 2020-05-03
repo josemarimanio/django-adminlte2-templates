@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 
 
 class PageTitleTemplateView(TemplateView):
-    template_name = 'page_title.html'
+    template_name = 'page_title/page_title.html'
 
 
 class PageTitleOverridePageNameTemplateView(PageTitleTemplateView):
@@ -15,6 +15,6 @@ class PageTitleOverridePageNameTemplateView(PageTitleTemplateView):
 
 
 class PageTitleListView(ListView):
-    template_name = 'page_title.html'
+    template_name = 'page_title/page_title.html'
     model = Site
     paginate_by = 1

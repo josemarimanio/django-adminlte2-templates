@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 
 
 class GravatarUrlTemplateView(TemplateView):
-    template_name = 'gravatar_url.html'
+    template_name = 'gravatar_url/gravatar_url.html'
 
     def get_context_data(self, **kwargs):
         context = super(GravatarUrlTemplateView, self).get_context_data(**kwargs)

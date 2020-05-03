@@ -4,7 +4,7 @@ from django.views.generic import ListView
 
 class PaginatorListView(ListView):
     model = Site
-    template_name = 'paginator.html'
+    template_name = 'paginator/paginator.html'
     paginate_by = 1
 
 

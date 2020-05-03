@@ -1,4 +1,9 @@
-from tests.imports import *
+from django.contrib.auth.models import User
+from django.template.exceptions import TemplateSyntaxError
+from django.test import Client
+from django.test import TestCase
+
+from adminlte2_templates.core import reverse
 
 
 class GravatarUrlTestCase(TestCase):

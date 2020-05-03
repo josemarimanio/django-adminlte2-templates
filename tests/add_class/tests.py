@@ -1,4 +1,7 @@
-from tests.imports import *
+from django.test import Client
+from django.test import SimpleTestCase
+
+from adminlte2_templates.core import reverse
 
 
 class AddClassTestCase(SimpleTestCase):

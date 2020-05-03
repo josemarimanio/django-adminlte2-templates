@@ -1,4 +1,7 @@
-from tests.imports import *
+from django.test import Client
+from django.test import SimpleTestCase
+
+from adminlte2_templates.core import reverse
 
 
 class ContextTestCase(SimpleTestCase):
@@ -6,7 +9,8 @@ class ContextTestCase(SimpleTestCase):
         self.client = Client()
 
     def context_exists(self, context):
-        response = self.client.get(reverse('templates:default_boxed'))
+        # Get view from 'layouts' unit test
+        response = self.client.get(reverse('layouts:default_boxed'))
         try:
             return response.context[context] is not None
         except KeyError:
