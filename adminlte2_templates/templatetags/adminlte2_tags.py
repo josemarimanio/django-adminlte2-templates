@@ -59,13 +59,9 @@ def add_active(context, url_pattern, *args, **kwargs):
 
     if not_when and any(nw in current_path for nw in not_when):
         return ''
-
-    if not exact_match and current_path.startswith(path):
+    elif not exact_match and current_path.startswith(path) or exact_match and current_path == path:
         return ' active '
-    elif exact_match and current_path == path:
-        return ' active '
-    else:
-        return ''
+    return ''
 
 
 @register.filter
