@@ -1,8 +1,4 @@
 
-.. image:: https://img.shields.io/pypi/status/django-adminlte2-templates
-    :alt: PyPi - Status
-    :target: https://pypi.org/project/django-adminlte2-templates
-
 .. image:: https://img.shields.io/pypi/v/django-adminlte2-templates
     :alt: PyPi
     :target: https://pypi.org/project/django-adminlte2-templates
@@ -14,6 +10,10 @@
 .. image:: https://img.shields.io/codefactor/grade/github/josemarimanio/django-adminlte2-templates/master
     :alt: CodeFactor Grade
     :target: https://www.codefactor.io/repository/github/josemarimanio/django-adminlte2-templates
+
+.. image:: https://img.shields.io/codecov/c/github/josemarimanio/django-adminlte2-templates
+    :alt: Codecov
+    :target: https://codecov.io/gh/josemarimanio/django-adminlte2-templates
 
 .. image:: https://img.shields.io/github/license/josemarimanio/django-adminlte2-templates
     :alt: License - MIT
