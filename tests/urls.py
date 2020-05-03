@@ -1,5 +1,11 @@
 from django.conf.urls import url
-from django.urls import include
+
+try:
+    # Supports >=Django 2.0
+    from django.urls import include
+except ImportError:
+    # Supports <=Django 1.1
+    from django.conf.urls import include
 
 urlpatterns = [
     url(r'^add-active/', include('tests.add_active.urls')),
