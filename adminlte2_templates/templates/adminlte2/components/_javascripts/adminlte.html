@@ -3,7 +3,7 @@
 {% if ADMINLTE_USE_CDN %}
     <script src="{{ ADMINLTE_CDN_ADMINLTE_JS_CORE }}"></script>
 {% elif DEBUG %}
-    <script src="{% static 'adminlte2/adminlte-2.4.18/js/adminlte.js' %}"></script>
+    <script src="{% static 'adminlte2/libs/adminlte-2.4.18/js/adminlte.js' %}"></script>
 {% else %}
-    <script src="{% static 'adminlte2/adminlte-2.4.18/js/adminlte.min.js' %}"></script>
+    <script src="{% static 'adminlte2/libs/adminlte-2.4.18/js/adminlte.min.js' %}"></script>
 {% endif %}

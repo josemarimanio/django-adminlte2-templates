@@ -1,0 +1,5 @@
+{
+  "ignorePatterns": [
+    "adminlte2_templates/static/adminlte2/libs/**"
+  ]
+}
