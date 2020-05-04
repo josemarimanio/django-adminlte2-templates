@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from tests.layouts import views
+from . import views
 
 app_name = 'layouts'
 

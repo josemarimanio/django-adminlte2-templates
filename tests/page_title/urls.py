@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from tests.page_title import views
+from . import views
 
 app_name = 'page_title'
 

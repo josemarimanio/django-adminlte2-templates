@@ -1,10 +1,10 @@
 from django.conf.urls import url
 
-from .views import AddClassFormView
+from . import views
 
 app_name = 'add_class'
 
 urlpatterns = [
     url('',
-        AddClassFormView.as_view(), name='index'),
+        views.AddClassFormView.as_view(), name='index'),
 ]

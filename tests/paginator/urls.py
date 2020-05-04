@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from tests.paginator import views
+from . import views
 
 app_name = 'paginator'
 
