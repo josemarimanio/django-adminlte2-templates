@@ -3,6 +3,10 @@
     :alt: PyPi
     :target: https://pypi.org/project/django-adminlte2-templates
 
+.. image:: https://travis-ci.com/josemarimanio/django-adminlte2-templates.svg?branch=master
+    :alt: Travis CI
+    :target: https://travis-ci.com/josemarimanio/django-adminlte2-templates
+
 .. image:: https://readthedocs.org/projects/django-adminlte2-templates/badge/?version=latest
     :alt: Documentation
     :target: https://django-adminlte2-templates.readthedocs.io/en/latest
