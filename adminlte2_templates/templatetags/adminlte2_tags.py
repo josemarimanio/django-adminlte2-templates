@@ -153,12 +153,15 @@ def gravatar_url(context, user=None, size=None, default=None, force_default=None
     if force_default is None:
         force_default = get_settings('ADMINLTE_GRAVATAR_FORCE_DEFAULT')
 
-    params = urlencode({
-        's': size,
-        'd': default,
-        'r': rating,
-        'f': 'y' if force_default else '',
-    })
+    params = urlencode(
+        (
+            ('s', size),
+            ('d', default),
+            ('r', rating),
+            ('f', 'y' if force_default else '')
+        )
+    )
+
     return mark_safe('https://www.gravatar.com/avatar/{hash}?{params}'.format(  # nosec
         hash=hashlib.md5(user.email.encode('utf-8').lower()).hexdigest() if user.is_authenticated else '',  # nosec
         params=params,
