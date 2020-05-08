@@ -22,6 +22,9 @@ class ContextTestCase(SimpleTestCase):
     def test_html_lang_context(self):
         self.assertTrue(self.context_exists('ADMINLTE_HTML_LANG'))
 
+    def test_html_lang_bidi_context(self):
+        self.assertTrue(self.context_exists('ADMINLTE_HTML_LANG_BIDI'))
+
     def test_skin_style_context(self):
         self.assertTrue(self.context_exists('ADMINLTE_SKIN_STYLE'))
 
