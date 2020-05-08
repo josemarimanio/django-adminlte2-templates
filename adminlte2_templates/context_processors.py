@@ -18,6 +18,11 @@ def template(request):
         'ADMINLTE_HTML_LANG': get_settings('ADMINLTE_HTML_LANG', django_setting='LANGUAGE_CODE'),
 
         #
+        # HTML 'dir' attribute value
+        #
+        'ADMINLTE_HTML_LANG_BIDI': get_settings('ADMINLTE_HTML_LANG_BIDI'),
+
+        #
         # Skin style color. Valid values are:
         #   skin-black, skin-black-light, skin-blue, skin-blue-light, skin-green, skin-green-light, skin-purple,
         #   skin-purple-light, skin-red, skin-red-light, skin-yellow, skin-yellow-light

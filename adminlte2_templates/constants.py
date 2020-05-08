@@ -9,6 +9,13 @@ ADMINLTE_HTML_LANG = 'en-us'
     Defaults to ``'en-us'``
 """
 
+ADMINLTE_HTML_LANG_BIDI = 'ltr'
+"""
+    *(str)* HTML 'dir' attribute value for handling bidirectional text. Valid values are ``'ltr'``, ``'rtl'``, ``'auto'``.
+    
+    Defaults to ``'ltr'``.
+"""
+
 ADMINLTE_USE_SHIM = False
 """
     *(bool)* Toggle to use HTML5 Shim for IE9 support.
