@@ -25,6 +25,9 @@
     {% block javascripts %}
         {% include 'adminlte2/components/_javascripts.html' %}
     {% endblock javascripts %}
+
+    {% block extra_head %}
+    {% endblock extra_head %}
 </head>
 <body {% block body_attribute %}class="{% block body_class %}hold-transition {% block skin_style %}{{ ADMINLTE_SKIN_STYLE }}{% endblock skin_style %}{% endblock body_class %}"{% endblock body_attribute %}>
     {% block body %}
