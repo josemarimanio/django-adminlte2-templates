@@ -13,6 +13,11 @@ def template(request):
         'DEBUG': getattr(settings, 'DEBUG'),
 
         #
+        # Footer version value
+        #
+        'ADMINLTE_FOOTER_VERSION': get_settings('ADMINLTE_FOOTER_VERSION'),
+
+        #
         # HTML 'lang' attribute value
         #
         'ADMINLTE_HTML_LANG': get_settings('ADMINLTE_HTML_LANG', django_setting='LANGUAGE_CODE'),

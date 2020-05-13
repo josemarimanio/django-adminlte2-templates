@@ -31,6 +31,9 @@ class ContextTestCase(SimpleTestCase):
     def test_control_style_context(self):
         self.assertTrue(self.context_exists('ADMINLTE_CONTROL_STYLE'))
 
+    def test_footer_version_context(self):
+        self.assertTrue(self.context_exists('ADMINLTE_FOOTER_VERSION'))
+
     def test_use_shim_context(self):
         self.assertTrue(self.context_exists('ADMINLTE_USE_SHIM'))
 
