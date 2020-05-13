@@ -1,7 +1,7 @@
 {% load static %}
 
 {% if ADMINLTE_USE_CDN %}
-    <script src="{{ ADMINLTE_CDN_RESPOND_CORE_JS }}"></script>
+    <script src="{{ ADMINLTE_CDN_RESPOND_JS_CORE }}"></script>
 {% elif DEBUG %}
     <script src="{% static 'adminlte2/libs/respond-1.4.2/respond.js' %}"></script>
 {% else %}

@@ -61,13 +61,13 @@ class ContextTestCase(SimpleTestCase):
     #   Shims
     def test_use_cdn_and_use_shim_context_true(self):
         with self.settings(ADMINLTE_USE_CDN=True, ADMINLTE_USE_SHIM=True):
-            self.assertTrue(self.context_exists('ADMINLTE_CDN_HTML5SHIV_CORE_JS'))
-            self.assertTrue(self.context_exists('ADMINLTE_CDN_RESPOND_CORE_JS'))
+            self.assertTrue(self.context_exists('ADMINLTE_CDN_HTML5SHIV_JS_CORE'))
+            self.assertTrue(self.context_exists('ADMINLTE_CDN_RESPOND_JS_CORE'))
 
     def test_use_cdn_and_use_shim_context_false(self):
         with self.settings(ADMINLTE_USE_CDN=True, ADMINLTE_USE_SHIM=False):
-            self.assertFalse(self.context_exists('ADMINLTE_CDN_HTML5SHIV_CORE_JS'))
-            self.assertFalse(self.context_exists('ADMINLTE_CDN_RESPOND_CORE_JS'))
+            self.assertFalse(self.context_exists('ADMINLTE_CDN_HTML5SHIV_JS_CORE'))
+            self.assertFalse(self.context_exists('ADMINLTE_CDN_RESPOND_JS_CORE'))
 
     #   DataTables
     def test_use_cdn_and_enable_datatables_context_true(self):

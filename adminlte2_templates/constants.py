@@ -181,14 +181,14 @@ ADMINLTE_CDN_JQUERY_JS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4
     Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'``.
 """
 
-ADMINLTE_CDN_HTML5SHIV_CORE_JS = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'
+ADMINLTE_CDN_HTML5SHIV_JS_CORE = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'
 """
     *(str)* CDN link for HTML5 Shim script HTML5 Shiv JS file.
 
     Defaults to ``https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js``.
 """
 
-ADMINLTE_CDN_RESPOND_CORE_JS = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'
+ADMINLTE_CDN_RESPOND_JS_CORE = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'
 """
     *(str)* CDN link for HTML5 Shim script Respond JS file.
 

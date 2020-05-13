@@ -80,8 +80,8 @@ def template(request):
         # Shim CDN URLs
         #
         context.update({
-            'ADMINLTE_CDN_HTML5SHIV_CORE_JS': get_settings('ADMINLTE_CDN_HTML5SHIV_CORE_JS'),
-            'ADMINLTE_CDN_RESPOND_CORE_JS': get_settings('ADMINLTE_CDN_RESPOND_CORE_JS'),
+            'ADMINLTE_CDN_HTML5SHIV_JS_CORE': get_settings('ADMINLTE_CDN_HTML5SHIV_JS_CORE'),
+            'ADMINLTE_CDN_RESPOND_JS_CORE': get_settings('ADMINLTE_CDN_RESPOND_JS_CORE'),
         })
 
     # DataTables 1.10.21
