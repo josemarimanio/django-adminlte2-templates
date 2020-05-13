@@ -185,6 +185,9 @@ ADMINLTE_CDN_RESPOND_CORE_JS = 'https://oss.maxcdn.com/respond/1.4.2/respond.min
 #   Footer
 #
 ADMINLTE_FOOTER_VERSION = '1.0.0'
+"""
+    *(str)* Footer version number text, defaults to ``'1.0.0'``.
+"""
 
 #
 #   Gravatar
