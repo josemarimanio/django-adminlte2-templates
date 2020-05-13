@@ -1,0 +1,11 @@
+{% load static %}
+
+{% if ADMINLTE_STATIC_ENABLE_SELECT2 %}
+    {% if ADMINLTE_USE_CDN %}
+        <script src="{{ ADMINLTE_CDN_SELECT2_JS_CORE }}"></script>
+    {% elif DEBUG %}
+        <script src="{% static 'adminlte2/libs/select2-4.0.13/js/select2.js' %}"></script>
+    {% else %}
+        <script src="{% static 'adminlte2/libs/select2-4.0.13/js/select2.min.js' %}"></script>
+    {% endif %}
+{% endif %}

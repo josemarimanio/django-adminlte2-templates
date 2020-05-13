@@ -153,6 +153,20 @@ ADMINLTE_CDN_BOOTSTRAP_JS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/twitter
     Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js'``.
 """
 
+ADMINLTE_CDN_DATATABLES_CSS_CORE = 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'
+"""
+    *(str)* CDN link for DataTables 1.10.21 core CSS file.
+
+    Defaults to ``'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'``.
+"""
+
+ADMINLTE_CDN_DATATABLES_JS_CORE = 'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'
+"""
+    *(str) CDN link for DataTables 1.10.21 core JS file.
+    
+    Defaults to ``'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'``.
+"""
+
 ADMINLTE_CDN_FONTAWESOME_CSS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
 """
     *(str)* CDN link for Font-Awesome 4.7.0 core CSS file.
@@ -179,6 +193,20 @@ ADMINLTE_CDN_RESPOND_CORE_JS = 'https://oss.maxcdn.com/respond/1.4.2/respond.min
     *(str)* CDN link for HTML5 Shim script Respond JS file.
 
     Defaults to ``https://oss.maxcdn.com/respond/1.4.2/respond.min.js``.
+"""
+
+ADMINLTE_CDN_SELECT2_JS_CORE = 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js'
+"""
+    *(str)* CDN link for Select2 4.0.13 core JS file
+    
+    Defaults to ``'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js'``.
+"""
+
+ADMINLTE_CDN_SELECT2_CSS_CORE = 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css'
+"""
+    *(str)* CDN link for Select2 4.0.13 core CSS file
+    
+    Defaults to ``'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css'``.
 """
 
 #
@@ -299,6 +327,28 @@ LAYOUT_NO_FOOTER_BOXED = _LAYOUT_NO_FOOTER_DIRECTORY + _LAYOUT_BOXED_FILENAME
 LAYOUT_NO_FOOTER_COLLAPSED = _LAYOUT_NO_FOOTER_DIRECTORY + _LAYOUT_COLLAPSED_FILENAME
 LAYOUT_NO_FOOTER_FIXED = _LAYOUT_NO_FOOTER_DIRECTORY + _LAYOUT_FIXED_FILENAME
 LAYOUT_NO_FOOTER_TOP_NAV = _LAYOUT_NO_FOOTER_DIRECTORY + _LAYOUT_TOP_NAV_FILENAME
+
+#
+#   Static files
+#
+ADMINLTE_STATIC_ENABLE_DATATABLES = True
+"""
+    *(bool)* Enable the Datatables library (https://www.datatables.net/) included out-of-the-box.
+    
+    Defaults to ``True``.
+"""
+ADMINLTE_STATIC_ENABLE_FONTAWESOME = True
+"""
+    *(bool)* Enable the Font Awesome library (https://fontawesome.com/v4.7.0/icons/) included out-of-the-box.
+    
+    Defaults to ``True``.
+"""
+ADMINLTE_STATIC_ENABLE_SELECT2 = True
+"""
+    *(bool) Enable the Select2 library (https://select2.org/) included out-of-the-box.
+    
+    Defaults to ``True``.
+"""
 
 #
 #   Paginator

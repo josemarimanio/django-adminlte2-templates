@@ -41,6 +41,13 @@ def template(request):
         'ADMINLTE_CONTROL_STYLE': get_settings('ADMINLTE_CONTROL_STYLE'),
 
         #
+        # Toggle to enable optional static libraries
+        #
+        'ADMINLTE_STATIC_ENABLE_DATATABLES': get_settings('ADMINLTE_STATIC_ENABLE_DATATABLES'),
+        'ADMINLTE_STATIC_ENABLE_FONTAWESOME': get_settings('ADMINLTE_STATIC_ENABLE_FONTAWESOME'),
+        'ADMINLTE_STATIC_ENABLE_SELECT2': get_settings('ADMINLTE_STATIC_ENABLE_SELECT2'),
+
+        #
         # Toggle to use HTML5 Shim
         #
         'ADMINLTE_USE_SHIM': get_settings('ADMINLTE_USE_SHIM'),
@@ -63,8 +70,7 @@ def template(request):
             # Bootstrap 3.4.1
             'ADMINLTE_CDN_BOOTSTRAP_CSS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_CSS_CORE'),
             'ADMINLTE_CDN_BOOTSTRAP_JS_CORE': get_settings('ADMINLTE_CDN_BOOTSTRAP_JS_CORE'),
-            # Font-Awesome 4.7.0
-            'ADMINLTE_CDN_FONTAWESOME_CSS_CORE': get_settings('ADMINLTE_CDN_FONTAWESOME_CSS_CORE'),
+
             # jQuery 3.4.1
             'ADMINLTE_CDN_JQUERY_JS_CORE': get_settings('ADMINLTE_CDN_JQUERY_JS_CORE'),
         })
@@ -76,6 +82,26 @@ def template(request):
         context.update({
             'ADMINLTE_CDN_HTML5SHIV_CORE_JS': get_settings('ADMINLTE_CDN_HTML5SHIV_CORE_JS'),
             'ADMINLTE_CDN_RESPOND_CORE_JS': get_settings('ADMINLTE_CDN_RESPOND_CORE_JS'),
+        })
+
+    # DataTables 1.10.21
+    if context['ADMINLTE_USE_CDN'] and context['ADMINLTE_STATIC_ENABLE_DATATABLES']:
+        context.update({
+            'ADMINLTE_CDN_DATATABLES_CSS_CORE': get_settings('ADMINLTE_CDN_DATATABLES_CSS_CORE'),
+            'ADMINLTE_CDN_DATATABLES_JS_CORE': get_settings('ADMINLTE_CDN_DATATABLES_JS_CORE'),
+        })
+
+    # Font-Awesome 4.7.0
+    if context['ADMINLTE_USE_CDN'] and context['ADMINLTE_STATIC_ENABLE_FONTAWESOME']:
+        context.update({
+            'ADMINLTE_CDN_FONTAWESOME_CSS_CORE': get_settings('ADMINLTE_CDN_FONTAWESOME_CSS_CORE'),
+        })
+
+    # Select2 4.0.13
+    if context['ADMINLTE_USE_CDN'] and context['ADMINLTE_STATIC_ENABLE_SELECT2']:
+        context.update({
+            'ADMINLTE_CDN_SELECT2_CSS_CORE': get_settings('ADMINLTE_CDN_SELECT2_CSS_CORE'),
+            'ADMINLTE_CDN_SELECT2_JS_CORE': get_settings('ADMINLTE_CDN_SELECT2_JS_CORE'),
         })
 
     return context

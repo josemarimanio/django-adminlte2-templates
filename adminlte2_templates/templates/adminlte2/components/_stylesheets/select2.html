@@ -1,0 +1,11 @@
+{% load static %}
+
+{% if ADMINLTE_STATIC_ENABLE_SELECT2 %}
+    {% if ADMINLTE_USE_CDN %}
+        <link rel="stylesheet" href="{{ ADMINLTE_CDN_SELECT2_CSS_CORE }}">
+    {% elif DEBUG %}
+        <link rel="stylesheet" href="{% static 'adminlte2/libs/select2-4.0.13/css/select2.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'adminlte2/libs/select2-4.0.13/css/select2.min.css' %}">
+    {% endif %}
+{% endif %}

@@ -1,0 +1,11 @@
+{% load static %}
+
+{% if ADMINLTE_STATIC_ENABLE_DATATABLES %}
+    {% if ADMINLTE_USE_CDN %}
+        <script src="{{ ADMINLTE_CDN_DATATABLES_JS_CORE }}"></script>
+    {% elif DEBUG %}
+        <script src="{% static 'adminlte2/libs/datatables-1.10.21/js/jquery.dataTables.js' %}"></script>
+    {% else %}
+        <script src="{% static 'adminlte2/libs/datatables-1.10.21/js/jquery.dataTables.min.js' %}"></script>
+    {% endif %}
+{% endif %}
