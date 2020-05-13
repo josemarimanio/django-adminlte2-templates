@@ -174,11 +174,11 @@ ADMINLTE_CDN_FONTAWESOME_CSS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/font
     Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'``.
 """
 
-ADMINLTE_CDN_JQUERY_JS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'
+ADMINLTE_CDN_JQUERY_JS_CORE = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'
 """
-    *(str)* CDN link for jQuery 3.4.1 JS file.
+    *(str)* CDN link for jQuery 3.5.1 JS file.
 
-    Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'``.
+    Defaults to ``'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'``.
 """
 
 ADMINLTE_CDN_HTML5SHIV_JS_CORE = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'
