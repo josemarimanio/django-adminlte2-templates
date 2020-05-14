@@ -2,13 +2,23 @@
 
 {% load adminlte2_tags %}
 
-{% block header_items %}
+{% block header_items_left %}
+    <li>
+        <a href="#">Link</a>
+    </li>
+
+    <li class="active">
+        <a href="#">Active</a>
+    </li>
+{% endblock header_items_left %}
+
+{% block header_items_right %}
     {#  Layouts  #}
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
             Layouts &nbsp;<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" role="menu">
             {#  Boxed  #}
             <li>
                 <a href="{% url 'layouts:boxed' %}">Boxed</a>
@@ -40,4 +50,4 @@
             </li>
         </ul>
     </li>
-{% endblock header_items %}
+{% endblock header_items_right %}

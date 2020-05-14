@@ -3,38 +3,38 @@
 {% load adminlte2_tags %}
 
 {% block header_items %}
-    {#  Layouts  #}
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+{#  Layouts  #}
+    <li class="dropdown notifications-menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
             Layouts &nbsp;<i class="fa fa-caret-down"></i>
         </a>
-        <ul class="dropdown-menu">
-            {#  Boxed  #}
+        <ul class="dropdown-menu" role="menu">
+            {# Boxed #}
             <li class="{% add_active 'layouts:boxed' %}">
                 <a href="{% url 'layouts:boxed' %}">Boxed</a>
             </li>
 
-            {#  Collapsed  #}
+            {# Collapsed #}
             <li class="{% add_active 'layouts:collapsed' %}">
                 <a href="{% url 'layouts:collapsed' %}">Collapsed</a>
             </li>
 
-            {#  Fixed  #}
+            {# Fixed #}
             <li class="{% add_active 'layouts:fixed' %}">
                 <a href="{% url 'layouts:fixed' %}">Fixed</a>
             </li>
 
-            {#  Login  #}
+            {# Login #}
             <li class="{% add_active 'layouts:login' %}">
                 <a href="{% url 'layouts:login' %}">Login</a>
             </li>
 
-            {#  Register  #}
+            {# Register #}
             <li class="{% add_active 'layouts:register' %}">
                 <a href="{% url 'layouts:register' %}">Register</a>
             </li>
 
-            {#  Top Navigation  #}
+            {# Top Navigation #}
             <li>
                 <a href="{% url 'layouts:top_nav' %}">Top Navigation</a>
             </li>

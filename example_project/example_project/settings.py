@@ -137,3 +137,5 @@ ADMINLTE_SKIN_STYLE = 'skin-yellow-light'
 #   Defaults to 'AdminLTE'.
 #
 ADMINLTE_TITLE_SITE = 'django-adminlte2-templates'
+
+ADMINLTE_FOOTER_VERSION = '1.3.0'
