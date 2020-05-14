@@ -5,23 +5,6 @@ Settings
 **django-adminlte2-templates** ``settings.py`` variables:
 
 
-Theme
------
-
-.. autodata:: adminlte2_templates.constants.ADMINLTE_SKIN_STYLE
-    :annotation:
-
-.. autodata:: adminlte2_templates.constants.ADMINLTE_CONTROL_STYLE
-    :annotation:
-
-
-HTML
-----
-
-.. autodata:: adminlte2_templates.constants.ADMINLTE_USE_SHIM
-    :annotation:
-
-
 CDN
 ---
 
@@ -43,16 +26,35 @@ CDN
 .. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_BOOTSTRAP_JS_CORE
     :annotation:
 
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_DATATABLES_CSS_CORE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_DATATABLES_JS_CORE
+    :annotation:
+
 .. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_FONTAWESOME_CSS_CORE
     :annotation:
 
 .. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_JQUERY_JS_CORE
     :annotation:
 
-.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_HTML5SHIV_CORE_JS
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_HTML5SHIV_JS_CORE
     :annotation:
 
-.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_RESPOND_CORE_JS
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_RESPOND_JS_CORE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_SELECT2_CSS_CORE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CDN_SELECT2_JS_CORE
+    :annotation:
+
+
+Footer
+------
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_FOOTER_VERSION
     :annotation:
 
 
@@ -76,6 +78,16 @@ Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.ht
     :annotation:
 
 
+HTML
+----
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_USE_SHIM
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_HTML_LANG_BIDI
+    :annotation:
+
+
 Page Title
 ----------
 
@@ -92,4 +104,27 @@ Please check the `Template Tags <template_tags.html>`_ > `Tags <template_tags.ht
     :annotation:
 
 .. autodata:: adminlte2_templates.constants.ADMINLTE_TITLE_DIVIDER
+    :annotation:
+
+
+Static
+------
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_STATIC_ENABLE_DATATABLES
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_STATIC_ENABLE_FONTAWESOME
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_STATIC_ENABLE_SELECT2
+    :annotation:
+
+
+Theme
+-----
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_SKIN_STYLE
+    :annotation:
+
+.. autodata:: adminlte2_templates.constants.ADMINLTE_CONTROL_STYLE
     :annotation:

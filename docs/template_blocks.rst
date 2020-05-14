@@ -19,7 +19,7 @@ General
 
     .. code:: jinja
 
-        <html {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}" {% endblock html_attribute %}>
+        <html {% block html_attribute %}lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}" dir="{% block html_lang_bidi %}{{ ADMINLTE_HTML_LANG_BIDI }}{% endblock html_lang_bidi %}" {% endblock html_attribute %}>
 
 
 .. data:: html_lang
@@ -31,11 +31,29 @@ General
 
     .. code:: jinja
 
-        {% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}
+        lang="{% block html_lang %}{{ ADMINLTE_HTML_LANG }}{% endblock html_lang %}"
+
+
+.. data:: html_lang_bidi
+    :noindex:
+
+    HTML ``<html>`` ``dir`` attribute
+
+    Default:
+
+    .. code:: jinja
+
+        dir="{% block html_lang_bidi %}{{ ADMINLTE_HTML_LANG_BIDI }}{% endblock html_lang_bidi %}"
 
 
 <head> content
 ^^^^^^^^^^^^^^
+
+.. data:: extra_head
+    :noindex:
+
+    Additional HTML tags in ``<head>``.
+
 
 .. data:: meta
     :noindex:
@@ -67,10 +85,24 @@ General
     .. code:: jinja
 
         {% block stylesheets %}
-            {% include 'adminlte2/components/_stylesheets/bootstrap.html' %}
-            {% include 'adminlte2/components/_stylesheets/fontawesome.html' %}
-            {% include 'adminlte2/components/_stylesheets/adminlte.html' %}
+            {% include 'adminlte2/components/_stylesheets.html' %}
         {% endblock stylesheets %}
+
+
+.. data:: stylesheets_fix
+    :noindex:
+
+    Custom CSS links in ``<head>``. Included custom CSS files are:
+
+    - ``adminlte2/fix/header_dropdown_link_color.css``: Custom CSS to fix header dropdown link color without using ``.notifications-menu``, ``.messages-menu``, or ``.tasks-menu`` classes
+
+    Default:
+
+    .. code:: jinja
+
+        {% block stylesheets_fix %}
+            {% include 'adminlte2/components/_stylesheets_fix.html' %}
+        {% endblock stylesheets_fix %}
 
 
 .. data:: favicon
@@ -125,9 +157,7 @@ General
     .. code:: jinja
 
         {% block javascripts %}
-            {% include 'adminlte2/components/_javascripts/jquery.html' %}
-            {% include 'adminlte2/components/_javascripts/bootstrap.html' %}
-            {% include 'adminlte2/components/_javascripts/adminlte.html' %}
+            {% include 'adminlte2/components/_javascripts.html' %}
         {% endblock javascripts %}
 
 
@@ -831,7 +861,7 @@ Template blocks to customize the footer component (``adminlte2/components/footer
 
         <div class="pull-right hidden-xs">
             {% block footer_right %}
-                <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
+                <b>Version</b> {% block footer_version %}{{ ADMINLTE_FOOTER_VERSION }}{% endblock footer_version %}
             {% endblock footer_right %}
         </div>
 
@@ -845,7 +875,7 @@ Template blocks to customize the footer component (``adminlte2/components/footer
 
     .. code:: jinja
 
-        <b>Version</b> {% block footer_version %}#.#.#{% endblock footer_version %}
+        <b>Version</b> {% block footer_version %}{{ ADMINLTE_FOOTER_VERSION }}{% endblock footer_version %}
 
 
 .. data:: footer_legal
@@ -1205,8 +1235,8 @@ Paginator
 
         {% block paginator_template %}
 
-        <div class="{{ align }}">
-            <ul class="{% block paginator_class %}pagination {% if no_margin %}no-margin{% endif %} {% endblock paginator_class %}">
+        <nav {% if align %}class="{{ align }}"{% endif %}>
+            <ul id="{% block paginator_id %}pagination{% endblock paginator_id %}" class="{% block paginator_class %}pagination{% if no_margin %} no-margin{% endif %}{% endblock paginator_class %}">
                 {% block paginator_content %}
                     {% block first %}
                         {% if show_first %}
@@ -1277,9 +1307,15 @@ Paginator
                     {% endblock last %}
                 {% endblock paginator_content %}
             </ul>
-        </div>
+        </nav>
 
         {% endblock paginator_template %}
+
+
+.. data:: paginator_id
+    :noindex:
+
+    Paginator element ``id`` attribute, defaults to ``pagination``.
 
 
 .. data:: paginator_class
@@ -1291,7 +1327,7 @@ Paginator
 
     .. code:: jinja
 
-        <ul class="{% block paginator_class %}pagination {% if no_margin %}no-margin{% endif %} {% endblock paginator_class %}">
+        class="{% block paginator_class %}pagination{% if no_margin %} no-margin{% endif %}{% endblock paginator_class %}"
 
 
 .. data:: paginator_content

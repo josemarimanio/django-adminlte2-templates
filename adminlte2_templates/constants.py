@@ -11,7 +11,9 @@ ADMINLTE_HTML_LANG = 'en-us'
 
 ADMINLTE_HTML_LANG_BIDI = 'ltr'
 """
-    *(str)* HTML 'dir' attribute value for handling bidirectional text. Valid values are ``'ltr'``, ``'rtl'``, ``'auto'``.
+    *(str)* HTML ``dir`` attribute value for handling bidirectional text. 
+    
+    Valid values are ``'ltr'``, ``'rtl'``, ``'auto'``.
     
     Defaults to ``'ltr'``.
 """
@@ -162,7 +164,7 @@ ADMINLTE_CDN_DATATABLES_CSS_CORE = 'https://cdn.datatables.net/1.10.21/css/jquer
 
 ADMINLTE_CDN_DATATABLES_JS_CORE = 'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'
 """
-    *(str) CDN link for DataTables 1.10.21 core JS file.
+    *(str)* CDN link for DataTables 1.10.21 core JS file.
     
     Defaults to ``'https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'``.
 """
@@ -185,14 +187,14 @@ ADMINLTE_CDN_HTML5SHIV_JS_CORE = 'https://oss.maxcdn.com/html5shiv/3.7.3/html5sh
 """
     *(str)* CDN link for HTML5 Shim script HTML5 Shiv JS file.
 
-    Defaults to ``https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js``.
+    Defaults to ``'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'``.
 """
 
 ADMINLTE_CDN_RESPOND_JS_CORE = 'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'
 """
     *(str)* CDN link for HTML5 Shim script Respond JS file.
 
-    Defaults to ``https://oss.maxcdn.com/respond/1.4.2/respond.min.js``.
+    Defaults to ``'https://oss.maxcdn.com/respond/1.4.2/respond.min.js'``.
 """
 
 ADMINLTE_CDN_SELECT2_JS_CORE = 'https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js'
@@ -333,19 +335,19 @@ LAYOUT_NO_FOOTER_TOP_NAV = _LAYOUT_NO_FOOTER_DIRECTORY + _LAYOUT_TOP_NAV_FILENAM
 #
 ADMINLTE_STATIC_ENABLE_DATATABLES = True
 """
-    *(bool)* Enable the Datatables library (https://www.datatables.net/) included out-of-the-box.
+    *(bool)* Toggle to enable the Datatables library (https://www.datatables.net/) included out-of-the-box.
     
     Defaults to ``True``.
 """
 ADMINLTE_STATIC_ENABLE_FONTAWESOME = True
 """
-    *(bool)* Enable the Font Awesome library (https://fontawesome.com/v4.7.0/icons/) included out-of-the-box.
+    *(bool)* Toggle to enable the Font Awesome library (https://fontawesome.com/v4.7.0/icons/) included out-of-the-box.
     
     Defaults to ``True``.
 """
 ADMINLTE_STATIC_ENABLE_SELECT2 = True
 """
-    *(bool) Enable the Select2 library (https://select2.org/) included out-of-the-box.
+    *(bool)* Toggle to enable the Select2 library (https://select2.org/) included out-of-the-box.
     
     Defaults to ``True``.
 """
