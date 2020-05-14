@@ -12,6 +12,10 @@
         {% include 'adminlte2/components/_stylesheets.html' %}
     {% endblock stylesheets %}
 
+    {% block stylesheets_fix %}
+        {% include 'adminlte2/components/_stylesheets_fix.html' %}
+    {% endblock stylesheets_fix %}
+
     {% block favicon %}
         <link rel="shortcut icon" href="{% block favicon_image %}{% static 'favicon.ico' %}{% endblock favicon_image %}">
     {% endblock favicon %}

@@ -1,0 +1,51 @@
+/*
+    Custom CSS to fix header dropdown link color without
+    using .notifications-menu, .messages-menu, or .tasks-menu
+*/
+:root {
+    --black: #222222;
+    --blue: #0073B7;
+    --green: #00A65A;
+    --purple: #605CA8;
+    --red: #DD4B39;
+    --yellow: #F39C12;
+}
+
+[class^='skin-'] .main-header .navbar .dropdown-menu li a {
+    color: inherit;
+}
+
+[class^='skin-'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-'] .main-header .navbar .dropdown-menu li.active a {
+    color: #FFFFFF;
+}
+
+[class^='skin-black'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-black'] .main-header .navbar .dropdown-menu li.active a {
+    background-color: var(--black);
+}
+
+[class^='skin-blue'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-blue'] .main-header .navbar .dropdown-menu li.active a {
+    background: var(--blue);
+}
+
+[class^='skin-green'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-green'] .main-header .navbar .dropdown-menu li.active a {
+    background: var(--green);
+}
+
+[class^='skin-purple'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-purple'] .main-header .navbar .dropdown-menu li.active a {
+    background: var(--purple);
+}
+
+[class^='skin-red'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-red'] .main-header .navbar .dropdown-menu li.active a {
+    background: var(--red);
+}
+
+[class^='skin-yellow'] .main-header .navbar .dropdown-menu li a:hover,
+[class^='skin-yellow'] .main-header .navbar .dropdown-menu li.active a {
+    background: var(--yellow);
+}
