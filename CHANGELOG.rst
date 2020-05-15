@@ -2,6 +2,55 @@
 Changelog for django-adminlte2-templates
 ========================================
 
+1.3.0 (May-15-2020)
+-------------------
+
+* Updated example project ``example_project``
+
+* Deployed a live version of the example project at https://djangoadminlte2templates.pythonanywhere.com
+
+* Layouts
+    - New component layout template ``adminlte2/components/footer_top_navigation.html`` for *top navigation* footer
+
+* Static files
+    - Updated ``jQuery`` version from ``3.4.1`` to ``3.5.1``
+    - Added ``DataTables 1.10.21`` and ``Select2 4.0.13``
+    - Added custom CSS ``fix/header_dropdown_link_color.css`` to fix header dropdown link colors
+
+* Settings
+    - Added new settings ``ADMINLTE_HTML_LANG_BIDI`` to manage ``<html>`` ``dir`` attribute value for handling bidirectional text
+    - Added new settings ``ADMINLTE_FOOTER_VERSION`` to manage the footer version text
+    - Added new settings ``ADMINLTE_STATIC_ENABLE_DATATABLES``, ``ADMINLTE_STATIC_ENABLE_FONTAWESOME``, ``ADMINLTE_STATIC_ENABLE_SELECT2`` to manage the enabling of these optional static files
+    - Added new settings ``ADMINLTE_CDN_DATATABLES_CSS_CORE``, ``ADMINLTE_CDN_DATATABLES_JS_CORE`` to manage DataTables' CDN links
+    - Added new settings ``ADMINLTE_CDN_SELECT2_CSS_CORE``, ``ADMINLTE_CDN_SELECT2_JS_CORE`` to manage Select2's CDN links
+
+* Template tags
+    - Fixed ‘sites’ framework support for {% page_title %} template tag
+    - Updated {% gravatar_url %} template tag:
+        + ``{% gravatar_url %}``  now returns a ``TemplateSyntaxError`` exception if any of the ``size``, ``default``, and ``rating`` parameters is not of valid value
+        + Returned URL string is now enclosed in ``mark_safe()``, disabling string auto escape
+    - Updated {% paginator %} template tag:
+        + ``adjacent_pages`` parameter is now strictly applied to the left and right side of the current page link
+        + ``{% paginator %}`` now returns a ``TemplateSyntaxError`` exception if the ``align`` parameter is not of valid value.
+        + Added new template block ``{% paginator_id %}`` for the paginator <ul> element ``id`` attribute, defaults to ``"pagination"``
+        + Paginator ``<ul>`` element is now enclosed in a ``<nav>`` tag instead of ``<div>``
+
+* Template blocks
+    - Added new block ``extra_head`` in base template for adding HTML tags in ``<head>``
+    - Added new block ``html_lang_bidi`` in base template for managing ``<html>`` ``dir`` attribute
+    - Added new block ``paginator_id`` in ``extras/paginator.html`` for managing the paginator element ``id`` attribute
+    - Added new block ``stylesheets_fix`` in base template for custom CSS fixes
+
+* Build
+    - Added unit tests for custom template tags and filters, context processors, and template files
+    - Added ESLint configuration file
+    - Added StyleLint configuration file
+    - Added coverage.py configuration file
+    - Added tox configuration file
+    - Added Codecov integration for code coverage
+    - Added CodeFactor.io integration for code quality
+    - Added Travis CI integration for continuous integration
+
 
 1.2.0 (Apr-19-2020)
 -------------------
