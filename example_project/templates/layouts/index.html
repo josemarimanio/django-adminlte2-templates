@@ -2,6 +2,16 @@
 
 {% load adminlte2_tags %}
 
+{% block javascripts %}
+    {{ block.super }}
+    {% include 'demo/demo_script.html' %}
+{% endblock javascripts %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    {% include 'demo/demo_style.html' %}
+{% endblock stylesheets %}
+
 {% block title %}{% page_title 'Layouts' %}{% endblock title %}
 
 {% block page_title %}Layouts{% endblock page_title %}

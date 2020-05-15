@@ -1,0 +1,25 @@
+{% extends 'adminlte2/components/control.html' %}
+
+{% block control_items %}
+    <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-link"></i></a></li>
+{% endblock control_items %}
+
+{% block control_tabs %}
+    <div class="tab-pane" id="control-sidebar-home-tab">
+        <h4 class="control-sidebar-heading">Links</h4>
+        <ul class="control-sidebar-menu">
+            <li><a href="{% url 'layouts:boxed' %}" class="control-sidebar-subheading active">
+                <i class="fa fa-circle-o"></i>&nbsp; Boxed</a></li>
+            <li><a href="{% url 'layouts:collapsed' %}" class="control-sidebar-subheading">
+                <i class="fa fa-circle-o"></i>&nbsp; Collapsed</a></li>
+            <li><a href="{% url 'layouts:fixed' %}" class="control-sidebar-subheading">
+                <i class="fa fa-circle-o"></i>&nbsp; Fixed</a></li>
+            <li><a href="{% url 'layouts:login' %}" class="control-sidebar-subheading">
+                <i class="fa fa-circle-o"></i>&nbsp; Login</a></li>
+            <li><a href="{% url 'layouts:register' %}" class="control-sidebar-subheading">
+                <i class="fa fa-circle-o"></i>&nbsp; Register</a></li>
+            <li><a href="{% url 'layouts:top_nav' %}" class="control-sidebar-subheading">
+                <i class="fa fa-circle-o"></i>&nbsp; Top Navigation</a></li>
+        </ul>
+    </div>
+{% endblock control_tabs %}

@@ -4,6 +4,16 @@
 
 {% block title %}{% page_title 'Boxed Layout' %}{% endblock title %}
 
+{% block javascripts %}
+    {{ block.super }}
+    {% include 'demo/demo_script.html' %}
+{% endblock javascripts %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    {% include 'demo/demo_style.html' %}
+{% endblock stylesheets %}
+
 {% block page_title %}Boxed Layout{% endblock page_title %}
 
 {% block page_description %}AdminLTE 2 template for <i>boxed</i> layout option{% endblock page_description %}

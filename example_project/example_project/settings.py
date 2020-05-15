@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 #
 #   Defaults to 'skin-blue'.
 #
-ADMINLTE_SKIN_STYLE = 'skin-yellow-light'
+ADMINLTE_SKIN_STYLE = 'skin-blue'
 
 #
 #   Page title site name text.
@@ -138,4 +138,9 @@ ADMINLTE_SKIN_STYLE = 'skin-yellow-light'
 #
 ADMINLTE_TITLE_SITE = 'django-adminlte2-templates'
 
+#
+#   Footer version text
+#
+#   Defaults to '1.0.0'
+#
 ADMINLTE_FOOTER_VERSION = '1.3.0'

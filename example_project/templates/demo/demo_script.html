@@ -1,0 +1,7 @@
+{% load static %}
+
+{% if ADMINLTE_USE_CDN %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.18/js/demo.js"></script>
+{% else %}
+    <script src="{% static 'layouts/demo.js' %}"></script>
+{% endif %}
