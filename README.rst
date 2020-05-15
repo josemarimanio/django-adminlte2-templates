@@ -34,6 +34,8 @@ Alternatively, the documentation is also available in the ``docs`` directory of 
 This Django module assumes that you have prior experience with AdminLTE 2.
 Please check the `AdminLTE 2 documentation <https://adminlte.io/docs/2.4/layout>`_ online for your reference.
 
+For a live version of the example project of this app, please check https://djangoadminlte2templates.pythonanywhere.com/.
+
 
 Requirements
 ------------
