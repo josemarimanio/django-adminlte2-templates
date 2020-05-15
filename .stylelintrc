@@ -2,5 +2,8 @@
   "extends": "stylelint-config-standard",
   "ignoreFiles": [
     "adminlte2_templates/static/adminlte2/libs/**"
-  ]
+  ],
+  "rules": {
+    "indentation": 4
+  }
 }
