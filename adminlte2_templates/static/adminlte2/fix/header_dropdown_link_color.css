@@ -2,50 +2,53 @@
     Custom CSS to fix header dropdown link color without
     using .notifications-menu, .messages-menu, or .tasks-menu
 */
-:root {
-    --black: #222222;
-    --blue: #0073B7;
-    --green: #00A65A;
-    --purple: #605CA8;
-    --red: #DD4B39;
-    --yellow: #F39C12;
-}
-
-[class^='skin-'] .main-header .navbar .dropdown-menu li a {
+.main-header .dropdown-menu > li > a {
     color: inherit;
 }
 
-[class^='skin-'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-'] .main-header .navbar .dropdown-menu li.active a {
+.main-header .dropdown-menu > li > a:hover,
+.main-header .dropdown-menu > li.active > a {
     color: #FFFFFF;
 }
 
-[class^='skin-black'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-black'] .main-header .navbar .dropdown-menu li.active a {
-    background-color: var(--black);
+.skin-black .main-header .navbar .dropdown-menu li a:hover,
+.skin-black .main-header .navbar .dropdown-menu li.active a,
+.skin-black-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-black-light .main-header .navbar .dropdown-menu li.active a {
+    background-color: #222222;
 }
 
-[class^='skin-blue'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-blue'] .main-header .navbar .dropdown-menu li.active a {
-    background: var(--blue);
+.skin-blue .main-header .navbar .dropdown-menu li a:hover,
+.skin-blue .main-header .navbar .dropdown-menu li.active a,
+.skin-blue-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-blue-light .main-header .navbar .dropdown-menu li.active a {
+    background: #0073B7;
 }
 
-[class^='skin-green'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-green'] .main-header .navbar .dropdown-menu li.active a {
-    background: var(--green);
+.skin-green .main-header .navbar .dropdown-menu li a:hover,
+.skin-green .main-header .navbar .dropdown-menu li.active a,
+.skin-green-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-green-light .main-header .navbar .dropdown-menu li.active a {
+    background: #00A65A;
 }
 
-[class^='skin-purple'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-purple'] .main-header .navbar .dropdown-menu li.active a {
-    background: var(--purple);
+.skin-purple .main-header .navbar .dropdown-menu li a:hover,
+.skin-purple .main-header .navbar .dropdown-menu li.active a,
+.skin-purple-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-purple-light .main-header .navbar .dropdown-menu li.active a {
+    background: #605CA8;
 }
 
-[class^='skin-red'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-red'] .main-header .navbar .dropdown-menu li.active a {
-    background: var(--red);
+.skin-red .main-header .navbar .dropdown-menu li a:hover,
+.skin-red .main-header .navbar .dropdown-menu li.active a,
+.skin-red-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-red-light .main-header .navbar .dropdown-menu li.active a {
+    background: #DD4B39;
 }
 
-[class^='skin-yellow'] .main-header .navbar .dropdown-menu li a:hover,
-[class^='skin-yellow'] .main-header .navbar .dropdown-menu li.active a {
-    background: var(--yellow);
+.skin-yellow .main-header .navbar .dropdown-menu li a:hover,
+.skin-yellow .main-header .navbar .dropdown-menu li.active a,
+.skin-yellow-light .main-header .navbar .dropdown-menu li a:hover,
+.skin-yellow-light .main-header .navbar .dropdown-menu li.active a {
+    background: #F39C12;
 }
