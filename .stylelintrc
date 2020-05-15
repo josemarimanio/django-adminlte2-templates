@@ -4,6 +4,8 @@
     "adminlte2_templates/static/adminlte2/libs/**"
   ],
   "rules": {
+    "color-hex-case": "upper",
+    "color-hex-length": "long",
     "indentation": 4
   }
 }
