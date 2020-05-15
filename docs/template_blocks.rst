@@ -805,8 +805,7 @@ Template blocks to customize the Django ``messages`` alert boxes component (``ad
 Footer
 ^^^^^^
 
-Template blocks to customize the footer component (``adminlte2/components/footer.html``):
-
+Template blocks to customize the footer components (``adminlte2/components/footer.html``), (``adminlte2/components/footer_top_navigation``):
 
 .. data:: footer_content
     :noindex:

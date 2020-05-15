@@ -117,6 +117,15 @@ Components
     for more information on the available template blocks that can be used to customize this component.
 
 
+.. data:: adminlte2/components/footer_top_navigation.html
+    :noindex:
+
+    Footer template for *top navigation* layout option.
+
+    Please check the `Template Blocks <template_blocks.html>`_ > `Layouts <template_blocks.html#layouts>`_ > `Footer <template_blocks.html#footer>`_ section
+    for more information on the available template blocks that can be used to customize this component.
+
+
 Shortcuts
 ---------
 

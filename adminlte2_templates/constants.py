@@ -339,12 +339,14 @@ ADMINLTE_STATIC_ENABLE_DATATABLES = True
     
     Defaults to ``True``.
 """
+
 ADMINLTE_STATIC_ENABLE_FONTAWESOME = True
 """
     *(bool)* Toggle to enable the Font Awesome library (https://fontawesome.com/v4.7.0/icons/) included out-of-the-box.
     
     Defaults to ``True``.
 """
+
 ADMINLTE_STATIC_ENABLE_SELECT2 = True
 """
     *(bool)* Toggle to enable the Select2 library (https://select2.org/) included out-of-the-box.
