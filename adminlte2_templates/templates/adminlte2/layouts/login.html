@@ -2,7 +2,7 @@
 
 {% load adminlte2_tags %}
 
-{% block title %}Login{% endblock title %}
+{% block title %}Log in{% endblock title %}
 
 {% block body_class %}hold-transition login-page{% endblock body_class %}
 
@@ -22,6 +22,13 @@
     {% block login_content %}
         <div class="login-box-body">
 
+            {% block messages_template %}
+                {% include 'adminlte2/components/messages.html' %}
+            {% endblock messages_template %}
+
+            {% block login_custom_messages %}
+            {% endblock login_custom_messages %}
+
             <p class="login-box-msg">
                 {% block login_description %}
                     Sign in to start your session
@@ -29,7 +36,10 @@
             </p>
 
             {% block login_form %}
-                <form method="POST">
+                <form action="{% block login_form_action %}{% endblock login_form_action %}"
+                      id="{% block login_form_id %}login-id{% endblock login_form_id %}"
+                      method="{% block login_form_method %}POST{% endblock login_form_method %}">
+
                     {% csrf_token %}
 
                     {% if next %}
@@ -62,7 +72,7 @@
                     {% endblock login_form_fields %}
 
                     {% block login_form_buttons %}
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Log in</button>
                         <button class="btn btn-default" type="reset">Clear</button>
                     {% endblock login_form_buttons %}
                 </form>
