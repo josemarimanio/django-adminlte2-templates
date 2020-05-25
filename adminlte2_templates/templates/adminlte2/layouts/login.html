@@ -31,30 +31,40 @@
             {% block login_form %}
                 <form method="POST">
                     {% csrf_token %}
+
                     {% if next %}
                         <input type="hidden" name="next" value="{{ next }}">
                     {% endif %}
-                    {% if form.non_field_errors %}
-                        <div class="text-danger">
-                            {{ form.non_field_errors }}
-                        </div>
-                    {% endif %}
-                    {% for field in form %}
-                        <div class="form-group {% if field.errors %}has-error{% endif %}">
-                            {{ field.label_tag }}
-                            {% if field.errors %}
-                                <div class="text-danger">
-                                    {{ field.errors }}
-                                </div>
-                            {% endif %}
-                            {{ field|add_class:'form-control' }}
-                            {% if field.help_text %}
-                                <p class="help-block">{{ field.help_text|safe }}</p>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                    <button class="btn btn-default" type="reset">Clear</button>
+
+                    {% block login_form_non_field_errors %}
+                        {% if form.non_field_errors %}
+                            <div class="text-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+                    {% endblock login_form_non_field_errors %}
+
+                    {% block login_form_fields %}
+                        {% for field in form %}
+                            <div class="form-group {% if field.errors %}has-error{% endif %}">
+                                {{ field.label_tag }}
+                                {% if field.errors %}
+                                    <div class="text-danger">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                                {{ field|add_class:'form-control' }}
+                                {% if field.help_text %}
+                                    <p class="help-block">{{ field.help_text|safe }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endblock login_form_fields %}
+
+                    {% block login_form_buttons %}
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-default" type="reset">Clear</button>
+                    {% endblock login_form_buttons %}
                 </form>
             {% endblock login_form %}
 
