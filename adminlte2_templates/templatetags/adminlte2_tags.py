@@ -2,6 +2,7 @@ import hashlib
 
 from django import template
 from django.core.exceptions import ImproperlyConfigured
+from django.urls.exceptions import NoReverseMatch
 from django.utils.safestring import mark_safe
 from django.template.exceptions import TemplateSyntaxError
 
@@ -31,7 +32,7 @@ def add_active(context, url_pattern, *args, **kwargs):
         :param context: Current page context
         :type context: django.template.context.RequestContext
 
-        :param url_pattern: URL pattern for ``reverse`` matching
+        :param url_pattern: URL pattern for ``reverse`` matching or raw URL string
         :type url_pattern: str
 
         :param exact_match: Toggle for exact matching, defaults to False
@@ -54,7 +55,11 @@ def add_active(context, url_pattern, *args, **kwargs):
     not_when = kwargs.pop('not_when', '').split(',')
     not_when = [nw.strip() for nw in not_when if nw.strip()]
 
-    path = reverse(url_pattern, args=args, kwargs=kwargs)
+    try:
+        path = reverse(url_pattern, args=args, kwargs=kwargs)
+    except NoReverseMatch:
+        path = url_pattern
+
     current_path = context.request.path
 
     if not_when and any(nw in current_path for nw in not_when):
