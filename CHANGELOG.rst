@@ -2,6 +2,23 @@
 Changelog for django-adminlte2-templates
 ========================================
 
+
+1.3.2 (May-27-2020)
+-------------------
+
+* Fixed template tag ``{% gravatar_url %}`` to add the Gravatar ``f`` URL parameter only if ``force_default`` is ``True``
+
+* Updated template tag ``{% add_active %}`` to support raw URL string
+
+
+1.3.1 (May-16-2020)
+-------------------
+
+* Updated ``adminlte2/fix/header_dropdown_link_color.css`` to support mobile view and *top navigation* left header items
+
+* Updated example project ``example_project``
+
+
 1.3.0 (May-15-2020)
 -------------------
 
