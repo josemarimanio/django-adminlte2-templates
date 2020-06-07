@@ -1,5 +1,6 @@
 include LICENSE
 include README.rst
+recursive-include adminlte2_admin/static *
 recursive-include adminlte2_admin/templates *
 recursive-include adminlte2_templates/static *
 recursive-include adminlte2_templates/templates *

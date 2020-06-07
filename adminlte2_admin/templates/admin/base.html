@@ -1,0 +1,30 @@
+{% extends 'adminlte2/shortcuts/no_footer/fixed.html' %}
+
+{% load i18n %}
+
+{% block meta %}
+    {{ block.super }}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+{% endblock meta %}
+
+{% block page_title %}{{ title }}{% endblock page_title %}
+
+{% block page_description %}{% trans 'Control panel' %}{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'admin:index' %}"><i class="fa fa-dashboard"></i> {% trans 'Home' %}</a></li>
+    <li><a href="#">{{ title }}</a></li>
+{% endblock breadcrumbs %}
+
+{% block header_template %}
+    {% include 'admin/components/header.html' %}
+{% endblock header_template %}
+
+{% block sidebar_template %}
+    {% include 'admin/components/sidebar.html' %}
+{% endblock sidebar_template %}
+
+{% block content %}
+    {% block object-tools %}{% endblock %}
+    {{ content }}
+{% endblock %}
