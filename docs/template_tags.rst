@@ -16,7 +16,7 @@ Tags
     **Parameters**:
 
     **url_pattern**:
-        *(str)* URL pattern for ``reverse`` matching.
+        *(str)* URL pattern for ``reverse`` matching or raw URL string.
 
     **exact_match**:
         *(bool, optional)* Toggle for exact matching, defaults to ``False``.

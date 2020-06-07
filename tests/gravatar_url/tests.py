@@ -57,19 +57,19 @@ class GravatarUrlTestCase(TestCase):
     #
     def test_with_auth(self):
         self.assertContains(self.get_response_with_auth(), '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=pg&f=">',
+                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=pg">',
                             html=True)
 
     # Tag parameters
     def test_with_auth_tag_param_size(self):
         self.assertContains(self.get_response_with_auth(), '<img id="param-size" src="https://www.gravatar.com/avatar'
-                                                           '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg&f=">',
+                                                           '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg">',
                             html=True)
 
     def test_with_auth_tag_param_default(self):
         self.assertContains(self.get_response_with_auth(),
                             '<img id="param-default" src="https://www.gravatar.com/avatar'
-                            '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg&f=">', html=True)
+                            '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg">', html=True)
 
     def test_with_auth_tag_param_force_default(self):
         self.assertContains(self.get_response_with_auth(),
@@ -78,12 +78,12 @@ class GravatarUrlTestCase(TestCase):
 
     def test_with_auth_tag_param_rating(self):
         self.assertContains(self.get_response_with_auth(), '<img id="param-rating" src="https://www.gravatar.com/avatar'
-                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r&f=">',
+                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r">',
                             html=True)
 
     def test_with_auth_tag_param_user(self):
         self.assertContains(self.get_response_with_auth(), '<img id="param-user" src="https://www.gravatar.com/avatar'
-                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=pg&f=">',
+                                                           '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=pg">',
                             html=True)
 
     def test_with_auth_tag_param_all(self):
@@ -96,13 +96,13 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=100):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg">', html=True)
 
     def test_with_auth_settings_param_default(self):
         with self.settings(ADMINLTE_GRAVATAR_DEFAULT='retro'):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg">', html=True)
 
     def test_with_auth_settings_param_force_default(self):
         with self.settings(ADMINLTE_GRAVATAR_FORCE_DEFAULT=True):
@@ -114,7 +114,7 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_RATING='r'):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r">', html=True)
 
     def test_with_auth_settings_param_all(self):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=100, ADMINLTE_GRAVATAR_DEFAULT='retro',
@@ -128,13 +128,13 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=80):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="param-size" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=100&d=mp&r=pg">', html=True)
 
     def test_with_auth_override_settings_with_tag_param_default(self):
         with self.settings(ADMINLTE_GRAVATAR_DEFAULT='mp'):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="param-default" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=80&d=retro&r=pg">', html=True)
 
     def test_with_auth_override_settings_with_tag_param_force_default(self):
         with self.settings(ADMINLTE_GRAVATAR_FORCE_DEFAULT=False):
@@ -146,7 +146,7 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_RATING='pg'):
             self.assertContains(self.get_response_with_auth(),
                                 '<img id="param-rating" src="https://www.gravatar.com/avatar'
-                                '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r&f=">', html=True)
+                                '/b88d14ec6a751900484d421f8303824f?s=80&d=mp&r=r">', html=True)
 
     def test_with_auth_override_settings_with_tag_param_all(self):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=80, ADMINLTE_GRAVATAR_DEFAULT='mp',
@@ -165,12 +165,12 @@ class GravatarUrlTestCase(TestCase):
     def test_without_auth_tag_param_size(self):
         self.assertContains(self.get_response_without_auth(),
                             '<img id="param-size" src="https://www.gravatar.com/avatar'
-                            '/?s=100&d=mp&r=pg&f=">', html=True)
+                            '/?s=100&d=mp&r=pg">', html=True)
 
     def test_without_auth_tag_param_default(self):
         self.assertContains(self.get_response_without_auth(),
                             '<img id="param-default" src="https://www.gravatar.com/avatar'
-                            '/?s=80&d=retro&r=pg&f=">', html=True)
+                            '/?s=80&d=retro&r=pg">', html=True)
 
     def test_without_auth_tag_param_force_default(self):
         self.assertContains(self.get_response_without_auth(),
@@ -180,12 +180,12 @@ class GravatarUrlTestCase(TestCase):
     def test_without_auth_tag_param_rating(self):
         self.assertContains(self.get_response_without_auth(),
                             '<img id="param-rating" src="https://www.gravatar.com/avatar'
-                            '/?s=80&d=mp&r=r&f=">', html=True)
+                            '/?s=80&d=mp&r=r">', html=True)
 
     def test_without_auth_tag_param_user(self):
         self.assertContains(self.get_response_without_auth(),
                             '<img id="param-user" src="https://www.gravatar.com/avatar'
-                            '/?s=80&d=mp&r=pg&f=">', html=True)
+                            '/?s=80&d=mp&r=pg">', html=True)
 
     def test_without_auth_tag_param_all(self):
         self.assertContains(self.get_response_without_auth(),
@@ -197,13 +197,13 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=100):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/?s=100&d=mp&r=pg&f=">', html=True)
+                                '/?s=100&d=mp&r=pg">', html=True)
 
     def test_without_auth_settings_param_default(self):
         with self.settings(ADMINLTE_GRAVATAR_DEFAULT='retro'):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/?s=80&d=retro&r=pg&f=">', html=True)
+                                '/?s=80&d=retro&r=pg">', html=True)
 
     def test_without_auth_settings_param_force_default(self):
         with self.settings(ADMINLTE_GRAVATAR_FORCE_DEFAULT=True):
@@ -215,20 +215,20 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_RATING='r'):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="check-auth" src="https://www.gravatar.com/avatar'
-                                '/?s=80&d=mp&r=r&f=">', html=True)
+                                '/?s=80&d=mp&r=r">', html=True)
 
     # Override settings with tag parameters
     def test_without_auth_override_settings_with_tag_param_size(self):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=80):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="param-size" src="https://www.gravatar.com/avatar'
-                                '/?s=100&d=mp&r=pg&f=">', html=True)
+                                '/?s=100&d=mp&r=pg">', html=True)
 
     def test_without_auth_override_settings_with_tag_param_default(self):
         with self.settings(ADMINLTE_GRAVATAR_DEFAULT='mp'):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="param-default" src="https://www.gravatar.com/avatar'
-                                '/?s=80&d=retro&r=pg&f=">', html=True)
+                                '/?s=80&d=retro&r=pg">', html=True)
 
     def test_without_auth_override_settings_with_tag_param_force_default(self):
         with self.settings(ADMINLTE_GRAVATAR_FORCE_DEFAULT=False):
@@ -240,7 +240,7 @@ class GravatarUrlTestCase(TestCase):
         with self.settings(ADMINLTE_GRAVATAR_RATING='pg'):
             self.assertContains(self.get_response_without_auth(),
                                 '<img id="param-rating" src="https://www.gravatar.com/avatar'
-                                '/?s=80&d=mp&r=r&f=">', html=True)
+                                '/?s=80&d=mp&r=r">', html=True)
 
     def test_without_auth_override_settings_with_tag_param_all(self):
         with self.settings(ADMINLTE_GRAVATAR_SIZE=80, ADMINLTE_GRAVATAR_DEFAULT='mp',
