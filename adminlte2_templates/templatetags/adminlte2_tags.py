@@ -70,6 +70,38 @@ def add_active(context, url_pattern, *args, **kwargs):
 
 
 @register.filter
+def add_attr(field, attribute):
+    """
+    Add attribute values to a form field
+
+    Based on a GitHub Gist snippet:
+        https://gist.github.com/TimFletcher/034e799c19eb763fa859
+
+        :param field: Django Form element
+        :type field: django.forms.boundfield.BoundField
+
+        :param attribute: HTML attribute string 'name:value', or 'name' for HTML5 attribute.
+            Multiple attribute values in a string are supported, separated by space.
+        :type attribute: django.utils.safestring.SafeString
+
+        :return: Rendered Django Form element with newly-added attribute values
+        :rtype: django.utils.safestring.SafeString
+    """
+    attrs = {}
+    definition = attribute.split()
+
+    for d in definition:
+        # HTML5 boolean attribute
+        if ':' not in d:
+            attrs[d] = True
+        else:
+            t, v = d.split(':')
+            attrs[t] = v
+
+    return field.as_widget(attrs=attrs)
+
+
+@register.filter
 def add_class(field, class_name):
     """
     Add class names to a form field
