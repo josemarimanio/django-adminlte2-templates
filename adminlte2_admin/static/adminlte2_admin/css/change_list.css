@@ -1,0 +1,202 @@
+/*
+        Toolbar
+                    */
+div#toolbar {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+div.actions {
+    display: inline;
+}
+
+ul.object-tools {
+    display: inline;
+    float: right;
+    list-style: none;
+}
+
+ul.object-tools li {
+    display: inline;
+}
+
+@media (max-width: 767px) {
+    ul.object-tools {
+        display: block;
+        float: none;
+        margin-bottom: 10px;
+        padding-left: 0;
+    }
+
+    div#toolbar {
+        display: inherit;
+    }
+
+    #changelist-search > div {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        max-width: 480px;
+    }
+
+    form #searchbar {
+        -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
+        width: 0;
+        height: 22px;
+        margin: 0 10px 0 6px;
+    }
+}
+
+/*
+        Table
+                    */
+thead th {
+    line-height: normal;
+    vertical-align: middle;
+}
+
+thead th.sorted {
+    background: #F9F9F9;
+}
+
+table thead th .text span {
+    display: block;
+}
+
+table thead th .text a {
+    display: block;
+    cursor: pointer;
+}
+
+thead th.sorted a.sortremove {
+    visibility: hidden;
+}
+
+table thead th.sorted:hover a.sortremove {
+    visibility: visible;
+}
+
+table thead th.sorted .sortoptions {
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+table thead th.sorted .sortpriority {
+    font-size: .8em;
+    min-width: 12px;
+    text-align: center;
+    vertical-align: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+table thead th.sorted .sortoptions a {
+    position: relative;
+    width: 10px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+table thead th.sorted .sortoptions a.sortremove,
+table thead th.sorted .sortoptions a.ascending,
+table thead th.sorted .sortoptions a.descending {
+    font-family: "FontAwesome";
+}
+
+table thead th.sorted .sortoptions a.sortremove:after {
+    position: absolute;
+    top: -1px;
+    left: 3px;
+    font-weight: 200;
+    font-size: .8em;
+    content: "\f00d";
+    color: #999;
+}
+
+table thead th.sorted .sortoptions a.sortremove:focus:after,
+table thead th.sorted .sortoptions a.sortremove:hover:after {
+    color: #447e9b;
+}
+
+table thead th.sorted .sortoptions a.ascending:after {
+    position: relative;
+    top: 2px;
+    content: "\f0de";
+}
+
+table thead th.sorted .sortoptions a.descending:after {
+    position: relative;
+    top: -4px;
+    content: "\f0dd";
+}
+
+table tbody tr.selected {
+    background-color: #FFFFCC !important;
+}
+
+@media (max-width: 767px) {
+    thead th .text {
+        white-space: nowrap;
+    }
+
+    thead th.sorted .text {
+        padding-right: 42px;
+    }
+}
+
+/*
+        Filters
+                        */
+#changelist-filter {
+    position: initial;
+    width: initial;
+    background: #FFFFFF;
+}
+
+#changelist-filter h2 {
+    letter-spacing: 0;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+#changelist-filter h3 {
+    font-weight: initial;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#changelist-filter ul {
+    list-style: none;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+#changelist-filter a {
+    display: block;
+    color: #999;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+#changelist-filter li.selected {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#changelist-filter li.selected a {
+    color: #72AFD2;
+}
+
+#changelist-filter a:focus, #changelist-filter a:hover,
+#changelist-filter li.selected a:focus,
+#changelist-filter li.selected a:hover {
+    color: #003366;
+}

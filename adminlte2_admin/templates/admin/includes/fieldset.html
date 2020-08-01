@@ -31,9 +31,9 @@
                     {% else %}
                         {{ field.label_tag }}
                         {% if field.is_readonly %}
-                            {{ field.field|add_class:'form-control'|add_attr:'readonly' }}
+                            {{ field.field|add_attr:'readonly' }}
                         {% else %}
-                            {{ field.field|add_class:'form-control' }}
+                            {{ field.field }}
                         {% endif %}
                     {% endif %}
 
