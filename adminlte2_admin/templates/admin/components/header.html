@@ -4,6 +4,20 @@
 
 {% load i18n %}
 
+{% block logo_href %}{% url 'admin:index' %}{% endblock logo_href %}
+
+{% block logo_lg %}
+    {{ site_header|default:_('Django administration') }}
+{% endblock logo_lg %}
+
+{% block logo_mini %}
+    {% if site_header|length > 5 %}
+        {{ site_header.0|default:_('Django administration') }}{{ site_header.1 }}{{ site_header.2 }}{{ site_header.3 }}{{ site_header.4 }}
+    {% else %}}
+        {{ site_header|default:_('Django administration') }}
+    {% endif %}
+{% endblock logo_mini %}
+
 {% block header_items %}
     {% if user.is_authenticated %}
         <li class="dropdown user user-menu">

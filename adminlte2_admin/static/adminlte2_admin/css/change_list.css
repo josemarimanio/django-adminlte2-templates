@@ -6,10 +6,6 @@ div#toolbar {
     display: inline-block;
 }
 
-div.actions {
-    display: inline;
-}
-
 ul.object-tools {
     display: inline;
     float: right;
@@ -18,6 +14,26 @@ ul.object-tools {
 
 ul.object-tools li {
     display: inline;
+}
+
+div.actions {
+    display: inline;
+}
+
+#changelist .actions.selected span.all {
+    background: #FFFCCF;
+    font-weight: bold;
+    border-top: 1px solid #fffee8;
+    border-bottom: 1px solid #edecd6;
+}
+
+#changelist .actions span.all,
+#changelist .actions span.action-counter,
+#changelist .actions span.clear,
+#changelist .actions span.question {
+    font-size: 13px;
+    margin: 0 0.5em;
+    display: none;
 }
 
 @media (max-width: 767px) {
@@ -199,4 +215,50 @@ table tbody tr.selected {
 #changelist-filter li.selected a:focus,
 #changelist-filter li.selected a:hover {
     color: #003366;
+}
+
+/*
+        Paginator
+                        */
+.paginator {
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 22px;
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+
+.paginator a:link, .paginator a:visited {
+    padding: 2px 6px;
+    background: #79AEC8;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.paginator a.showall {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #5B80B2;
+}
+
+.paginator a.showall:focus, .paginator a.showall:hover {
+    background: none;
+    color: #3C8DBC; /* '.btn-primary' color */
+}
+
+.paginator .end {
+    margin-right: 6px;
+}
+
+.paginator .this-page {
+    padding: 2px 6px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.paginator a:focus, .paginator a:hover {
+    color: white;
+    background: #3C8DBC; /* '.btn-primary' color */
 }

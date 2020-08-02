@@ -11,5 +11,5 @@ $(function () {
 
     $object_tools.find('li a').addClass('btn btn-default btn-sm');
 
-    $result_list.addClass('table table-striped table-bordered table-hover');
+    $result_list.addClass('table table-bordered table-condensed table-hover table-striped');
 });

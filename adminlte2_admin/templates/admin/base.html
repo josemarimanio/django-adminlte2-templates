@@ -19,7 +19,7 @@
 {% block page_description %}{% trans 'Control panel' %}{% endblock page_description %}
 
 {% block breadcrumbs %}
-    <li><a href="{% url 'admin:index' %}"><i class="fa fa-dashboard"></i> {% trans 'Home' %}</a></li>
+    <li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
     {% if title %}
         <li><a href="#">{{ title }}</a></li>
     {% endif %}

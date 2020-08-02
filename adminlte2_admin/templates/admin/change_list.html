@@ -1,4 +1,4 @@
-{% extends "admin/base_site.html" %}
+{% extends 'admin/base_site.html' %}
 
 {% load i18n admin_urls static admin_list %}
 
@@ -61,7 +61,7 @@
     <div id="changelist" class="row module{% if cl.has_filters %} filtered{% endif %}">
 
         {# Table #}
-        <div class="col-sm-9 col-md-10 col-lg-10">
+        <div class="{% if cl.has_filters %}col-sm-9 col-md-10 col-lg-10{% else %}col-xs-12{% endif %}">
 
             <form id="changelist-form" method="post" {% if cl.formset and cl.formset.is_multipart %}
                   enctype="multipart/form-data" {% endif %} novalidate>{% csrf_token %}
@@ -93,21 +93,20 @@
         </div>
 
         {# Filters #}
-        <div class="col-sm-3 col-md-2 col-lg-2">
-
-            {% block filters %}
+        {% block filters %}
             {% if cl.has_filters %}
-            <div id="changelist-filter" class="box box-default">
-                <div class="box-header with-border">
-                    <h2 class="box-title">{% trans 'Filter' %}</h2>
+                <div class="col-sm-3 col-md-2 col-lg-2">
+                    <div id="changelist-filter" class="box box-default">
+                        <div class="box-header with-border">
+                            <h2 class="box-title">{% trans 'Filter' %}</h2>
+                        </div>
+                        <div class="box-body">
+                            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+                        </div>
+                    </div>
                 </div>
-                <div class="box-body">
-                    {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
-                </div>
-            </div>
             {% endif %}
-            {% endblock filters %}
-        </div>
+        {% endblock filters %}
     </div>
 </div>
 {% endblock %}
