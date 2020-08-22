@@ -1,3 +1,9 @@
 {% extends 'admin/base.html' %}
+{% load static %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'adminlte2_admin/js/base_site.js' %}"></script>
+{% endblock javascripts %}
 
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
