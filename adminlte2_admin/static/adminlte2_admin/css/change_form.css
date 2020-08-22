@@ -53,6 +53,19 @@ div.checkbox {
 }
 
 /*
+        Widgets
+                        */
+.related-widget-wrapper {
+    float: inherit;
+    overflow: inherit;
+}
+
+.related-widget-wrapper select {
+    display: inline-block;
+    width: 95%;
+}
+
+/*
         Permission Widget
                                 */
 .related-widget-wrapper .selector-available h2,
