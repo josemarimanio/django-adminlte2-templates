@@ -29,7 +29,9 @@
             </p>
 
             {% block register_form %}
-                <form method="POST">
+                <form action="{% block register_form_action %}{% endblock register_form_action %}"
+                      id="{% block register_form_id %}register-id{% endblock register_form_id %}"
+                      method="{% block register_form_method %}POST{% endblock register_form_method %}">
                     {% csrf_token %}
 
                     {% block register_form_non_field_errors %}
