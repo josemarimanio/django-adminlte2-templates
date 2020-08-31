@@ -3,17 +3,19 @@
 {% load i18n admin_urls static admin_list %}
 
 {% block stylesheets %}
-    {{ block.super }}
     {{ media.css }}
+
+    {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'adminlte2_admin/css/change_list.css' %}">
 {% endblock %}
 
 {% block javascripts %}
+    {{ media.js }}
+
     {{ block.super }}
     {% if cl.formset or action_form %}
         <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
     {% endif %}
-    {{ media.js }}
     <script type="text/javascript" src="{% static 'adminlte2_admin/js/change_list.js' %}"></script>
 {% endblock javascripts %}
 

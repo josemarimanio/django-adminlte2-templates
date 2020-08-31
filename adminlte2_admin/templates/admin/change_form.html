@@ -3,10 +3,11 @@
 {% load i18n admin_urls static admin_modify %}
 
 {% block stylesheets %}
-    {{ block.super }}
     {{ media.css }}
     <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'adminlte2_admin/css/change_form.css' %}">
+
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'adminlte2_admin/css/forms.css' %}">
 {% endblock stylesheets %}
 
 {% block javascripts %}

@@ -1,4 +1,3 @@
-
 /* Action link icon colors */
 a.addlink i.fa, ul.actionlist li.addlink .fa-li {
     color: #00A65A;
@@ -21,4 +20,15 @@ a.deletelink i.fa, ul.actionlist li.deletelink .fa-li {
 #content-related ul.actionlist li {
     word-break: break-word;
     word-wrap: break-word;
+}
+
+/* Field errors */
+form .aligned ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.errorlist li {
+    font-weight: bold;
+    color: #dd4b39; /* '.form-group.has-error' color */
 }

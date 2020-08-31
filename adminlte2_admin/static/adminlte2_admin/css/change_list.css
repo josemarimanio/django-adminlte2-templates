@@ -36,35 +36,6 @@ div.actions {
     display: none;
 }
 
-@media (max-width: 767px) {
-    ul.object-tools {
-        display: block;
-        float: none;
-        margin-bottom: 10px;
-        padding-left: 0;
-    }
-
-    div#toolbar {
-        display: inherit;
-    }
-
-    #changelist-search > div {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        max-width: 480px;
-    }
-
-    form #searchbar {
-        -webkit-flex: 1 0 auto;
-        flex: 1 0 auto;
-        width: 0;
-        height: 22px;
-        margin: 0 10px 0 6px;
-    }
-}
-
 /*
         Date
                     */
@@ -179,16 +150,6 @@ table thead th.sorted .sortoptions a.descending:after {
 
 table tbody tr.selected {
     background-color: #FFFFCC !important;
-}
-
-@media (max-width: 767px) {
-    thead th .text {
-        white-space: nowrap;
-    }
-
-    thead th.sorted .text {
-        padding-right: 42px;
-    }
 }
 
 /*

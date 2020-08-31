@@ -2,8 +2,8 @@
 {% load i18n l10n admin_urls static %}
 
 {% block stylesheets %}
-    {{ block.super }}
     {{ media.css }}
+    {{ block.super }}
     <link rel="stylesheet" href="{% static 'adminlte2_admin/css/delete_selected_confirmation.css' %}">
 {% endblock stylesheets %}
 

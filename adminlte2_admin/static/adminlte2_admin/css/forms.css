@@ -62,7 +62,6 @@ div.checkbox {
 
 .related-widget-wrapper select {
     display: inline-block;
-    width: 95%;
 }
 
 /*
@@ -94,6 +93,16 @@ div.checkbox {
 .submit-row a.deletelink {
     height: initial;
     line-height: initial;
+}
+
+/*
+        Help Text
+                     */
+.help {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
 }
 
 /*

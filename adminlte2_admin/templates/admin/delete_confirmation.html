@@ -2,14 +2,16 @@
 {% load i18n admin_urls static %}
 
 {% block stylesheets %}
-    {{ block.super }}
     {{ media.css }}
+
+    {{ block.super }}
     <link rel="stylesheet" href="{% static 'adminlte2_admin/css/delete_confirmation.css' %}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    {{ block.super }}
     {{ media.js }}
+
+    {{ block.super }}
     <script type="text/javascript" src="{% static 'admin/js/cancel.js' %}"></script>
 {% endblock javascripts %}
 
