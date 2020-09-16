@@ -7,6 +7,7 @@
         <p>
             <b>django-adminlte2-templates</b> provides templates to easily integrate
             <a href="https://adminlte.io">AdminLTE 2</a> to your Django projects.
+            Also included in the package is an optional AdminLTE-based theme for Django Admin.
         </p>
         <p>
             For more information, please see the
@@ -24,7 +25,7 @@
         <p>
         <ul>
             <li>Python (2.7, 3.4, 3.5, 3.6, 3.7, 3.8)</li>
-            <li>Django (1.11, 2.0, 2.1, 2.2, 3.0)</li>
+            <li>Django (1.11, 2.0, 2.1, 2.2, 3.0, 3.1)</li>
         </ul>
         </p>
 
@@ -41,8 +42,10 @@ pip install django-adminlte2-templates
             Add <code>adminlte2_templates</code> to <code>INSTALLED_APPS</code>:
         <pre>
 INSTALLED_APPS = [
-    ...
     'adminlte2_templates',
+    'adminlte2_admin',  # Optional Django Admin theme
+    ...
+
 ]</pre>
         </p>
 
@@ -119,6 +122,6 @@ TEMPLATES = [
         </p>
     </div>
     <div class="box-footer">
-        <i>Updated May-16-2020</i>
+        <i>Updated Sep-17-2020</i>
     </div>
 </div>
