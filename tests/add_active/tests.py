@@ -69,3 +69,12 @@ class AddActiveTestCase(TestCase):
     #
     def test_detailview_pk(self):
         self.assertContains(self.get_response_pk(1), '<p id="detailview-pk"> active </p>', html=True)
+
+    #
+    #   Raw URL
+    #
+    def test_raw_url_with_match(self):
+        self.assertContains(self.get_response_index(), '<p id="raw-url-with-match"> active </p>', html=True)
+
+    def test_raw_url_without_match(self):
+        self.assertContains(self.get_response_index(), '<p id="raw-url-without-match"></p>', html=True)
