@@ -1,0 +1,37 @@
+{% extends 'adminlte2/shortcuts/no_footer/fixed.html' %}
+
+{% load i18n %}
+
+{% block meta %}
+    {{ block.super }}
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+{% endblock meta %}
+
+{% if is_popup %}
+    {% block body_class %}{{ block.super }} popup{% endblock body_class %}
+{% endif %}
+
+{% block body_attribute %}{{ block.super }} data-admin-utc-offset="{% now "Z" %}"{% endblock body_attribute %}
+
+{% block page_title %}{{ title }}{% endblock page_title %}
+
+{% block page_description %}{% trans 'Control panel' %}{% endblock page_description %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
+    {% if title %}
+        <li><a href="#">{{ title }}</a></li>
+    {% endif %}
+{% endblock breadcrumbs %}
+
+{% block header_template %}
+    {% include 'admin/components/header.html' %}
+{% endblock header_template %}
+
+{% block sidebar_template %}
+    {% include 'admin/components/sidebar.html' %}
+{% endblock sidebar_template %}
+
+{% block content %}
+    {{ content }}
+{% endblock %}

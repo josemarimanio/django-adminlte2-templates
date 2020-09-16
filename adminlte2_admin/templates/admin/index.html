@@ -1,0 +1,125 @@
+{% extends 'admin/base_site.html' %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'adminlte2_admin/css/index.css' %}" />
+{% endblock stylesheets %}
+
+{% block body_class %}{{ block.super }} dashboard{% endblock %}
+
+{% block no_breadcrumbs %}
+{% endblock no_breadcrumbs %}
+
+{% block content %}
+
+    <div class="row">
+
+        {#  Main content  #}
+        <div id="content-main" class="col-md-6">
+            {% if app_list %}
+                {% for app in app_list %}
+                    <div class="box box-primary app-{{ app.app_label }} module">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                <a href="{{ app.app_url }}" class="section"
+                                   title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">
+                                    {{ app.name }}</a>
+                            </h3>
+                        </div>
+
+                        <div class="box-body">
+                            {% for model in app.models %}
+                                <div class="model-{{ model.object_name|lower }}">
+                                    {% if model.admin_url %}
+                                        <a href="{{ model.admin_url }}">{{ model.name }}</a>
+                                    {% else %}}
+                                        {{ model.name }}
+                                    {% endif %}
+
+                                    <span class="pull-right">
+                                        {% if model.add_url %}
+                                            <a href="{{ model.add_url }}" class="addlink">
+                                                <i class="fa fa-plus"></i>
+                                                <span>{% trans 'Add' %}</span>
+                                            </a>
+                                        {% endif %}
+
+                                        {% if model.admin_url %}
+                                            {% if model.view_only %}
+                                                <a href="{{ model.admin_url }}" class="viewlink">
+                                                    <i class="fa fa-eye"></i>
+                                                    <span>{% trans 'View' %}</span>
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ model.admin_url }}" class="changelink">
+                                                    <i class="fa fa-edit"></i>
+                                                    <span>{% trans 'Change' %}</span>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>{% trans 'You don’t have permission to view or edit anything.' %}</p>
+            {% endif %}
+        </div>
+
+        {#  Sidebar  #}
+        <div id="content-related" class="col-md-3">
+            <div id="recent-actions-module" class="box box-default module">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{% trans 'Recent actions' %}</h3>
+                </div>
+
+                <div class="box-body">
+                    <h4>{% trans 'My actions' %}</h4>
+                    {% load log %}
+                    {% get_admin_log 10 as admin_log for_user user %}
+
+                    {% if not admin_log %}
+                        <p>{% trans 'None available' %}</p>
+                    {% else %}
+                        <ul class="actionlist fa-ul">
+                            {% for entry in admin_log %}
+                                <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                                    <span class="fa-li">
+                                        {% if entry.is_addition %}
+                                            <i class="fa fa-plus"></i>
+                                        {% elif entry.is_change %}
+                                            <i class="fa fa-edit"></i>
+                                        {% elif entry.is_deletion %}
+                                            <i class="fa fa-trash"></i>
+                                        {% endif %}
+                                    </span>
+
+                                    {% if entry.is_deletion or not entry.get_admin_url %}
+                                        {{ entry.object_repr }}
+                                    {% else %}
+                                        <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                                    {% endif %}
+                                    <br>
+                                    {% if entry.content_type %}
+                                        <span class="mini quiet">{% filter capfirst %}{{ entry.content_type.name }}{% endfilter %}</span>
+                                    {% else %}
+                                        <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {# Blank space #}
+        <div class="col-md-3">&nbsp;</div>
+    </div>
+{% endblock content %}

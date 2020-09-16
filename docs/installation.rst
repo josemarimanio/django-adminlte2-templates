@@ -5,8 +5,8 @@ Installation
 
 Requirements
 ------------
-* `Python <https://www.python.org/>`_ (2.7, 3.\*)
-* `Django <https://www.djangoproject.com/>`_ (1.11, 2.\*, 3.\*)
+* `Python <https://www.python.org/>`_ (2.7, 3.4, 3.5, 3.6, 3.7, 3.8)
+* `Django <https://www.djangoproject.com/>`_ (1.11, 2.0, 2.1, 2.2, 3.0, 3.1)
 
 
 Installation
@@ -23,8 +23,9 @@ Add ``adminlte2_templates`` to ``INSTALLED_APPS``:
 .. code:: python
 
     INSTALLED_APPS = [
-        ...
         'adminlte2_templates',
+        'adminlte2_admin',  # Optional Django Admin theme
+        ..
     ]
 
 

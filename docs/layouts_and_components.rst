@@ -44,6 +44,9 @@ Layouts
     See `https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html <https://adminlte.io/themes/AdminLTE/pages/layout/top-nav.html>`_ for a live example of this template.
 
 
+Pages
+-----
+
 .. data:: adminlte2/layouts/login.html
     :noindex:
 

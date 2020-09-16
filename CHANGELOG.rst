@@ -1,6 +1,30 @@
-========================================
-Changelog for django-adminlte2-templates
-========================================
+=========
+Changelog
+=========
+
+
+1.4.0 (Sep-17-2020)
+-------------------
+
+* Updated documentation. Added changelog page.
+
+* Updated example project ``example_project``
+
+* Added optional Django Admin custom AdminLTE2 theme (add ``adminlte2_admin`` to ``INSTALLED_APPS``)
+
+* Pages
+    - Login
+        + Updated login form template texts from ``Login`` to ``Log In``
+        + Added template block ``{% block message_template %}`` to accommodate Django ``messages``
+        + Added new login form-specific template blocks ``{% block login_custom_messages %}``, ``{% block login_form_non_field_errors %}``, ``{% block login_form_fields %}``, ``{% block login_form_buttons %}``, ``{% block login_form_action %}``, ``{% block login_form_id %}``, and ``{% block login_form_method %}``
+    - Register
+        + Fixed HTML element ``<p class="login-box-msg">`` to ``<p class="register-box-msg">``
+        + Updated register form template submit button text from ``Submit`` to ``Register``
+        + Added template block ``{% block message_template %}`` to accommodate Django ``messages``
+        + Added new register form-specific template blocks ``{% block register_custom_messages %}``, ``{% block register_form_non_field_errors %}``, ``{% block register_form_fields %}``, ``{% block register_form_buttons %}``, ``{% block register_form_action %}``, ``{% block register_form_id %}``, and ``{% block register_form_method %}``
+
+* Template tags
+    - Added new template tag ``{% add_attr %}`` that adds attribute name values to Django template form fields
 
 
 1.3.2 (May-27-2020)

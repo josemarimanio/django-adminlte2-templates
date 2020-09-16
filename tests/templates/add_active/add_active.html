@@ -16,3 +16,7 @@
 
 {# Testing with pk *args #}
 <p id="detailview-pk">{% add_active 'add_active:pk' 1 %}</p>
+
+{# Testing with raw URL #}
+<p id="raw-url-with-match">{% add_active '/add-active/' %}</p>
+<p id="raw-url-without-match">{% add_active 'https://github.com/josemarimanio' %}</p>

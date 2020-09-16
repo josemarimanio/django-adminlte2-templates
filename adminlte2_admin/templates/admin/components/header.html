@@ -1,0 +1,55 @@
+{% extends 'adminlte2/components/header.html' %}
+
+{% load adminlte2_tags %}
+
+{% load i18n %}
+
+{% block logo_href %}{% url 'admin:index' %}{% endblock logo_href %}
+
+{% block logo_lg %}
+    {{ site_header|default:_('Django administration') }}
+{% endblock logo_lg %}
+
+{% block logo_mini %}
+    {% if site_header|length > 5 %}
+        {{ site_header.0|default:_('Django administration') }}{{ site_header.1 }}{{ site_header.2 }}{{ site_header.3 }}{{ site_header.4 }}
+    {% else %}}
+        {{ site_header|default:_('Django administration') }}
+    {% endif %}
+{% endblock logo_mini %}
+
+{% block header_items %}
+    {% if user.is_authenticated %}
+        <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <img src="{% gravatar_url %}" class="user-image" alt="User Image">
+                <span class="hidden-xs">{% firstof user.get_short_name user.get_username %}</span>
+            </a>
+            <ul class="dropdown-menu">
+
+                {# User Image #}
+                <li class="user-header">
+                    <img src="{% gravatar_url %}" class="img-circle" alt="User Image">
+                    <p>
+                        {% firstof user.get_short_name user.get_username %}
+                        <small>Member since {{ user.date_joined|date:'N Y' }}</small>
+                    </p>
+                </li>
+
+                {# Menu Footer #}
+                <li class="user-footer">
+                    <div class="pull-left">
+                        <a href="{% url 'admin:password_change' %}" class="btn btn-default btn-flat">
+                            {% trans 'Change Password' %}
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="{% url 'admin:logout' %}" class="btn btn-default btn-flat">
+                            {% trans 'Log Out' %}
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+{% endblock header_items %}

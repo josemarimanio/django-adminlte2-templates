@@ -1,0 +1,125 @@
+/*
+        Toolbar
+                      */
+div.actions {
+    display: inline;
+}
+
+ul.object-tools {
+    display: inline;
+    float: right;
+    list-style: none;
+}
+
+ul.object-tools li {
+    display: inline;
+}
+
+@media (max-width: 767px) {
+    ul.object-tools {
+        display: block;
+        float: none;
+        margin-bottom: 10px;
+        padding-left: 0;
+    }
+}
+
+/*
+        Fields
+                    */
+div.checkbox {
+    margin-left: 20px;
+}
+
+.vTextField,
+.vUUIDField {
+    width: 100%;
+}
+
+.datetime input,
+.form-row .datetime input.vDateField,
+.form-row .datetime input.vTimeField {
+    margin-left: 0;
+}
+
+.clockbox h2 {
+    margin-top: 0;
+    padding: 10px;
+    font-size: 12px;
+    color: #FFFFFF;
+    background: #3C8DBC; /* '.btn-primary' color */
+}
+
+.calendar td.selected a,
+.calendar td a:focus,
+.calendar td a:hover,
+.timelist a:focus,
+.timelist a:hover {
+    background: #3C8DBC; /* '.btn-primary' color */
+}
+
+/*
+        Widgets
+                        */
+.related-widget-wrapper {
+    float: inherit;
+    overflow: inherit;
+}
+
+.related-widget-wrapper select {
+    display: inline-block;
+}
+
+/*
+        Permission Widget
+                                */
+.related-widget-wrapper .selector-available h2,
+.related-widget-wrapper .selector-chosen h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 18px;
+}
+
+.related-widget-wrapper .selector-chosen h2 {
+    background: #3C8DBC; /* '.btn-primary' color */
+}
+
+.related-widget-wrapper + .help-block {
+    clear: left;
+    margin-top: 0;
+    margin-left: 160px;
+    padding-left: 10px;
+}
+
+/*
+        Submit Row
+                        */
+.submit-row a.deletelink {
+    height: initial;
+    line-height: initial;
+}
+
+/*
+        Help Text
+                     */
+.help {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+/*
+        Errors
+                    */
+form .aligned ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.errorlist li {
+    font-weight: bold;
+    color: #DD4B39; /* '.form-group.has-error' color */
+}

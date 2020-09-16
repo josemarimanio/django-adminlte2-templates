@@ -7,6 +7,7 @@ Welcome to django-adminlte2-templates's documentation!
 ======================================================
 
 **django-adminlte2-templates** provides templates to easily integrate `AdminLTE 2 <https://adminlte.io/>`_ to your Django projects.
+Also included in the package is an optional AdminLTE-based theme for Django Admin.
 
 This Django module assumes that you have prior experience with AdminLTE 2.
 Please check the `AdminLTE 2 documentation <https://adminlte.io/docs/2.4/layout>`_ online for your reference.
@@ -24,6 +25,7 @@ For a live version of the example project of this app, please check https://djan
    template_blocks
    template_tags
    settings
+   changelog
 
 
 Links
@@ -33,11 +35,3 @@ Links
 * Source Code: `https://github.com/josemarimanio/django-adminlte2-templates/ <https://github.com/josemarimanio/django-adminlte2-templates/>`_
 * Package: `https://pypi.org/project/django-adminlte2-templates/ <https://pypi.org/project/django-adminlte2-templates/>`_
 * AdminLTE 2: `https://adminlte.io/themes/AdminLTE/index2.html/ <https://adminlte.io/themes/AdminLTE/index2.html/>`_
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

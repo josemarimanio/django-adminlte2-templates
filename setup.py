@@ -13,13 +13,14 @@ setup(
     version=__version__,
     description='AdminLTE 2 templates for Django',
     long_description=README,
+    long_description_content_type='text/x-rst',
     url='https://github.com/josemarimanio/django-adminlte2-templates/',
     project_urls={
         'Documentation': 'https://django-adminlte2-templates.readthedocs.io/en/latest/',
         'Source Code': 'https://github.com/josemarimanio/django-adminlte2-templates/',
     },
     author='Jose Mari Manio',
-    author_email='josemari.manio@outlook.com',
+    author_email='josemari.manio@tutamail.com',
     license='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',

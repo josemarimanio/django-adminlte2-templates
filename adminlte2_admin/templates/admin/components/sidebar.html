@@ -1,0 +1,33 @@
+{% extends 'adminlte2/components/sidebar.html' %}
+
+{% load adminlte2_tags %}
+
+{% block sidebar_items %}
+
+    {# Homepage #}
+    <li class="{% add_active 'admin:index' exact_match=True %}">
+        <a href="{% url 'admin:index' %}">
+            <i class="fa fa-circle"></i>
+            <span>Home</span>
+        </a>
+    </li>
+
+    {# Apps #}
+    {% if available_apps %}
+        {% for app in available_apps %}
+            <li class="{% add_active app.app_url %} treeview">
+                <a href="#">
+                    <i class="fa fa-circle"></i> <span>{{ app.name }}</span>
+                    <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    {% for model in app.models %}
+                        <li class="{% add_active model.admin_url %}"><a href="{{ model.admin_url }}"><i class="fa fa-circle-o"></i> {{ model.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    {% endif %}
+{% endblock sidebar_items %}

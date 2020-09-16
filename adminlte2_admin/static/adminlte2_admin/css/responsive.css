@@ -1,0 +1,214 @@
+@media (max-width: 767px) {
+    /*
+            Toolbar
+                         */
+    ul.object-tools {
+        display: block !important;
+        float: none !important;
+        margin-bottom: 10px;
+        padding-left: 0;
+    }
+
+    div#toolbar {
+        display: inherit !important;
+    }
+
+    #changelist-search > div {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        max-width: 480px;
+    }
+
+    form #searchbar {
+        -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
+        width: 0;
+        height: 22px;
+        margin: 0 10px 0 6px;
+    }
+
+    /*
+        Tables
+                */
+    thead th .text {
+        white-space: nowrap;
+    }
+
+    thead th.sorted .text {
+        padding-right: 42px;
+    }
+
+    /*
+        Forms
+                */
+    fieldset {
+        min-width: 100%;
+    }
+
+    .aligned label {
+        padding: 0;
+        float: initial;
+    }
+
+    .aligned label + p,
+    .aligned label + div.help,
+    .aligned label + div.readonly {
+        margin-left: 0;
+    }
+
+    .aligned .form-row input,
+    .aligned .form-row select,
+    .aligned .form-row textarea {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+
+    /*
+        Related widget
+                        */
+    .related-widget-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .related-widget-wrapper .selector {
+        order: 1;
+    }
+
+    .related-widget-wrapper > a {
+        order: 2;
+    }
+
+    .related-widget-wrapper > select ~ a {
+        align-self: center;
+    }
+
+    .related-widget-wrapper .radiolist ~ a {
+        align-self: flex-end;
+    }
+
+    select + .related-widget-wrapper-link,
+    .related-widget-wrapper-link + .related-widget-wrapper-link {
+        margin-left: 15px;
+    }
+
+    .related-widget-wrapper + .help-block {
+        margin-left: 0 !important;
+    }
+
+    /*
+        Submit row
+                    */
+    .submit-row {
+        padding: 10px 10px 0;
+        margin: 0 0 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .submit-row > * {
+        width: 100%;
+    }
+
+    .submit-row input,
+    .submit-row input.default,
+    .submit-row a,
+    .submit-row a.closelink {
+        float: none;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+
+    .submit-row a.closelink {
+        padding: 10px 0;
+    }
+
+    .submit-row p.deletelink-box {
+        order: 4;
+    }
+
+    /*
+        Calendar and clock
+                            */
+    .calendarbox,
+    .clockbox {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        border: none;
+        overflow: visible;
+    }
+
+    .calendarbox::before,
+    .clockbox::before {
+        content: '';
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.75);
+        transform: translate(-50%, -50%);
+    }
+
+    .calendarbox > *,
+    .clockbox > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .calendarbox > div:first-child {
+        z-index: 2;
+    }
+
+    .calendarbox .calendar,
+    .clockbox h2 {
+        border-radius: 4px 4px 0 0;
+        overflow: hidden;
+    }
+
+    .calendarbox .calendar-cancel,
+    .clockbox .calendar-cancel {
+        border-radius: 0 0 4px 4px;
+        overflow: hidden;
+    }
+
+    .calendar-shortcuts {
+        padding: 10px 0;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .calendar-shortcuts a {
+        margin: 0 4px;
+    }
+
+    .timelist a {
+        background: #FFFFFF;
+        padding: 4px;
+    }
+
+    .calendar-cancel {
+        padding: 8px 10px;
+    }
+
+    .clockbox h2 {
+        padding: 8px 15px !important;
+        margin-bottom: 0;
+    }
+
+    .calendar caption {
+        padding: 10px;
+    }
+
+    .calendarbox .calendarnav-previous,
+    .calendarbox .calendarnav-next {
+        z-index: 1;
+        top: 10px;
+    }
+}

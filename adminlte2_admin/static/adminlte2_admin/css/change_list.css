@@ -1,0 +1,256 @@
+/*
+        Toolbar
+                    */
+div#toolbar {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+ul.object-tools {
+    display: inline;
+    float: right;
+    list-style: none;
+}
+
+ul.object-tools li {
+    display: inline;
+}
+
+div.actions {
+    display: inline;
+}
+
+#changelist .actions.selected span.all {
+    background: #FFFCCF;
+    font-weight: bold;
+    border-top: 1px solid #FFFEE8;
+    border-bottom: 1px solid #EDECD6;
+}
+
+#changelist .actions span.all,
+#changelist .actions span.action-counter,
+#changelist .actions span.clear,
+#changelist .actions span.question {
+    font-size: 13px;
+    margin: 0 0.5em;
+    display: none;
+}
+
+/*
+        Date
+                    */
+.change-list ul.toplinks {
+    display: block;
+    float: left;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.change-list ul.toplinks li {
+    padding: 3px 6px;
+    font-weight: bold;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.change-list ul.toplinks .date-back a {
+    color: #999999;
+}
+
+.change-list ul.toplinks .date-back a:focus,
+.change-list ul.toplinks .date-back a:hover {
+    color: #3C8DBC; /* '.btn-primary' color */
+}
+
+/*
+        Table
+                    */
+thead th {
+    line-height: normal;
+    vertical-align: middle;
+}
+
+thead th.sorted {
+    background: #F9F9F9;
+}
+
+table thead th .text span {
+    display: block;
+}
+
+table thead th .text a {
+    display: block;
+    cursor: pointer;
+}
+
+thead th.sorted a.sortremove {
+    visibility: hidden;
+}
+
+table thead th.sorted:hover a.sortremove {
+    visibility: visible;
+}
+
+table thead th.sorted .sortoptions {
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+table thead th.sorted .sortpriority {
+    font-size: 0.8em;
+    min-width: 12px;
+    text-align: center;
+    vertical-align: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+table thead th.sorted .sortoptions a {
+    position: relative;
+    width: 10px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+table thead th.sorted .sortoptions a.sortremove,
+table thead th.sorted .sortoptions a.ascending,
+table thead th.sorted .sortoptions a.descending {
+    font-family: "FontAwesome", serif;
+}
+
+table thead th.sorted .sortoptions a.sortremove::after {
+    position: absolute;
+    top: -1px;
+    left: 3px;
+    font-weight: 200;
+    font-size: 0.8em;
+    content: "\f00d";
+    color: #999999;
+}
+
+table thead th.sorted .sortoptions a.sortremove:focus::after,
+table thead th.sorted .sortoptions a.sortremove:hover::after {
+    color: #447E9B;
+}
+
+table thead th.sorted .sortoptions a.ascending::after {
+    position: relative;
+    top: 2px;
+    content: "\f0de";
+}
+
+table thead th.sorted .sortoptions a.descending::after {
+    position: relative;
+    top: -4px;
+    content: "\f0dd";
+}
+
+table tbody tr.selected {
+    background-color: #FFFFCC !important;
+}
+
+/*
+        Filters
+                        */
+#changelist-filter {
+    position: initial;
+    width: initial;
+    background: #FFFFFF;
+}
+
+#changelist-filter h2 {
+    letter-spacing: 0;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+#changelist-filter h3 {
+    font-weight: initial;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#changelist-filter ul {
+    list-style: none;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+#changelist-filter a {
+    display: block;
+    color: #999999;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+#changelist-filter li.selected {
+    border-left: 0;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#changelist-filter li.selected a {
+    color: #72AFD2;
+}
+
+#changelist-filter a:focus,
+#changelist-filter a:hover,
+#changelist-filter li.selected a:focus,
+#changelist-filter li.selected a:hover {
+    color: #3C8DBC; /* '.btn-primary' color */
+}
+
+/*
+        Paginator
+                        */
+.paginator {
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 22px;
+    margin: 0;
+    border-top: 1px solid #DDDDDD;
+}
+
+.paginator a:link,
+.paginator a:visited {
+    padding: 2px 6px;
+    background: #79AEC8;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.paginator a.showall {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #5B80B2;
+}
+
+.paginator a.showall:focus,
+.paginator a.showall:hover {
+    background: none;
+    color: #3C8DBC; /* '.btn-primary' color */
+}
+
+.paginator .end {
+    margin-right: 6px;
+}
+
+.paginator .this-page {
+    padding: 2px 6px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.paginator a:focus,
+.paginator a:hover {
+    color: white;
+    background: #3C8DBC; /* '.btn-primary' color */
+}

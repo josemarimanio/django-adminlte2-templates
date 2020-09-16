@@ -1,0 +1,10 @@
+/*
+    Break and wrap long sidebar item texts onto the next line
+*/
+.sidebar-menu,
+.sidebar-menu > li.header,
+.main-sidebar .user-panel {
+    white-space: normal;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}

@@ -1,0 +1,37 @@
+/* Action link icon colors */
+a.addlink i.fa,
+ul.actionlist li.addlink .fa-li {
+    color: #00A65A;
+}
+
+a.changelink i.fa,
+ul.actionlist li.changelink .fa-li {
+    color: #F39C12;
+}
+
+a.deletelink i.fa,
+ul.actionlist li.deletelink .fa-li {
+    color: #DD4B39;
+}
+
+/* Add spacing to app list action links */
+#content-main .box .box-body .pull-right a {
+    margin-right: 4px;
+}
+
+/* Break long words in 'Recent Action' items */
+#content-related ul.actionlist li {
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+/* Field errors */
+form .aligned ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.errorlist li {
+    font-weight: bold;
+    color: #DD4B39; /* '.form-group.has-error' color */
+}
