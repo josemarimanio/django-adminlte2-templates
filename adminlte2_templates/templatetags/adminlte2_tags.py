@@ -60,13 +60,15 @@ def add_active(context, url_pattern, *args, **kwargs):
     except NoReverseMatch:
         path = url_pattern
 
+    class_attribute = ''
     current_path = context.request.path
 
     if not_when and any(nw in current_path for nw in not_when):
-        return ''
+        pass
     elif not exact_match and current_path.startswith(path) or exact_match and current_path == path:
-        return ' active '
-    return ''
+        class_attribute = ' active '
+
+    return class_attribute
 
 
 @register.filter
