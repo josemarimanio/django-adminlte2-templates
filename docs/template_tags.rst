@@ -143,3 +143,32 @@ Filters
                 {% endif %}
             </div>
         {% endfor %}
+
+
+.. data:: add_attr
+    :noindex:
+
+    Add HTML attribute values to a form field.
+
+    Example:
+
+    .. code:: jinja
+
+        {% for field in form %}
+            <div class="form-group {% if field.errors %}has-error{% endif %}">
+                {{ field.label_tag }}
+                {% if field.errors %}
+                    <div class="text-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+                {% if field.is_readonly %}
+                    {{ field.field|add_attr:'readonly' }}
+                {% else %}
+                    {{ field.field }}
+                {% endif %}
+                {% if field.help_text %}
+                    <p class="help-block">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
