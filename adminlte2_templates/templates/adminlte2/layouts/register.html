@@ -22,7 +22,14 @@
     {% block register_content %}
         <div class="register-box-body">
 
-            <p class="login-box-msg">
+            {% block messages_template %}
+                {% include 'adminlte2/components/messages.html' %}
+            {% endblock messages_template %}
+
+            {% block register_custom_messages %}
+            {% endblock register_custom_messages %}
+
+            <p class="register-box-msg">
                 {% block register_description %}
                     Register a new membership
                 {% endblock register_description %}
@@ -60,7 +67,7 @@
                     {% endblock register_form_fields %}
 
                     {% block register_form_buttons %}
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Register</button>
                         <button class="btn btn-default" type="reset">Clear</button>
                     {% endblock register_form_buttons %}
                 </form>
