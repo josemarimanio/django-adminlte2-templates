@@ -1,13 +1,16 @@
 /* Action link icon colors */
-a.addlink i.fa, ul.actionlist li.addlink .fa-li {
+a.addlink i.fa,
+ul.actionlist li.addlink .fa-li {
     color: #00A65A;
 }
 
-a.changelink i.fa, ul.actionlist li.changelink .fa-li {
+a.changelink i.fa,
+ul.actionlist li.changelink .fa-li {
     color: #F39C12;
 }
 
-a.deletelink i.fa, ul.actionlist li.deletelink .fa-li {
+a.deletelink i.fa,
+ul.actionlist li.deletelink .fa-li {
     color: #DD4B39;
 }
 
@@ -30,5 +33,5 @@ form .aligned ul {
 
 ul.errorlist li {
     font-weight: bold;
-    color: #dd4b39; /* '.form-group.has-error' color */
+    color: #DD4B39; /* '.form-group.has-error' color */
 }

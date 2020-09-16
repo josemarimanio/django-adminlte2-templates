@@ -1,8 +1,7 @@
 @media (max-width: 767px) {
-
     /*
-        Toolbar
-                 */
+            Toolbar
+                         */
     ul.object-tools {
         display: block !important;
         float: none !important;
@@ -53,11 +52,15 @@
         float: initial;
     }
 
-    .aligned label + p, .aligned label + div.help, .aligned label + div.readonly {
+    .aligned label + p,
+    .aligned label + div.help,
+    .aligned label + div.readonly {
         margin-left: 0;
     }
 
-    .aligned .form-row input, .aligned .form-row select, .aligned .form-row textarea {
+    .aligned .form-row input,
+    .aligned .form-row select,
+    .aligned .form-row textarea {
         flex: 1 1 auto;
         max-width: 100%;
     }
@@ -79,12 +82,12 @@
         order: 2;
     }
 
-    .related-widget-wrapper .radiolist ~ a {
-        align-self: flex-end;
-    }
-
     .related-widget-wrapper > select ~ a {
         align-self: center;
+    }
+
+    .related-widget-wrapper .radiolist ~ a {
+        align-self: flex-end;
     }
 
     select + .related-widget-wrapper-link,
@@ -94,59 +97,6 @@
 
     .related-widget-wrapper + .help-block {
         margin-left: 0 !important;
-    }
-
-    /*
-        Selector
-                  */
-    .selector {
-        flex-direction: column;
-        width: 100% !important;
-    }
-
-    .selector > * {
-        float: none;
-    }
-
-    .selector-available, .selector-chosen {
-        margin-bottom: 0;
-        flex: 1 1 auto;
-        width: 95% !important;
-    }
-
-    .selector select {
-        max-height: 95% !important;
-        width: 100% !important;
-    }
-
-    .selector ul.selector-chooser {
-        display: block;
-        float: none;
-        width: 52px;
-        height: 26px;
-        padding: 0 2px;
-        margin: 15px auto 20px;
-        transform: none;
-    }
-
-    .selector ul.selector-chooser li {
-        float: left;
-    }
-
-    .selector-remove {
-        background-position: 0 0;
-    }
-
-    .active.selector-remove:focus, .active.selector-remove:hover {
-        background-position: 0 -20px;
-    }
-
-    .selector-add {
-        background-position: 0 -32px;
-    }
-
-    .active.selector-add:focus, .active.selector-add:hover {
-        background-position: 0 -60px;
     }
 
     /*
@@ -163,7 +113,10 @@
         width: 100%;
     }
 
-    .submit-row input, .submit-row input.default, .submit-row a, .submit-row a.closelink {
+    .submit-row input,
+    .submit-row input.default,
+    .submit-row a,
+    .submit-row a.closelink {
         float: none;
         margin: 0 0 10px;
         text-align: center;
@@ -180,7 +133,8 @@
     /*
         Calendar and clock
                             */
-    .calendarbox, .clockbox {
+    .calendarbox,
+    .clockbox {
         position: fixed !important;
         top: 50% !important;
         left: 50% !important;
@@ -190,7 +144,8 @@
         overflow: visible;
     }
 
-    .calendarbox:before, .clockbox:before {
+    .calendarbox::before,
+    .clockbox::before {
         content: '';
         position: fixed;
         top: 50%;
@@ -201,7 +156,8 @@
         transform: translate(-50%, -50%);
     }
 
-    .calendarbox > *, .clockbox > * {
+    .calendarbox > *,
+    .clockbox > * {
         position: relative;
         z-index: 1;
     }
@@ -210,12 +166,14 @@
         z-index: 2;
     }
 
-    .calendarbox .calendar, .clockbox h2 {
+    .calendarbox .calendar,
+    .clockbox h2 {
         border-radius: 4px 4px 0 0;
         overflow: hidden;
     }
 
-    .calendarbox .calendar-cancel, .clockbox .calendar-cancel {
+    .calendarbox .calendar-cancel,
+    .clockbox .calendar-cancel {
         border-radius: 0 0 4px 4px;
         overflow: hidden;
     }
@@ -231,7 +189,7 @@
     }
 
     .timelist a {
-        background: #fff;
+        background: #FFFFFF;
         padding: 4px;
     }
 
@@ -248,7 +206,8 @@
         padding: 10px;
     }
 
-    .calendarbox .calendarnav-previous, .calendarbox .calendarnav-next {
+    .calendarbox .calendarnav-previous,
+    .calendarbox .calendarnav-next {
         z-index: 1;
         top: 10px;
     }

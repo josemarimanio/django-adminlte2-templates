@@ -31,11 +31,14 @@ div.checkbox {
     margin-left: 20px;
 }
 
-.vTextField, .vUUIDField {
+.vTextField,
+.vUUIDField {
     width: 100%;
 }
 
-.datetime input, .form-row .datetime input.vDateField, .form-row .datetime input.vTimeField {
+.datetime input,
+.form-row .datetime input.vDateField,
+.form-row .datetime input.vTimeField {
     margin-left: 0;
 }
 
@@ -43,12 +46,15 @@ div.checkbox {
     margin-top: 0;
     padding: 10px;
     font-size: 12px;
-    color: #FFF;
+    color: #FFFFFF;
     background: #3C8DBC; /* '.btn-primary' color */
 }
 
 .calendar td.selected a,
-.calendar td a:focus, .timelist a:focus, .calendar td a:hover, .timelist a:hover {
+.calendar td a:focus,
+.calendar td a:hover,
+.timelist a:focus,
+.timelist a:hover {
     background: #3C8DBC; /* '.btn-primary' color */
 }
 
@@ -115,5 +121,5 @@ form .aligned ul {
 
 ul.errorlist li {
     font-weight: bold;
-    color: #dd4b39; /* '.form-group.has-error' color */
+    color: #DD4B39; /* '.form-group.has-error' color */
 }

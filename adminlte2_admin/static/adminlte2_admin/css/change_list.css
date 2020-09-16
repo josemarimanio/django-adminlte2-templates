@@ -23,8 +23,8 @@ div.actions {
 #changelist .actions.selected span.all {
     background: #FFFCCF;
     font-weight: bold;
-    border-top: 1px solid #fffee8;
-    border-bottom: 1px solid #edecd6;
+    border-top: 1px solid #FFFEE8;
+    border-bottom: 1px solid #EDECD6;
 }
 
 #changelist .actions span.all,
@@ -55,7 +55,7 @@ div.actions {
 }
 
 .change-list ul.toplinks .date-back a {
-    color: #999;
+    color: #999999;
 }
 
 .change-list ul.toplinks .date-back a:focus,
@@ -99,7 +99,7 @@ table thead th.sorted .sortoptions {
 }
 
 table thead th.sorted .sortpriority {
-    font-size: .8em;
+    font-size: 0.8em;
     min-width: 12px;
     text-align: center;
     vertical-align: 3px;
@@ -118,31 +118,31 @@ table thead th.sorted .sortoptions a {
 table thead th.sorted .sortoptions a.sortremove,
 table thead th.sorted .sortoptions a.ascending,
 table thead th.sorted .sortoptions a.descending {
-    font-family: "FontAwesome";
+    font-family: "FontAwesome", serif;
 }
 
-table thead th.sorted .sortoptions a.sortremove:after {
+table thead th.sorted .sortoptions a.sortremove::after {
     position: absolute;
     top: -1px;
     left: 3px;
     font-weight: 200;
-    font-size: .8em;
+    font-size: 0.8em;
     content: "\f00d";
-    color: #999;
+    color: #999999;
 }
 
-table thead th.sorted .sortoptions a.sortremove:focus:after,
-table thead th.sorted .sortoptions a.sortremove:hover:after {
-    color: #447e9b;
+table thead th.sorted .sortoptions a.sortremove:focus::after,
+table thead th.sorted .sortoptions a.sortremove:hover::after {
+    color: #447E9B;
 }
 
-table thead th.sorted .sortoptions a.ascending:after {
+table thead th.sorted .sortoptions a.ascending::after {
     position: relative;
     top: 2px;
     content: "\f0de";
 }
 
-table thead th.sorted .sortoptions a.descending:after {
+table thead th.sorted .sortoptions a.descending::after {
     position: relative;
     top: -4px;
     content: "\f0dd";
@@ -184,7 +184,7 @@ table tbody tr.selected {
 
 #changelist-filter a {
     display: block;
-    color: #999;
+    color: #999999;
     text-overflow: ellipsis;
     overflow-x: hidden;
 }
@@ -199,7 +199,8 @@ table tbody tr.selected {
     color: #72AFD2;
 }
 
-#changelist-filter a:focus, #changelist-filter a:hover,
+#changelist-filter a:focus,
+#changelist-filter a:hover,
 #changelist-filter li.selected a:focus,
 #changelist-filter li.selected a:hover {
     color: #3C8DBC; /* '.btn-primary' color */
@@ -214,10 +215,11 @@ table tbody tr.selected {
     padding-bottom: 10px;
     line-height: 22px;
     margin: 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #DDDDDD;
 }
 
-.paginator a:link, .paginator a:visited {
+.paginator a:link,
+.paginator a:visited {
     padding: 2px 6px;
     background: #79AEC8;
     text-decoration: none;
@@ -231,7 +233,8 @@ table tbody tr.selected {
     color: #5B80B2;
 }
 
-.paginator a.showall:focus, .paginator a.showall:hover {
+.paginator a.showall:focus,
+.paginator a.showall:hover {
     background: none;
     color: #3C8DBC; /* '.btn-primary' color */
 }
@@ -246,7 +249,8 @@ table tbody tr.selected {
     font-size: 13px;
 }
 
-.paginator a:focus, .paginator a:hover {
+.paginator a:focus,
+.paginator a:hover {
     color: white;
     background: #3C8DBC; /* '.btn-primary' color */
 }
